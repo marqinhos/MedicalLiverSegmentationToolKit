@@ -3,6 +3,8 @@ import yaml
 
 import numpy as np
 import nibabel as nib
+import SimpleITK as sitk
+from monai.data import Dataset
 from monai.transforms import (
     LoadImaged, 
     Compose, 
@@ -18,45 +20,113 @@ from monai.transforms import (
     RandAffine,
 
 )
-
+from sklearn.model_selection import train_test_split
 from utils import load_from_file
 
 
 class NormalizedDataset:
 
     def __init__(self) -> None:
-        pass
+        self.path_img_list = {}
+        self.path_label_list = {}
+        self.img_names_list = None
+        self.keys = ["image", "label"]
 
-    def __call__(self):
-        pass
+    def __call__(self, src_path, tgt_path, train_percentage):
+        name_list_ext_tr = os.listdir(src_path + "/imagesTr")
+        name_list_ext_ts = os.listdir(src_path + "/imagesTs")
 
-    def pre_process(self):
+        self.img_names_list = name_list_ext_tr + name_list_ext_ts
+
+        for path_img_tr in name_list_ext_tr:
+            self.path_img_list[path_img_tr] = src_path+"/imagesTr/"+path_img_tr
+            path_lbl_tr = path_img_tr.replace("img", "label")
+            self.path_label_list[path_lbl_tr] = src_path+"/labelsTr/"+ path_lbl_tr
+
+        for path_img_ts in name_list_ext_ts:
+            self.path_img_list[path_img_ts] = src_path+"/imagesTs/"+path_img_ts 
+            path_lbl_ts = path_img_ts.replace("img", "label")
+            self.path_label_list[path_lbl_ts] = src_path+"/labelsTs/"+ path_lbl_ts
+
+        test_img_names, train_img_names = self.split_dataset(self.img_names_list, train_percentage)
+        
+        name_list = [name.split('.')[0] for name in train_img_names]
+
+        if not os.path.exists(tgt_path+"/list"):
+            os.makedirs("%s/list"%(tgt_path))
+        with open("%s/list/dataset.yaml"%tgt_path, "w",encoding="utf-8") as f:
+            yaml.dump(name_list, f)
+
+        self.__apply_transformations(train_img_names, tgt_path, "")
+        
+        
+
+
+    def __apply_transformations(self, data, tgt_path, sub_folder):
+        for img_name in data:
+            lbl_name = img_name.replace("img", "label")
+
+            img = nib.load(self.path_img_list[img_name])
+            lbl = nib.load(self.path_label_list[lbl_name])
+
+
+            #data = {self.keys[0]: img.get_fdata(), self.keys[1]: lbl.get_fdata()}
+            transformation = self.transformations(img.header.get_zooms())
+            data_dict = [{self.keys[0]: self.path_img_list[img_name], self.keys[1]: self.path_label_list[lbl_name]}]
+            ## Important data_dict be a list of dictionaries
+            #img = LoadImaged(self.keys)
+            dataset_0 = Dataset(data=data_dict, transform=transformation)
+            #print(dataset_0.data)
+            #print(dataset_0.transform)
+
+
+
+            img_normalized = dataset_0[0][self.keys[0]].squeeze().get_array()
+            lbl_normalized = dataset_0[0][self.keys[1]].squeeze().get_array()
+            
+            img_name = img_name.replace(".nii.gz", "")
+            lbl_name = lbl_name.replace(".nii.gz", "")
+            #data = transformation(data) # data[self.keys[1]]
+
+            sitk_img = sitk.GetImageFromArray(img_normalized)
+            sitk_lbl = sitk.GetImageFromArray(lbl_normalized)
+
+            sitk.WriteImage(sitk_img, '%s/%s.nii.gz'%(tgt_path, img_name))
+            sitk.WriteImage(sitk_lbl, '%s/%s_gt.nii.gz'%(tgt_path, lbl_name))
+            print(img_name, 'done')
+            print(lbl_name, 'done')
+
+
+    def transformations(self, pixdim):
         return Compose(
                     [
-                    Orientationd(keys=self.keys[0], axcodes="RAS"),
+                    LoadImaged(keys=self.keys, image_only=True),
+                    EnsureChannelFirstd(keys=self.keys),
+                    Orientationd(keys=self.keys, axcodes="RAS"),
                     Spacingd(
                         keys=self.keys,
-                        pixdim=(1.5, 1.5, 2.0),
+                        pixdim=pixdim,
                         mode=("nearest"),
                     ),
                     ScaleIntensityRanged(
-                        keys=self.keys,
+                        keys=self.keys[0],
                         a_min=-175,
                         a_max=250,
                         b_min=0.0,
                         b_max=1.0,
                         clip=True,
                     ),
-                    SaveImaged(keys=self.keys, output_dir="./results")
+                    #SaveImaged(keys=self.keys, output_dir=tgt_path)
                 
                     ]
                 )
 
-
+    def split_dataset(self, name_list_ext, test_percentage):
+        return train_test_split(name_list_ext, test_size=test_percentage, random_state=42)
+        
 
 
 if __name__ == "__main__":
-    # Lee el archivo YAML
     with open("paths.yaml", 'r') as stream:
         try:
             config = yaml.safe_load(stream)
@@ -65,61 +135,11 @@ if __name__ == "__main__":
 
     src_path = load_from_file(config['btcv']['3D']['src_path'])
     tgt_path = load_from_file(config["btcv"]["3D"]["dst_path"])
+    train_percentage = float(config["btcv"]["3D"]["train_percentage"])
 
-    print(src_path)
+    dataset = NormalizedDataset()
+    dataset(src_path, tgt_path, train_percentage)
 
-    
-
-
-    path_name_list = os.listdir(src_path + "/imagesTr")
-
-
-
-    name_list = [name.split(".")[0] for name in path_name_list]
-
-
-    """
-    if not os.path.exists(tgt_path+"/list"):
-        os.makedirs("%s/list"%(tgt_path))
-    with open("%s/list/dataset.yaml"%tgt_path, "w",encoding="utf-8") as f:
-        yaml.dump(name_list, f)
-
-    os.chdir(src_path)
-
-    for name in name_list:
-        img_name = name + ".nii.gz"
-        lab_name = img_name.replace("img", "label")
-
-        img = sitk.ReadImage(src_path+"/imagesTr/%s"%img_name)
-        lab = sitk.ReadImage(src_path+"/labelsTr/%s"%lab_name)
-
-        ResampleImage(img, lab, tgt_path, name, (1.5, 1.5, 2.0)) #  (0.767578125, 0.767578125, 1.0)  ||| (1.5, 1.5, 2.0)
-        print(img_name, 'done')
-        print(lab_name, 'done')
-
-
-
-
-    # Load the images
-    images = images.get_fdata()
-    labels = labels.get_fdata()
-
-    # Define the transformations
-    transformations = Compose([
-        LoadImaged(keys=["image", "label"]),
-        Spacingd(keys=["image", "label"], pixdim=config["pixdim"], mode=("bilinear", "nearest")),
-        EnsureChannelFirstd(keys=["image", "label"]),
-        Orientationd(keys=["image", "label"], axcodes="RAS"),
-        ScaleIntensityRanged(keys=["image"], a_min=-57, a_max=164, b_min=0.0, b_max=1.0, clip=True),
-        CropForegroundd(keys=["image", "label"], source_key="image"),
-        Invertd(keys=["image"], transform=ScaleIntensityd(keys=["image"], minv=0.0, maxv=1.0)),
-        Resized(keys=["image", "label"], spatial_size=config["spatial_size"]),
-        SaveImaged(keys=["image", "label"], output_dir=config["output_dir"], output_postfix="normalized"),
-    ])
-
-    # Apply the transformations
-    data = {"image": images, "label": labels}
-    data = transformations(data)
 
     print("Data normalized and saved successfully.")    
-    """
+    
