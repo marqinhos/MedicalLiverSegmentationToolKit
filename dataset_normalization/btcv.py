@@ -92,7 +92,7 @@ class NormalizedDataset:
             sitk_lbl = sitk.GetImageFromArray(lbl_normalized)
 
             sitk.WriteImage(sitk_img, '%s/%s.nii.gz'%(tgt_path, img_name))
-            sitk.WriteImage(sitk_lbl, '%s/%s_gt.nii.gz'%(tgt_path, lbl_name))
+            sitk.WriteImage(sitk_lbl, '%s/%s_gt.nii.gz'%(tgt_path, img_name))
             print(img_name, 'done')
             print(lbl_name, 'done')
 
