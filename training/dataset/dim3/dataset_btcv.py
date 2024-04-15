@@ -1,21 +1,20 @@
 import os
+import glob
 
-
-import torch
-from torch.utils.data import Dataset as torchDataset
-from monai.data import (
-    Dataset as monaiDataset,
-    CacheDataset,
-    )
 import numpy as np
-import yaml
-import SimpleITK as sitk
 import nibabel as nib
-import argparse
+import torch
+import pytorch_lightning as pl
+
+from monai.data import (
+    DataLoader,
+    CacheDataset,
+    load_decathlon_datalist,
+    decollate_batch,
+    list_data_collate,
+)
 
 from monai.transforms import (
-    Activations,
-    AsDiscrete,
     EnsureChannelFirstd,
     Compose,
     CropForegroundd,
@@ -27,100 +26,111 @@ from monai.transforms import (
     ScaleIntensityRanged,
     Spacingd,
     RandRotate90d,
-    # EnsureTyped,
-    EnsureType,
 )
 
 
+class BTCVDataset(pl.LightningDataModule):
+    def __init__(self, args):
+        super().__init__()
 
-class BTCVDataset(torchDataset):
-    
-    def __init__(self, args, mode="train", k_fold=5, k=0, seed=0):
-        self.keys = ["image", "label"]
-        self.spatial_size = (86, 86, 86) # be careful with z is 88 for 3D
-        self.factor_increase_dataset = 100  
-
-        self.mode = mode
         self.args = args
-        self.path = self.load_from_file(args.data_root)
+        self.keys = ["image", "label"]
+        self.mode = ("nearest") #"bilinear", "nearest"
+        self.spatial_size = args.roi_size
+        self.pixdim = [1.5, 1.5, 2.0]
+        self.scale_range = [-175, 250]
 
-        assert mode in ['train', 'test'], "mode must be either 'train' or 'test'"
+        self.train_files = [] 
+        self.val_files = []
+        self.test_files = []
 
-        with open(os.path.join(self.path, 'list', 'dataset.yaml'), 'r') as f:
-            img_name_list = yaml.load(f, Loader=yaml.SafeLoader)
+        self.preprocess = None
+        self.transform = None
 
-        print('Start loading %s data'%self.mode)
+        self.train_ds = None
+        self.val_ds = None
+        self.test_ds = None
 
-        self.img_list = []
-        self.lab_list = []
-        self.spacing_list = []
-
-        for name in img_name_list:
-            img_name = name + '.nii.gz'
-            lbl_name = name + '_gt.nii.gz'
-
-            img = nib.load(os.path.join(self.path, img_name))
-            spacing = img.header.get_zooms()
-
-            self.spacing_list.append(spacing[::-1])  # itk axis order is inverse of numpy axis order
-
-            #img, lab = self.preprocess(img_name, lbl_name)
-
-            self.img_list.append(os.path.join(self.path, img_name))
-            self.lab_list.append(os.path.join(self.path, lbl_name))
-            
+        self.my_dsc = None
 
 
 
-    def __len__(self):
-        if self.mode == 'train':
-            return len(self.img_list) * self.factor_increase_dataset
-        else:
-            return len(self.img_list)
+    def prepare_data(self):
 
+        data_images, data_labels = self.__get_data(folders_img_lbl=self.args.folders_img_lbl)
 
-    def __getitem__(self, idx):
-        idx = idx % len(self.img_list)
+        if (len(data_images) != len(data_labels)) or len(data_images) ==0 or len(data_labels) ==0:
+            raise TypeError("Error: Number of images and labels do not match or are empty")
 
-        img_path = self.img_list[idx]
-        lbl_path = self.lab_list[idx]
+        data_dicts = [
+            {self.keys[0]: image_name, self.keys[1]: label_name}
+            for image_name, label_name in zip(data_images, data_labels)
+        ]
 
-        if self.mode == 'train':
-            data_dict = [{self.keys[0]: img_path, self.keys[1]: lbl_path}]
-            dataset = CacheDataset(
-                    data=data_dict, 
-                    transform=self.get_augmentation_transform()
-                )
-            
-            tensor_img = dataset[0][0][self.keys[0]].as_tensor()
-            tensor_lbl = dataset[0][0][self.keys[1]].as_tensor()
-
-        else:
-            pass
+        min_pixdim = self.__get_less_pixdim(data_images)
+        self.pixdim = [min_pixdim, min_pixdim, min_pixdim]
 
         
-        assert tensor_img.shape == tensor_lbl.shape
+        percentage_val = round((1.0-self.args.percentage_train)/2, 2)
+        train_num = int(np.floor(self.args.percentage_train * len(data_images)))
+        val_num = int(np.floor(percentage_val * len(data_images)))
+        test_num = len(data_images) - train_num - val_num
+        assert (train_num + val_num + test_num) == len(data_images), "Trainers, val and test partition do not match the total"
+        
+        print("Total images {}: images for train {}, for val {} and for test {}".format(len(data_images),train_num, val_num, test_num))
 
-        if self.mode == 'train':
-            return tensor_img, tensor_lbl
-        else:
-            return tensor_img, tensor_lbl, np.array(self.spacing_list[idx])
+        indices = np.random.permutation(len(data_images))
+        indices_train = indices[:train_num]
+        indices_val = indices[train_num:train_num+val_num]
+        indices_test = indices[train_num+val_num:]
 
+        self.train_files = [data_dicts[i] for i in indices_train]
+        self.val_files   = [data_dicts[i] for i in indices_val] 
+        self.test_files  = [data_dicts[i] for i in indices_test]
     
-    def load_from_file(self, path):
-        """Function to load the data from a file.
 
-        Args:
-            path (str): Path to the file.
-        """
-                
-        path = os.path.normpath(os.path.join(os.path.dirname(__file__), path))  
-        return path
-
+    def load_images_prediction(self):
+       data_images = self.__get_data_pred(folders_img_lbl=self.args.folders_img_lbl)
+       data_dicts = [
+            {self.keys[0]: image_name}
+            for image_name in data_images
+        ]
+       return data_dicts
     
-    def preprocess(self, img_name, lbl_name):
-        pass
-        return self.load_img(img_name), self.load_img(lbl_name)
+
+    def get_preprocessing_transform(self):
+        pre_transforms_0 = Compose(
+            [
+            EnsureChannelFirstd(keys=self.keys),
+            Orientationd(keys=self.keys, axcodes="RAS"),
+            Spacingd(
+                keys=self.keys,
+                pixdim=self.pixdim,
+                mode=self.mode, 
+            ),
+            ScaleIntensityRanged(
+                keys=self.keys,
+                a_min=self.scale_range[0],
+                a_max=self.scale_range[1],
+                b_min=0.0,
+                b_max=1.0,
+                clip=True,
+            ),
+            CropForegroundd(
+                allow_smaller=False, 
+                keys=self.keys,
+                source_key=self.keys[0],
+                ),
+            ]
+        )
+
+        pre_transforms = Compose(
+            [
+            LoadImaged(keys=self.keys, image_only=True),
+            pre_transforms_0
+            ]
+        )
+        return pre_transforms, pre_transforms_0
 
 
     def get_augmentation_transform(self): 
@@ -128,7 +138,7 @@ class BTCVDataset(torchDataset):
             LoadImaged(keys=self.keys, image_only=True),
             EnsureChannelFirstd(keys=self.keys),
             CropForegroundd(
-                allow_smaller=False,
+                allow_smaller=False, 
                 keys=self.keys, 
                 source_key=self.keys[0]
                 ),
@@ -138,7 +148,7 @@ class BTCVDataset(torchDataset):
                     spatial_size=self.spatial_size,
                     pos=1,
                     neg=1,
-                    num_samples=1, #4
+                    num_samples=4,
                     image_key=self.keys[0],
                     image_threshold=0,
                 ),
@@ -163,44 +173,159 @@ class BTCVDataset(torchDataset):
                     max_k=3,
                 ),
             RandShiftIntensityd(
-                    keys=self.keys[0],
+                    keys=self.keys,
                     offsets=0.10,
                     prob=0.50,
                 ),
             ])
         return train_transforms
- 
 
 
-if __name__ == "__main__":
-    
-    def get_parser():
-        parser = argparse.ArgumentParser(description='CBIM Medical Image Segmentation')
-        parser.add_argument('--dataset', type=str, default='btcv', help='dataset name')
-        parser.add_argument('--model', type=str, default='medformer', help='model name')
-        parser.add_argument('--dimension', type=str, default='2d', help='2d model or 3d model')
-        parser.add_argument('--pretrain', action='store_true', help='if use pretrained weight for init')
-        parser.add_argument('--amp', action='store_true', help='if use the automatic mixed precision for faster training')
-        parser.add_argument('--torch_compile', action='store_true', help='use torch.compile, only supported by pytorch2.0')
-        parser.add_argument('--data_root', type=str, default='../../../Datasets/BTCV_normalized', help='unique experiment name')
+    def get_preprocessing_transform_pred(self):
+        val_test_transforms_0 = Compose(
+            [
+                EnsureChannelFirstd(keys=self.keys[0]),
+                Orientationd(keys=self.keys[0], axcodes="RAS"),
+                Spacingd(
+                    keys=self.keys[0],
+                    pixdim=self.pixdim,
+                    mode=self.mode,
+                ),
+                ScaleIntensityRanged(
+                    keys=self.keys[0],
+                    a_min=self.scale_range[0],
+                    a_max=self.scale_range[1],
+                    b_min=0.0,
+                    b_max=1.0,
+                    clip=True,
+                ),
+                CropForegroundd(
+                    allow_smaller=False, 
+                    keys=self.keys[0], 
+                    source_key=self.keys[0]
+                    ),
+                
+            ]
+        )
 
-        parser.add_argument('--batch_size', default=1, type=int, help='batch size')
-        parser.add_argument('--resume', action='store_true', help='if resume training from checkpoint')
-        parser.add_argument('--load', type=str, default=False, help='load pretrained model')
-        parser.add_argument('--cp_path', type=str, default='./exp/', help='checkpoint path')
-        parser.add_argument('--log_path', type=str, default='./log/', help='log path')
-        parser.add_argument('--unique_name', type=str, default='train', help='unique experiment name')
+        val_test_transforms = Compose(
+            [
+                LoadImaged(keys=self.keys[0], image_only=True),
+                val_test_transforms_0
+            ]
+        )
+
+        return val_test_transforms, val_test_transforms_0
+
+
+    def setup(self, stage=None):
+        self.preprocess = self.get_preprocessing_transform()
+        self.augment = self.get_augmentation_transform()
+
+        if stage == "fit" or stage is None:
+            self.train_ds = CacheDataset(
+                data=self.train_files,
+                transform=self.augment,
+                cache_rate=self.args.cache_rate,
+                num_workers=self.args.num_workers,
+            )
+
+            self.val_ds = CacheDataset(
+                data=self.val_files,
+                transform=self.preprocess,
+                cache_rate=self.args.cache_rate,
+                num_workers=self.args.num_workers,
+            )
         
-        parser.add_argument('--gpu', type=str, default='0')
+        if stage == "test" or stage is None:
 
-        args = parser.parse_args()
+            self.test_ds = CacheDataset(
+                data=self.test_files,
+                transform=self.preprocess,
+                cache_rate=self.args.cache_rate,
+                num_workers=self.args.num_workers,
+            )
 
+
+    def train_dataloader(self):
+        train_loader = torch.utils.data.DataLoader(
+            self.train_ds,
+            batch_size=self.args.batch_size,
+            shuffle=True,
+            num_workers=self.args.num_workers,
+            pin_memory=self.args.pin_memory,
+            collate_fn=list_data_collate,
+        )
+        return train_loader
+
+
+    def val_dataloader(self):
+        val_loader = torch.utils.data.DataLoader(
+            self.val_ds, 
+            batch_size=1, 
+            shuffle=False, 
+            num_workers=self.args.num_workers, 
+            pin_memory=self.args.pin_memory, 
+            collate_fn=list_data_collate,
+        )
+        return val_loader
+
+
+    def test_dataloader(self):
+        test_loader = torch.utils.data.DataLoader(
+            self.test_ds, 
+            batch_size=1, 
+            shuffle=False, 
+            num_workers=self.args.num_workers, 
+            pin_memory=self.args.pin_memory, 
+            collate_fn=list_data_collate,
+        )
+        return test_loader
+
+
+    def __get_data(self, folders_img_lbl=True):
+
+        if folders_img_lbl:
+            data_images = sorted(
+                glob.glob(os.path.join(self.args.data_dir, "imagesTr", "*.nii.gz")))
+            data_labels = sorted(
+                glob.glob(os.path.join(self.args.data_dir, "labelsTr", "*.nii.gz")))
+            
+            return data_images, data_labels
+
+            
+        else:
+            all_files = sorted(
+                glob.glob(os.path.join(self.args.data_dir, "*.nii.gz")))
+
+            data_images = sorted(
+                filter(lambda x: "_gt" in x, all_files))
+            data_labels = sorted(
+                filter(lambda x: "_gt" not in x, all_files))
+            
+            return data_images, data_labels
         
 
-        return args   
+    def __get_data_pred(self, folders_img_lbl=True):
 
-    args = get_parser()
-    dataset = BTCVDataset(args)
-    print(len(dataset))
-    print("Data normalized and saved successfully.")    
-    
+        if folders_img_lbl:
+            data_images = sorted(
+                glob.glob(os.path.join(self.args.data_dir, "imagesTs", "*.nii.gz")))
+            
+            return data_images
+
+            
+        else:
+            all_files = sorted(
+                glob.glob(os.path.join(self.args.data_dir, "*.nii.gz")))
+
+            data_images = sorted(
+                filter(lambda x: "_gt" in x, all_files))
+            
+            return data_images
+
+
+    def __get_less_pixdim(self, data):
+        pixdim = [nib.load(path).header.get_zooms() for path in data]
+        pixdim = np.array(pixdim)
+        return min(pixdim.min(axis=0))
