@@ -51,8 +51,6 @@ class BTCVDataset(pl.LightningDataModule):
         self.val_ds = None
         self.test_ds = None
 
-        self.my_dsc = None
-
 
 
     def prepare_data(self):
@@ -67,8 +65,8 @@ class BTCVDataset(pl.LightningDataModule):
             for image_name, label_name in zip(data_images, data_labels)
         ]
 
-        min_pixdim = self.__get_less_pixdim(data_images)
-        self.pixdim = [min_pixdim, min_pixdim, min_pixdim]
+        #min_pixdim = self.__get_less_pixdim(data_images)
+        #self.pixdim = [min_pixdim, min_pixdim, min_pixdim]
 
         
         percentage_val = round((1.0-self.args.percentage_train)/2, 2)
@@ -130,13 +128,27 @@ class BTCVDataset(pl.LightningDataModule):
             pre_transforms_0
             ]
         )
-        return pre_transforms, pre_transforms_0
+        return pre_transforms # , pre_transforms_0
 
 
     def get_augmentation_transform(self): 
         train_transforms = Compose([
             LoadImaged(keys=self.keys, image_only=True),
             EnsureChannelFirstd(keys=self.keys),
+            Orientationd(keys=self.keys, axcodes="RAS"),
+            Spacingd(
+                keys=self.keys,
+                pixdim=self.pixdim,
+                mode=self.mode, 
+            ),
+            ScaleIntensityRanged(
+                keys=self.keys,
+                a_min=self.scale_range[0],
+                a_max=self.scale_range[1],
+                b_min=0.0,
+                b_max=1.0,
+                clip=True,
+            ),
             CropForegroundd(
                 allow_smaller=False, 
                 keys=self.keys, 
