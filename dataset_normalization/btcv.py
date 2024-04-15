@@ -69,7 +69,7 @@ class NormalizedDataset:
             img = nib.load(self.path_img_list[img_name])
             lbl = nib.load(self.path_label_list[lbl_name])
 
-
+            print(img.get_fdata().shape)
             #data = {self.keys[0]: img.get_fdata(), self.keys[1]: lbl.get_fdata()}
             transformation = self.transformations(img.header.get_zooms())
             data_dict = [{self.keys[0]: self.path_img_list[img_name], self.keys[1]: self.path_label_list[lbl_name]}]
@@ -79,10 +79,9 @@ class NormalizedDataset:
             #print(dataset_0.data)
             #print(dataset_0.transform)
 
-
-
             img_normalized = dataset_0[0][self.keys[0]].squeeze().get_array()
             lbl_normalized = dataset_0[0][self.keys[1]].squeeze().get_array()
+            print(img_normalized.shape)
             
             img_name = img_name.replace(".nii.gz", "")
             lbl_name = lbl_name.replace(".nii.gz", "")
@@ -98,6 +97,8 @@ class NormalizedDataset:
 
 
     def transformations(self, pixdim):
+        print(pixdim)
+        pix = min(pixdim)
         return Compose(
                     [
                     LoadImaged(keys=self.keys, image_only=True),
@@ -105,7 +106,7 @@ class NormalizedDataset:
                     Orientationd(keys=self.keys, axcodes="RAS"),
                     Spacingd(
                         keys=self.keys,
-                        pixdim=pixdim,
+                        pixdim=(1.5, 1.5, 2), #
                         mode=("nearest"),
                     ),
                     ScaleIntensityRanged(

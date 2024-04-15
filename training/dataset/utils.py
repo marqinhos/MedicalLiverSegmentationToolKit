@@ -1,10 +1,10 @@
-def get_dataset(args, mode, **kwargs):
+def get_dataset(args, **kwargs):
     if args.dimension == "2d":
         assert args.dimension == "2d" "2D dataset is not implemented yet"
         pass
 
     else:
         if args.dataset == "btcv":
-            from .dim3.dataset_btcv import BCTVDataset
+            from .dim3.dataset_btcv2 import BTCVDataset
 
-            return BCTVDataset(args, mode=mode, k_fold=args.k_fold, k=kwargs['fold_idx'], seed=args.split_seed)
+            return BTCVDataset(args)
