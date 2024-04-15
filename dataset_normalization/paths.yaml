@@ -1,5 +1,5 @@
 btcv:
   3D:
     src_path: "../../Datasets/BTCV_"
-    dst_path: "../../Datasets/BTCV_normalized"
+    dst_path: "../../Datasets/BTCV_normalized22"
     train_percentage: 0.8

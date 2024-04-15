@@ -5,26 +5,22 @@ modality: CT
 
 
 #MODEL
-arch: attention_resunet
+arch: swin_unetr
 in_chan: 1
-base_chan: 32
-down_scale: [[2,2,2], [2,2,2], [2,2,2], [2,2,2]]
-kernel_size: [[3,3,3], [3,3,3], [3,3,3], [3,3,3], [3,3,3]]
-block: BasicBlock
-norm: in
+base_chan: 36 # 48 # Must be multiple of 12
 
 #TRAIN
 epochs: 800
 training_size: [96, 96, 96] # training crop size. Probably should be the same as the window size. Test with [128, 128, 128]
 start_epoch: 0
-num_workers: 0 ## Important 
+num_workers: 0 ## Important
 aug_device: 'cpu'
 
 split_seed: 0
 k_fold: 5
 
 optimizer: adamw
-base_lr: 0.001
+base_lr: 0.0004
 betas: [0.9, 0.999]
 weight_decay: 0.05  # weight decay of SGD optimizer
 weight: [0.5, 1, 3]  # weitght of each class in the loss function
@@ -33,6 +29,7 @@ rlt: 1 # relation between CE and Dice loss
 scale: [0.3, 0.3, 0.3]  # scale for data augmentation  0.1 0.3 0.3
 rotate: [30, 30, 30] # rotation angle for data augmentation 
 translate: [0, 0, 0]
+affine_pad_size: [50, 50, 50]
 gaussian_noise_std: 0.02
 
 print_freq: 5
@@ -42,13 +39,14 @@ iter_per_epoch: 500
 #VALIDATION
 ema: True
 ema_alpha: 0.99
-val_freq: 10
+val_freq: 50
 
 
 
 #INFERENCE
 sliding_window: True
 window_size: [96, 96, 96]
+
 
 
 
@@ -61,3 +59,4 @@ dist_url: 'tcp://localhost:10000' # the port number here should be the same as t
 dist_backend: "nccl"
 multiprocessing_distributed: true
 reproduce_seed: null
+
