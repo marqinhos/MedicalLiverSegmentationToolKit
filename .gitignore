@@ -1,1 +1,8 @@
 .env_liver_segmentation
+logs
+exp
+logs_3
+results*
+.vscode
+graficas
+__pycache__/
