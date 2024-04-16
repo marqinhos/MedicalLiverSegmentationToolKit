@@ -4,8 +4,37 @@ import torch.nn as nn
 import pdb
 
 def get_model(args, pretrain=False):
-    
+    """Function to get the model based on the arguments.
+    Actually the models available, only 3 dimensions, are:
+        - UNETR
+        - UNet
+        - VNet
+        - AttentionUNet
+        - ResUNet
+        - MedFormer
+        - UNetPlusPlus
+        - SwinUNETR
+        - nnFormer: don't work properly TODO
+        - VTUNet: don't work properly TODO
+        - FCN_Net: don't work properly TODO
+    TODO: Implement the other models, for example:
+        - SAM3D
+        - DeepLabV3
+        - PSPNet
 
+
+    Args:
+        args (argparse.Namespace): Arguments from the command line.
+        pretrain (bool, optional): Set to true if you use a pretrained model. Defaults to False.
+
+    Raises:
+        ValueError: No pretrain model available
+        ValueError: Invalid dimension, should be '2d' or '3d'
+
+    Returns:
+        Model: The model object.
+    """    
+    
     if args.dimension == '3d':
         
         if args.model == 'unetr':
@@ -119,7 +148,6 @@ def get_model(args, pretrain=False):
                 feature_size=args.base_chan
                 )
             
-        
         elif args.model == 'nnformer':
             from .dim3 import nnFormer
             return nnFormer(
@@ -129,7 +157,6 @@ def get_model(args, pretrain=False):
                 deep_supervision=args.aux_loss
                 )
             
-        
         elif args.model == 'vtunet':
             from .dim3 import VTUNet
             return VTUNet(
