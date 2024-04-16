@@ -14,5 +14,4 @@ def get_dataset(args, **kwargs):
     else:
         if args.dataset == "btcv":
             from .dim3.dataset_btcv import BTCVDataset
-            print(type(BTCVDataset(args)))
             return BTCVDataset(args)
