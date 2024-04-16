@@ -7,10 +7,7 @@ import torch
 import pytorch_lightning as pl
 
 from monai.data import (
-    DataLoader,
     CacheDataset,
-    load_decathlon_datalist,
-    decollate_batch,
     list_data_collate,
 )
 
@@ -32,6 +29,7 @@ from monai.transforms import (
 class BTCVDataset(pl.LightningDataModule):
     """Class to define the dataset BTCV for the BraTS 2020 challenge.
     """    
+
     def __init__(self, args):
         """ Constructor of the class BTCVDataset.
 
@@ -57,7 +55,6 @@ class BTCVDataset(pl.LightningDataModule):
         self.train_ds = None
         self.val_ds = None
         self.test_ds = None
-
 
 
     def prepare_data(self):
@@ -376,7 +373,6 @@ class BTCVDataset(pl.LightningDataModule):
                 filter(lambda x: "_gt" not in x, all_files))
             
             return data_images, data_labels
-        
 
     def __get_data_pred(self, folders_img_lbl=True):
         """Function to get the data from the path.
@@ -403,7 +399,6 @@ class BTCVDataset(pl.LightningDataModule):
                 filter(lambda x: "_gt" in x, all_files))
             
             return data_images
-
 
     def __get_less_pixdim(self, data):
         """Function to get the less pixel dimension from the images.
