@@ -104,10 +104,10 @@ class BTCVDataset(pl.LightningDataModule):
             Spacingd(
                 keys=self.keys,
                 pixdim=self.pixdim,
-                mode=self.mode, 
+                mode=("bilinear", "nearest") #self.mode, # DONT CHANGE THIS, because it will affect the output of the model. And the network dont improve fast
             ),
             ScaleIntensityRanged(
-                keys=self.keys,
+                keys=self.keys[0],
                 a_min=self.scale_range[0],
                 a_max=self.scale_range[1],
                 b_min=0.0,
@@ -142,7 +142,7 @@ class BTCVDataset(pl.LightningDataModule):
                 mode=self.mode, 
             ),
             ScaleIntensityRanged(
-                keys=self.keys,
+                keys=self.keys[0],
                 a_min=self.scale_range[0],
                 a_max=self.scale_range[1],
                 b_min=0.0,
@@ -185,7 +185,7 @@ class BTCVDataset(pl.LightningDataModule):
                     max_k=3,
                 ),
             RandShiftIntensityd(
-                    keys=self.keys,
+                    keys=self.keys[0],
                     offsets=0.10,
                     prob=0.50,
                 ),
