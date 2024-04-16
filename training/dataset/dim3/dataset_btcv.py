@@ -30,7 +30,14 @@ from monai.transforms import (
 
 
 class BTCVDataset(pl.LightningDataModule):
+    """Class to define the dataset BTCV for the BraTS 2020 challenge.
+    """    
     def __init__(self, args):
+        """ Constructor of the class BTCVDataset.
+
+        Args:
+            args (argparse.Namespace): Arguments from the command line.
+        """        
         super().__init__()
 
         self.args = args
@@ -54,6 +61,11 @@ class BTCVDataset(pl.LightningDataModule):
 
 
     def prepare_data(self):
+        """Function to prepare the data for the training, validation and test sets. Splits dataset into train, val and test.
+
+        Raises:
+            TypeError: Error if the number of images and labels do not match or are empty.
+        """        
 
         data_images, data_labels = self.__get_data(folders_img_lbl=self.args.folders_img_lbl)
 
@@ -88,15 +100,25 @@ class BTCVDataset(pl.LightningDataModule):
     
 
     def load_images_prediction(self):
-       data_images = self.__get_data_pred(folders_img_lbl=self.args.folders_img_lbl)
-       data_dicts = [
-            {self.keys[0]: image_name}
-            for image_name in data_images
-        ]
-       return data_dicts
+        """Function to load the images for the prediction.
+
+        Returns:
+            list: List of dictionaries with the images to predict.
+        """       
+        data_images = self.__get_data_pred(folders_img_lbl=self.args.folders_img_lbl)
+        data_dicts = [
+                {self.keys[0]: image_name}
+                for image_name in data_images
+            ]
+        return data_dicts
     
 
     def get_preprocessing_transform(self):
+        """Function to get the preprocessing transformations for the dataset.
+
+        Returns:
+            monai.transforms.compose.Compose: Compose object for preprocessing transformations for the dataset.
+        """        
         pre_transforms_0 = Compose(
             [
             EnsureChannelFirstd(keys=self.keys),
@@ -132,6 +154,11 @@ class BTCVDataset(pl.LightningDataModule):
 
 
     def get_augmentation_transform(self): 
+        """Function to get the augmentation transformations for the dataset.
+
+        Returns:
+            monai.transforms.compose.Compose: Augmentation transformations for the dataset.
+        """        
         train_transforms = Compose([
             LoadImaged(keys=self.keys, image_only=True),
             EnsureChannelFirstd(keys=self.keys),
@@ -194,6 +221,11 @@ class BTCVDataset(pl.LightningDataModule):
 
 
     def get_preprocessing_transform_pred(self):
+        """Function to get the preprocessing transformations for the prediction.
+
+        Returns:
+            monai.transforms.compose.Compose: Compose object for preprocessing transformations for the prediction.
+        """        
         val_test_transforms_0 = Compose(
             [
                 EnsureChannelFirstd(keys=self.keys[0]),
@@ -231,6 +263,11 @@ class BTCVDataset(pl.LightningDataModule):
 
 
     def setup(self, stage=None):
+        """Function to setup the dataset for the training, validation and test sets. Load the data and apply the transformations.
+
+        Args:
+            stage (str, optional): Different stage (fit, test). Defaults to None.
+        """        
         self.preprocess = self.get_preprocessing_transform()
         self.augment = self.get_augmentation_transform()
 
@@ -260,6 +297,11 @@ class BTCVDataset(pl.LightningDataModule):
 
 
     def train_dataloader(self):
+        """Function to get the training dataloader.
+
+        Returns:
+            torch.utils.data.dataloader.DataLoader: Dataloader for the training set.
+        """        
         train_loader = torch.utils.data.DataLoader(
             self.train_ds,
             batch_size=self.args.batch_size,
@@ -272,6 +314,11 @@ class BTCVDataset(pl.LightningDataModule):
 
 
     def val_dataloader(self):
+        """Function to get the validation dataloader.
+
+        Returns:
+            torch.utils.data.dataloader.DataLoader: Dataloader for the validation set.
+        """        
         val_loader = torch.utils.data.DataLoader(
             self.val_ds, 
             batch_size=1, 
@@ -284,6 +331,11 @@ class BTCVDataset(pl.LightningDataModule):
 
 
     def test_dataloader(self):
+        """Function to get the test dataloader.
+
+        Returns:
+            torch.utils.data.dataloader.DataLoader: Dataloader for the test set.
+        """        
         test_loader = torch.utils.data.DataLoader(
             self.test_ds, 
             batch_size=1, 
@@ -296,6 +348,14 @@ class BTCVDataset(pl.LightningDataModule):
 
 
     def __get_data(self, folders_img_lbl=True):
+        """Function to get the data from the path.
+
+        Args:
+            folders_img_lbl (bool, optional): Parameter to set if training and test data are in different folders. Defaults to True.
+
+        Returns:
+            list, list: List of images and list of labels.
+        """        
 
         if folders_img_lbl:
             data_images = sorted(
@@ -319,6 +379,14 @@ class BTCVDataset(pl.LightningDataModule):
         
 
     def __get_data_pred(self, folders_img_lbl=True):
+        """Function to get the data from the path.
+
+        Args:
+            folders_img_lbl (bool, optional): Parameter to set if training and test data are in different folders. Defaults to True.
+
+        Returns:
+            list: List of images.
+        """ 
 
         if folders_img_lbl:
             data_images = sorted(
@@ -338,6 +406,14 @@ class BTCVDataset(pl.LightningDataModule):
 
 
     def __get_less_pixdim(self, data):
+        """Function to get the less pixel dimension from the images.
+
+        Args:
+            data (str): List of paths to the images.
+
+        Returns:
+            int: Less pixel dimension.
+        """        
         pixdim = [nib.load(path).header.get_zooms() for path in data]
         pixdim = np.array(pixdim)
         return min(pixdim.min(axis=0))
