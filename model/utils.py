@@ -51,6 +51,23 @@ def get_model(args, pretrain=False):
                 norm_name='instance', 
                 res_block=True
                 )
+        
+        elif args.model == "segformer":
+            from .dim3 import SegFormer3D
+            return SegFormer3D(
+                in_channels=args.in_chan,
+                sr_ratios=args.sr_ratios,
+                embed_dims=args.embed_dims,
+                patch_kernel_size=args.patch_kernel_size,
+                patch_stride=args.patch_stride,
+                patch_padding=args.patch_padding,
+                mlp_ratios=args.mlp_ratios,
+                num_heads=args.num_heads,
+                depths=args.depths,
+                decoder_head_embedding_dim=args.decoder_head_embedding_dim,
+                num_classes=args.classes,
+                decoder_dropout=args.decoder_dropout,
+            )
 
         elif args.model == 'resunet':
             from .dim3 import UNet

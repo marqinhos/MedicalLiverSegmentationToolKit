@@ -8,3 +8,4 @@ from .nnformer import nnFormer
 from .unetpp import UNetPlusPlus
 from .vtunet import VTUNet
 from .fcn_net import FCN_Net
+from .segformer import SegFormer3D
