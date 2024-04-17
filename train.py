@@ -322,7 +322,7 @@ class MainModule:
 
         root_dir = '.'
         log_dir = os.path.join(root_dir, 'logs', args.dataset, args.model, args.dimension)
-        log_dir = os.path.join(root_dir, 'logs_3' ) ## TODO  CHANGE 
+        #log_dir = os.path.join(root_dir, 'logs_3' ) ## TODO  CHANGE 
 
         if args.mode == "Train":
             self.train(args, log_dir)
@@ -563,7 +563,7 @@ def get_parser():
     
     #parser.add_argument("--show", default=False, type=boolean, help="Visualizar resultados on-line")
 
-    parser.add_argument('--model', type=str, default='unetr', help="Network model name. Available models: unet, unetr, swin_unet, unet++, attention_unet, resunet, medformer, vnet")
+    parser.add_argument('--model', type=str, default='segformer', help="Network model name. Available models: unet, unetr, swin_unet, unet++, attention_unet, resunet, medformer, vnet")
     parser.add_argument('--dimension', type=str, default='3d', help="Dimension of the model (2d or 3d)")
     parser.add_argument('--dataset', type=str, default='btcv', help="Name of the dataset")
     parser.add_argument('--run_version', type=int, default=3, help="Version of the checkpoint for testing or predicting")
