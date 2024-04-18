@@ -1,5 +1,7 @@
 import os
 import logging
+import subprocess
+
 
 import numpy as np
 import nibabel as nib
@@ -130,3 +132,10 @@ def get_latest_run_version_ckpt_epoch_no(lightning_logs_dir="./logs/lightning_lo
         raise ValueError("Error, no checkpoint found in {}".format(checkpoints_dir))
 
     return ckpt_path
+
+
+def check_gpu_memory(self):
+    cmd = ['nvidia-smi', '--query-gpu=memory.free', '--format=csv,nounits,noheader']
+    result = subprocess.check_output(cmd)
+    memory_free = [int(x) for x in result.decode('utf-8').strip().split('\n')]
+    return memory_free[0]
