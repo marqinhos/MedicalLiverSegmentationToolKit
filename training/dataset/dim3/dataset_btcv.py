@@ -28,7 +28,10 @@ from monai.transforms import (
 
 class BTCVDataset(pl.LightningDataModule):
     """Class to define the dataset BTCV for the BraTS 2020 challenge.
-    """    
+    """   
+    organs = [ '__BKG__','Spleen','Right Kidney','Left Kideny','Gallbladder',
+                'Esophagus','Liver', 'Stomach','Aorta','IVC','Portal and Splenic Veins',
+                'Pancreas','Right adrenal gland','Left adrenal gland'] 
 
     def __init__(self, args):
         """ Constructor of the class BTCVDataset.
