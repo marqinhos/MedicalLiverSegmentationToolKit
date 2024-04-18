@@ -40,6 +40,7 @@ class MetricResult:
         """        
         self.results = result 
 
+
     def __str__(self):
         """Method to return the string representation of the object.
 
@@ -322,7 +323,6 @@ class RemovirtMetrics(VolumeVisualization):
         self.classes = classes
         
 
-
     def __call__(self, gt, pred, visualize_class_3d=None, spec_class=None, to_check=False):
         """Function to compute the metrics.
             : Union[str, np.ndarray, List[np.ndarray, TODO List[List[str]]]
@@ -374,7 +374,7 @@ class RemovirtMetrics(VolumeVisualization):
             load_image = LoadImaged(keys=self.keys_gt)
             dataset = Dataset(
                             data=data_dict, 
-                            transform=load_image) # self.__preprocess_image(self.keys_gt)
+                            transform=load_image)
             gt_tensor = dataset[0][self.keys_gt[1]]
             gt = gt_tensor.squeeze().get_array()
             
@@ -390,11 +390,9 @@ class RemovirtMetrics(VolumeVisualization):
             data = self.__load_from_file(pred)
             data_dict = [{self.keys_pred[0]: img} for img in data]
             load_image = LoadImaged(keys=self.keys_pred)
-            # resize = Resized(keys=self.keys_pred, spatial_size=(512, 512, 138))
-            # transforms = Compose([load_image, resize])
             dataset = Dataset(
                             data=data_dict, 
-                            transform=load_image) #  self.__post_process_image()
+                            transform=load_image)
             pred_tensor = dataset[0][self.keys_pred[0]]
             pred = pred_tensor.get_array()
             
@@ -491,7 +489,7 @@ class RemovirtMetrics(VolumeVisualization):
         """
         gt = gt.astype(np.float64)
         pred = pred.astype(np.float64)
-        return (np.sum(gt) - np.sum(pred)) / np.sum(gt)
+        return (np.sum(gt) - np.sum(pred)) / np.sum(gt) if np.sum(gt) != 0 else 1
 
 
     def masd(self, gt, pred):
@@ -513,7 +511,7 @@ class RemovirtMetrics(VolumeVisualization):
 
         
         return (0.5 * ((sds_A_to_B.sum() / len(sds_A_to_B)) 
-                        + (sds_B_to_A.sum() / len(sds_B_to_A))))
+                        + (sds_B_to_A.sum() / len(sds_B_to_A)))) if len(sds_A_to_B) != 0 and len(sds_B_to_A) != 0 else np.inf
 
 
     def hd(self, gt, pred):
@@ -575,61 +573,6 @@ class RemovirtMetrics(VolumeVisualization):
              
         path = os.path.normpath(os.path.join(os.path.dirname(__file__), path))  
         return [path]
-
-    def __preprocess_image(self, keys=["image", "label"]):
-        """Function to preprocess the image.
-        Args:
-            keys (list, optional): Keys to preprocess. Defaults to ["image", "label"].
-        
-        """
-        transforms = Compose(
-            [
-                LoadImaged(keys=keys, image_only=True),
-                EnsureChannelFirstd(keys=keys),
-                Orientationd(keys=keys, axcodes="RAS"),
-                Spacingd(
-                    keys=keys,
-                    pixdim=(1.5, 1.5, 2.0),
-                    mode=("nearest"),
-                ),
-                ScaleIntensityRanged(
-                    keys=["image"],
-                    a_min=-175,
-                    a_max=250,
-                    b_min=0.0,
-                    b_max=1.0,
-                    clip=True,
-                ),
-                CropForegroundd(
-                    allow_smaller=False, 
-                    keys=keys,
-                    source_key="image"),
-                
-            ]
-        )
-        return transforms
-
-    def __posprocess_image(self, keys=["prediction"]):
-        """Function to preprocess the image.
-        Args:
-            keys (list, optional): Keys to preprocess. Defaults to ["prediction"].
-        
-        """
-        transforms = Compose(
-            [
-                LoadImaged(keys=keys, image_only=True),
-                EnsureChannelFirstd(keys=keys),
-                Orientationd(keys=keys, axcodes="RAS"),
-                Spacingd(
-                    keys=keys,
-                    pixdim=(0.456, 0.3878, 1.5), 
-                    mode=("nearest"),
-                ),
-                
-                
-            ]
-        )
-        return transforms
 
     def __set_aux_2_masd_hd(self, gt, pred, sampling=1, connectivity=1):
         """Auxiliary function to set the auxiliary variables for MASD and HD metrics.
