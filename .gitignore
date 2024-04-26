@@ -7,3 +7,4 @@ graph*
 __pycache__/
 train.old*
 dataset_btcv.old*
+test*
