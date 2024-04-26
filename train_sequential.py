@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 from multiprocessing import Process
 
-from .utils import check_gpu_memory
+from utils import check_gpu_memory
 
 
 
@@ -44,7 +44,7 @@ class SequentialTrain:
             for model in list(models.keys()):
                 
                 gpu_memory = check_gpu_memory() # Verify GPU memory
-                while gpu_memory < 13124:  # Wait until GPU memory is available  9124
+                while gpu_memory < 14124:  # Wait until GPU memory is available  9124
                     print("Need more GPU memory. Waiting...")
                     time.sleep(55)  
                     gpu_memory = check_gpu_memory()
@@ -65,7 +65,6 @@ class SequentialTrain:
             process.join()
 
         print("All models are tested")
-        
 
     @staticmethod
     def run_model(model, dimension, run_version):
