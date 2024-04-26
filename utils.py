@@ -134,7 +134,7 @@ def get_latest_run_version_ckpt_epoch_no(lightning_logs_dir="./logs/lightning_lo
     return ckpt_path
 
 
-def check_gpu_memory(self):
+def check_gpu_memory():
     cmd = ['nvidia-smi', '--query-gpu=memory.free', '--format=csv,nounits,noheader']
     result = subprocess.check_output(cmd)
     memory_free = [int(x) for x in result.decode('utf-8').strip().split('\n')]
