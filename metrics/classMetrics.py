@@ -30,6 +30,12 @@ class MetricResult:
     """ Class to store the results of the metrics. With this class, you can compute the mean of all classes and plot the results.
     """
     metrics = ["DSC", "NSD", "MASD", "HD", "RVD"]
+    range_metrics = {"DSC": [0, 1],
+                     "NSD": [0, 1],
+                     "MASD": [0, np.inf],
+                     "HD": [0, np.inf],
+                     "RVD": [-1, 1]
+    }
 
 
     def __init__(self, result):
@@ -472,9 +478,11 @@ class RemovirtMetrics(VolumeVisualization):
 
         Returns:
             float: The DSC metric
-        """        
+        """      
+        if np.sum(gt) == 0: return None
+
         return (2 * np.abs(np.sum(gt * pred))) \
-                / (np.abs(np.sum(gt)) + np.abs(np.sum(pred)))
+                / (np.abs(np.sum(gt)) + np.abs(np.sum(pred))) if np.sum(gt) != 0 else None
     
 
     def rvd(self, gt, pred):
@@ -487,9 +495,11 @@ class RemovirtMetrics(VolumeVisualization):
         Returns:
             float: The RVD metric
         """
+        if np.sum(gt) == 0: return None
+
         gt = gt.astype(np.float64)
         pred = pred.astype(np.float64)
-        return (np.sum(gt) - np.sum(pred)) / np.sum(gt) if np.sum(gt) != 0 else 1
+        return (np.sum(gt) - np.sum(pred)) / np.sum(gt) if np.sum(gt) != 0 else None
 
 
     def masd(self, gt, pred):
@@ -502,6 +512,7 @@ class RemovirtMetrics(VolumeVisualization):
         Returns:
             float: The MASD metric
         """ 
+        if np.sum(gt) == 0: return None
         
         if self.__min_dist_gt_pred is None:
             self.__set_aux_2_masd_hd(gt, pred)
@@ -511,7 +522,7 @@ class RemovirtMetrics(VolumeVisualization):
 
         
         return (0.5 * ((sds_A_to_B.sum() / len(sds_A_to_B)) 
-                        + (sds_B_to_A.sum() / len(sds_B_to_A)))) if len(sds_A_to_B) != 0 and len(sds_B_to_A) != 0 else np.inf
+                        + (sds_B_to_A.sum() / len(sds_B_to_A)))) if len(sds_A_to_B) != 0 and len(sds_B_to_A) != 0 else None
 
 
     def hd(self, gt, pred):
@@ -525,12 +536,14 @@ class RemovirtMetrics(VolumeVisualization):
             float: The HD metric
           
         """
+        if np.sum(gt) == 0: return None
+
         if self.__min_dist_gt_pred is None:
             self.__set_aux_2_masd_hd(gt, pred)
         
         return np.concatenate([
             np.ravel(self.__min_dist_gt_pred[self.__s_prime != 0]), 
-            np.ravel(self.__min_dist_pred_gt[self.__s != 0])]).max()
+            np.ravel(self.__min_dist_pred_gt[self.__s != 0])]).max() if np.sum(gt) != 0 else None
     
 
     def nsd(self, gt, pred, tau=2):  
@@ -546,6 +559,7 @@ class RemovirtMetrics(VolumeVisualization):
         Returns:
             float: The NSD metric
         """  
+        if np.sum(gt) == 0: return None
         
         mask_true_boundary = self.__get_boundary(gt)
         mask_true_border_region = self.__get_boundary(mask=gt, 
@@ -634,9 +648,9 @@ if "__main__" == __name__:
     mask_pred = validator.create_ellipsoid_mask(shape, radii)  
 
     # Paths
-    gt_img_path = "../Datasets/BTCV_/imagesTs/img0061.nii.gz" 
-    gt_lbl_path = "../Datasets/BTCV_/labelsTs/label0061.nii.gz"
-    pred_path = "../Unet-Transformerv2/results/img0061_Pred.nii.gz"
+    gt_img_path = "../../Datasets/BTCV_/imagesTs/img0061.nii.gz" 
+    gt_lbl_path = "../../Datasets/BTCV_/labelsTs/label0061.nii.gz"
+    pred_path = "../results/attention_unet_3d/img0061_Pred.nii.gz"
 
     # Classes
     organs = [ '__BKG__','Spleen','Right Kidney','Left Kideny','Gallbladder',
@@ -646,12 +660,13 @@ if "__main__" == __name__:
 
     metrics = RemovirtMetrics(organs)
 
-    results = metrics([gt_img_path, gt_lbl_path], pred_path, "Liver") # To show liver on 3D. Mean of all classes.
+    results = metrics([gt_img_path, gt_lbl_path], pred_path) # To show liver on 3D. Mean of all classes.
     #results = metrics([gt_img_path, gt_lbl_path], pred_path, spec_class=6) # Specific class to take metrics
     # results = metrics(mask_true, mask_true, to_check=True) # To check the metrics
     print(results)
-    print(results.mean())
-    results.plot()
+    print(results.results)
+    # print(results.mean())
+    #results.plot()
     
     
     print("End of the test.")
