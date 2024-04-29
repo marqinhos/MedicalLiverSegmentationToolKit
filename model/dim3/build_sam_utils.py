@@ -8,7 +8,6 @@ import numpy as np
 import torch
 from torch import nn
 from torch.nn import functional as F
-from icecream import ic
 
 from typing import Any, Dict, List, Tuple, Optional, Type
 
@@ -549,7 +548,7 @@ class Block(nn.Module):
         """
         super().__init__()
         self.norm1 = norm_layer(dim)
-        self.attn = Attention(
+        self.attn = Attention2(
             dim,
             num_heads=num_heads,
             qkv_bias=qkv_bias,
@@ -582,7 +581,7 @@ class Block(nn.Module):
         return x
 
 
-class Attention(nn.Module):
+class Attention2(nn.Module):
     """Multi-head Attention block with relative position embeddings."""
 
     def __init__(
