@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops import repeat, rearrange
 
-from sam_utils import (
+from .sam_utils import (
     SegmentationNetwork,
     sam_model_registry
 )
