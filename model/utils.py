@@ -94,17 +94,17 @@ def get_model(args, pretrain=False):
                 channel_mul=args.channel_mul,
                 num_blocks=args.num_blocks,
                 num_depths=args.num_depths,
-                use_downsample=True,
+                use_downsample=args.use_downsample,
                 device=args.aug_device,
             )
             return DiNTS(
                     dints_space=dints_space,
                     in_channels=args.in_chan,
                     num_classes=args.classes,
-                    act_name="RELU",
+                    act_name=args.act_name,
                     norm_name=("INSTANCE", {"affine": True}),
-                    spatial_dims=3,
-                    use_downsample=True,
+                    spatial_dims=args.spatial_dims,
+                    use_downsample=args.use_downsample,
                     node_a=None,
                 )
 
