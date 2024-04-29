@@ -71,8 +71,8 @@ def get_model(args, pretrain=False):
             )
 
         elif args.model == 'sam':
-            from .dim3 import SAM3D
-            return SAM3D(
+            from .dim3 import Sam3D
+            return Sam3D(
                 num_classes=args.classes, 
                 ckpt=None, 
                 image_size=args.crop_size, 
