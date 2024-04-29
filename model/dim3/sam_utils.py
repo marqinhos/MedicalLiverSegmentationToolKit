@@ -19,7 +19,6 @@ from batchgenerators.augmentations.utils import pad_nd_image
 import torch
 from torch import nn
 from torch.nn import functional as F
-from icecream import ic
 
 from scipy.ndimage.filters import gaussian_filter
 from typing import Union, Tuple, List
@@ -28,7 +27,7 @@ from torch.cuda.amp import autocast
 
 
 
-from build_sam_utils import (
+from .build_sam_utils import (
     ImageEncoderViT,
     MaskDecoder,
     PromptEncoder,
