@@ -61,7 +61,7 @@ class Net(pl.LightningModule):
         try:
             self.args = args
             self._model = get_model(args)
-            
+
             self.post_pred = AsDiscrete(argmax=True, to_onehot=args.out_channels)
             self.post_label = AsDiscrete(to_onehot=args.out_channels)
 
@@ -89,7 +89,9 @@ class Net(pl.LightningModule):
             self.test_step_outputs = []
             self.training_step_outputs = []
 
-        except: pass
+        except Exception as e: 
+            print(e)
+            pass
 
 
     def forward(self, x):
@@ -445,7 +447,6 @@ class MainModule:
         """        
         logging.info(f"Predict mode")
         print(f"[INFO] Predict mode\n")
-        print("Device ", type(device))
 
         logging.info(
             f"\nDataset: {args.dataset},\n"
@@ -544,7 +545,7 @@ def get_parser():
     """    
     parser = argparse.ArgumentParser(description="Framework to train, test and predict with different medical models")
 
-    parser.add_argument("--max_epochs", default=800, type=int, help="Max number of epochs for training")
+    parser.add_argument("--max_epochs", default=900, type=int, help="Max number of epochs for training")
     parser.add_argument("--batch_size", default=1, type=int, help="Batch size for training")
     parser.add_argument("--cache_rate", default=1.0, type=float, help="Cache rate for training")
     parser.add_argument("--pin_memory", default=False, type=bool, help="Pin memory for training")
@@ -555,18 +556,18 @@ def get_parser():
     parser.add_argument("--in_channels", default=1, type=int, help="Input image channels (i.e. 3 for color images, 1 for gray images)")
     parser.add_argument("--out_channels", default=14, type=int, help="Number of classes")
     parser.add_argument("--data_dir", default='../Datasets/BTCV_/', type=str, help="Training data directory")
-    parser.add_argument("--mode", default='Train', type=str, help="Work mode (Train, Test, Predict)")
+    parser.add_argument("--mode", default='Predict', type=str, help="Work mode (Train, Test, Predict)")
     parser.add_argument("--trainmode", default='init', type=str, help="Continue training from checkpoint (cont) or start from scratch (init)")
     parser.add_argument("--roi_size", default=(96, 96, 96), type=tuple, help="Slide window size for inference")
     parser.add_argument("--inference_batch_size", default=1, type=int, help="Batch size for inference")
     parser.add_argument('--folders_img_lbl', type=bool, default=True, help="If images and labels are in different folders")
     
-    #parser.add_argument("--show", default=False, type=boolean, help="Visualizar resultados on-line")
+    parser.add_argument("--show", default=False, type=boolean, help="Visualizar resultados on-line")
 
-    parser.add_argument('--model', type=str, default='segformer', help="Network model name. Available models: unet, unetr, swin_unet, unet++, attention_unet, resunet, medformer, vnet")
+    parser.add_argument('--model', type=str, default='sam', help="Network model name. Available models: unet, unetr, swin_unet, unet++, attention_unet, resunet, medformer, vnet, segformer")
     parser.add_argument('--dimension', type=str, default='3d', help="Dimension of the model (2d or 3d)")
     parser.add_argument('--dataset', type=str, default='btcv', help="Name of the dataset")
-    parser.add_argument('--run_version', type=int, default=3, help="Version of the checkpoint for testing or predicting")
+    parser.add_argument('--run_version', type=int, default=2, help="Version of the checkpoint for testing or predicting")
     parser.add_argument('--path_prediction', type=str, default="./results/", help="Path to save the predictions")
 
 
