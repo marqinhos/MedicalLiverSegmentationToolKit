@@ -15,11 +15,11 @@ def get_model(args, pretrain=False):
         - SegFormer
         - UNetPlusPlus
         - SwinUNETR
+        - SAM3D
         - nnFormer: don't work properly TODO
         - VTUNet: don't work properly TODO
         - FCN_Net: don't work properly TODO
     TODO: Implement the other models, for example:
-        - SAM3D
         - DeepLabV3
         - PSPNet
 
@@ -69,6 +69,17 @@ def get_model(args, pretrain=False):
                 num_classes=args.classes,
                 decoder_dropout=args.decoder_dropout,
             )
+
+        elif args.model == 'sam':
+            from .dim3 import SAM3D
+            return SAM3D(
+                num_classes=args.classes, 
+                ckpt=None, 
+                image_size=args.crop_size, 
+                vit_name=args.vit_name,
+                num_modalities=args.in_chan, 
+                do_ds=args.do_ds
+                )
 
         elif args.model == 'resunet':
             from .dim3 import UNet
