@@ -81,6 +81,33 @@ def get_model(args, pretrain=False):
                 do_ds=args.do_ds
                 )
 
+        elif args.model == 'dints':
+            from .dim3 import DiNTS, TopologySearch, TopologyInstance
+            # dints_space = TopologySearch(
+            #     channel_mul=0.5,
+            #     num_blocks=12,
+            #     num_depths=4,
+            #     use_downsample=True,
+            #     device=args.device,
+            # )
+            dints_space = TopologyInstance(
+                channel_mul=args.channel_mul,
+                num_blocks=args.num_blocks,
+                num_depths=args.num_depths,
+                use_downsample=True,
+                device=args.aug_device,
+            )
+            return DiNTS(
+                    dints_space=dints_space,
+                    in_channels=args.in_chan,
+                    num_classes=args.classes,
+                    act_name="RELU",
+                    norm_name=("INSTANCE", {"affine": True}),
+                    spatial_dims=3,
+                    use_downsample=True,
+                    node_a=None,
+                )
+
         elif args.model == 'resunet':
             from .dim3 import UNet
             if pretrain:

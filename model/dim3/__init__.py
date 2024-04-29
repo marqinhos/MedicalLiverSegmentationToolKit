@@ -10,3 +10,4 @@ from .vtunet import VTUNet
 from .fcn_net import FCN_Net
 from .segformer import SegFormer3D
 from .sam import Sam3D
+from .dints import DiNTS, TopologyInstance, TopologySearch
