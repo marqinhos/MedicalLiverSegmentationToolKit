@@ -12,6 +12,7 @@ def get_model(args, pretrain=False):
         - AttentionUNet
         - ResUNet
         - MedFormer
+        - SegFormer
         - UNetPlusPlus
         - SwinUNETR
         - nnFormer: don't work properly TODO
