@@ -9,4 +9,4 @@ from .unetpp import UNetPlusPlus
 from .vtunet import VTUNet
 from .fcn_net import FCN_Net
 from .segformer import SegFormer3D
-from .sam import SAM3D
+from .sam import Sam3D
