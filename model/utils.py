@@ -72,6 +72,7 @@ def get_model(args, pretrain=False):
 
         elif args.model == 'sam':
             from .dim3 import Sam3D
+            raise print("\n[TODO] DONT WORK PROPERLY YET! TODO FIX IT!")
             return Sam3D(
                 num_classes=args.classes, 
                 ckpt=None, 
