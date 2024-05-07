@@ -24,7 +24,7 @@ class ShowMetrics:
 
     file_name = './metrics.json'
 
-    all_classes = [ '__BKG__','Spleen','Right Kidney','Left Kideny','Gallbladder',
+    all_classes = [ '__BKG__','Spleen','Right Kidney','Left Kidney','Gallbladder',
                 'Esophagus','Liver', 'Stomach','Aorta','IVC','Portal and Splenic Veins',
                 'Pancreas','Right adrenal gland','Left adrenal gland']
 
