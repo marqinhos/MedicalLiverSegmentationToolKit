@@ -1,0 +1,195 @@
+{
+     "attention_unet": {
+          "num_param": [
+               40.793,
+               "M"
+          ],
+          "num_flops": [
+               551.047,
+               "G"
+          ],
+          "memory_use": [
+               157.583,
+               "MB"
+          ],
+          "feature_size": 32,
+          "num_heads": [
+               1
+          ]
+     },
+     "medformer": {
+          "num_param": [
+               38.586,
+               "M"
+          ],
+          "num_flops": [
+               477.647,
+               "G"
+          ],
+          "memory_use": [
+               148.578,
+               "MB"
+          ],
+          "feature_size": 32,
+          "num_heads": [
+               1,
+               1,
+               1,
+               1,
+               1,
+               1,
+               1,
+               1
+          ]
+     },
+     "resunet": {
+          "num_param": [
+               40.561,
+               "M"
+          ],
+          "num_flops": [
+               548.368,
+               "G"
+          ],
+          "memory_use": [
+               158.557,
+               "MB"
+          ],
+          "feature_size": 32,
+          "num_heads": [
+               1
+          ]
+     },
+     "swin_unetr": {
+          "num_param": [
+               35.073,
+               "M"
+          ],
+          "num_flops": [
+               182.68,
+               "G"
+          ],
+          "memory_use": [
+               141.917,
+               "MB"
+          ],
+          "feature_size": 36,
+          "num_heads": [
+               3,
+               6,
+               12,
+               24
+          ]
+     },
+     "unet++": {
+          "num_param": [
+               4.445,
+               "M"
+          ],
+          "num_flops": [
+               145.2,
+               "G"
+          ],
+          "memory_use": [
+               17.283,
+               "MB"
+          ],
+          "feature_size": 10,
+          "num_heads": [
+               1
+          ]
+     },
+     "unetr": {
+          "num_param": [
+               92.784,
+               "M"
+          ],
+          "num_flops": [
+               73.679,
+               "G"
+          ],
+          "memory_use": [
+               359.382,
+               "MB"
+          ],
+          "feature_size": 16,
+          "num_heads": [
+               1
+          ]
+     },
+     "vnet": {
+          "num_param": [
+               45.642,
+               "M"
+          ],
+          "num_flops": [
+               537.023,
+               "G"
+          ],
+          "memory_use": [
+               176.071,
+               "MB"
+          ],
+          "feature_size": 16,
+          "num_heads": [
+               1
+          ]
+     },
+     "segformer": {
+          "num_param": [
+               4.495,
+               "M"
+          ],
+          "num_flops": [
+               5.501,
+               "G"
+          ],
+          "memory_use": [
+               17.209,
+               "MB"
+          ],
+          "feature_size": 10,
+          "num_heads": [
+               1,
+               2,
+               5,
+               8
+          ]
+     },
+     "unet": {
+          "num_param": [
+               16.267,
+               "M"
+          ],
+          "num_flops": [
+               234.256,
+               "G"
+          ],
+          "memory_use": [
+               63.555,
+               "MB"
+          ],
+          "feature_size": 32,
+          "num_heads": [
+               1
+          ]
+     },
+     "dints": {
+          "num_param": [
+               4.053,
+               "M"
+          ],
+          "num_flops": [
+               142.715,
+               "G"
+          ],
+          "memory_use": [
+               15.532,
+               "MB"
+          ],
+          "feature_size": 48,
+          "num_heads": [
+               1
+          ]
+     }
+}
