@@ -7,6 +7,7 @@ modality: CT
 #MODEL
 arch: unetr
 in_chan: 1
+base_chan: 16
 norm: in
 init_model: /../model/initmodel/UNETR_model_best_acc.pth
 

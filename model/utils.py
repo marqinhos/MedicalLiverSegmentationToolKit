@@ -44,7 +44,7 @@ def get_model(args, pretrain=False):
                 args.in_chan, 
                 args.classes, 
                 args.training_size, 
-                feature_size=16, 
+                feature_size=args.base_chan, 
                 hidden_size=768, 
                 mlp_dim=3072, 
                 num_heads=12, 
@@ -71,7 +71,8 @@ def get_model(args, pretrain=False):
             )
 
         elif args.model == 'sam':
-            from .dim3 import Sam3D
+            from .dim3 import sam_model_registry3D
+            return sam_model_registry3D[args.vit_name](checkpoint=None)
             raise print("\n[TODO] DONT WORK PROPERLY YET! TODO FIX IT!")
             return Sam3D(
                 num_classes=args.classes, 
