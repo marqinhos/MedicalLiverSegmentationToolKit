@@ -203,7 +203,8 @@ def get_model(args, pretrain=False):
                 args.window_size, 
                 args.in_chan, 
                 args.classes, 
-                feature_size=args.base_chan
+                feature_size=args.base_chan,
+                num_heads=args.num_heads
                 )
             
         elif args.model == 'nnformer':

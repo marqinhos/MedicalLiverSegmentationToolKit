@@ -8,7 +8,7 @@ modality: CT
 arch: swin_unetr
 in_chan: 1
 base_chan: 36 # 48 # Must be multiple of 12
-
+num_heads: [3, 6, 12, 24]
 #TRAIN
 epochs: 800
 training_size: [96, 96, 96] # training crop size. Probably should be the same as the window size. Test with [128, 128, 128]
