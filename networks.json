@@ -15,6 +15,18 @@
           "feature_size": 32,
           "num_heads": [
                1
+          ],
+          "time_cpu_inference": [
+               1.825,
+               "s"
+          ],
+          "memory_usage_inference": [
+               5.87443,
+               "GB"
+          ],
+          "time_gpu_inference": [
+               75.645,
+               "ms"
           ]
      },
      "medformer": {
@@ -40,6 +52,18 @@
                1,
                1,
                1
+          ],
+          "time_cpu_inference": [
+               1.998,
+               "s"
+          ],
+          "memory_usage_inference": [
+               7.11589,
+               "GB"
+          ],
+          "time_gpu_inference": [
+               79.803,
+               "ms"
           ]
      },
      "resunet": {
@@ -58,6 +82,18 @@
           "feature_size": 32,
           "num_heads": [
                1
+          ],
+          "time_cpu_inference": [
+               1.966,
+               "s"
+          ],
+          "memory_usage_inference": [
+               5.27632,
+               "GB"
+          ],
+          "time_gpu_inference": [
+               69.904,
+               "ms"
           ]
      },
      "swin_unetr": {
@@ -79,6 +115,18 @@
                6,
                12,
                24
+          ],
+          "time_cpu_inference": [
+               1.837,
+               "s"
+          ],
+          "memory_usage_inference": [
+               8.84608,
+               "GB"
+          ],
+          "time_gpu_inference": [
+               70.224,
+               "ms"
           ]
      },
      "unet++": {
@@ -97,6 +145,18 @@
           "feature_size": 10,
           "num_heads": [
                1
+          ],
+          "time_cpu_inference": [
+               1.66,
+               "s"
+          ],
+          "memory_usage_inference": [
+               7.85131,
+               "GB"
+          ],
+          "time_gpu_inference": [
+               90.541,
+               "ms"
           ]
      },
      "unetr": {
@@ -115,6 +175,18 @@
           "feature_size": 16,
           "num_heads": [
                1
+          ],
+          "time_cpu_inference": [
+               387.852,
+               "ms"
+          ],
+          "memory_usage_inference": [
+               1.35522,
+               "GB"
+          ],
+          "time_gpu_inference": [
+               20.918,
+               "ms"
           ]
      },
      "vnet": {
@@ -133,6 +205,18 @@
           "feature_size": 16,
           "num_heads": [
                1
+          ],
+          "time_cpu_inference": [
+               1.357,
+               "s"
+          ],
+          "memory_usage_inference": [
+               1.4918135,
+               "GB"
+          ],
+          "time_gpu_inference": [
+               47.834,
+               "ms"
           ]
      },
      "segformer": {
@@ -154,6 +238,18 @@
                2,
                5,
                8
+          ],
+          "time_cpu_inference": [
+               81.05,
+               "ms"
+          ],
+          "memory_usage_inference": [
+               0.49168,
+               "GB"
+          ],
+          "time_gpu_inference": [
+               3.875,
+               "ms"
           ]
      },
      "unet": {
@@ -172,6 +268,18 @@
           "feature_size": 32,
           "num_heads": [
                1
+          ],
+          "time_cpu_inference": [
+               835.162,
+               "ms"
+          ],
+          "memory_usage_inference": [
+               3.02532,
+               "GB"
+          ],
+          "time_gpu_inference": [
+               30.738,
+               "ms"
           ]
      },
      "dints": {
@@ -190,6 +298,18 @@
           "feature_size": 48,
           "num_heads": [
                1
+          ],
+          "time_cpu_inference": [
+               937.639,
+               "ms"
+          ],
+          "memory_usage_inference": [
+               5.60917,
+               "GB"
+          ],
+          "time_gpu_inference": [
+               37.106,
+               "ms"
           ]
      }
 }
