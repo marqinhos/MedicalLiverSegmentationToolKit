@@ -8,7 +8,7 @@ import torch
 
 from functools import partial
 
-from .segment_anything.modeling import ImageEncoderViT3D, MaskDecoder3D, PromptEncoder3D, Sam3D
+from .modeling import ImageEncoderViT3D, MaskDecoder3D, PromptEncoder3D, Sam3D
 
 def build_sam3D_vit_h(checkpoint=None):
     return _build_sam3D(
