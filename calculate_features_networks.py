@@ -1,11 +1,14 @@
-import torch
-import json
-from monai.networks.nets import UNETR
-from fvcore.nn import FlopCountAnalysis, flop_count_table, flop_count_str
+import re
 import os
-import yaml
+import json
 import argparse
 from xmlrpc.client import boolean
+
+import yaml
+import torch
+from monai.networks.nets import UNETR
+from fvcore.nn import FlopCountAnalysis, flop_count_table, flop_count_str
+from torch.profiler import profile, record_function, ProfilerActivity
 
 from model.utils import get_model
 
@@ -70,7 +73,6 @@ def get_parser(model):
 
 
 
-
 def human_readable(num):
     magnitude = 0
     while abs(num) >= 1000:
@@ -112,6 +114,60 @@ def estimate_memory_inference(
     output = model(model_input.to(device)).sum()
     total_memory = model_memory/ (1024 ** 2)
     return round(total_memory, 3), 'MB'
+
+
+def parse_memory_size(size_str):
+    """Convert memory size string to bytes."""
+    units = {'Kb': 1e3, 'Mb': 1e6, 'Gb': 1e9}
+    match = re.match(r"([0-9.]+)\s*(Kb|Mb|Gb)", size_str)
+    if match:
+        value, unit = match.groups()
+        return float(value) * units[unit]
+    return 0.0
+
+
+def memory_profile(prof, sort_by, row_limit):
+    key_averages = prof.key_averages().table(sort_by=sort_by, row_limit=row_limit)
+    rows = key_averages.split('\n')
+    total_memory = 0.0
+    key = "Self CPU Mem"
+    index = None
+    for line in rows:
+        columns = re.split(r'\s{2,}', line.strip())
+        index = columns.index(key) if key in columns else index
+        if index is not None:
+            if len(columns) >= 8:
+                memory_str = columns[index]  # Assuming "Self CPU Mem" 
+                total_memory += parse_memory_size(memory_str)
+
+    return total_memory
+
+def separate_number_and_unit(s):
+    match = re.match(r"([0-9.]+)([a-zA-Z]+)", s)
+    if match:
+        number = match.group(1)
+        unit = match.group(2)
+        return [float(number), unit]
+    else:
+        raise ValueError("Error parsing string")
+
+
+def time_profile(prof, sort_by, row_limit):
+    key_averages = prof.key_averages().table(sort_by=sort_by, row_limit=row_limit)
+    rows = key_averages.split('\n')
+    key_cpu = "Self CPU time total"
+    key_cuda = "Self CUDA time total"
+    all_columns = [re.split(r'\s{2,}', line.strip()) for line in rows]
+    final = {}
+    for column in all_columns:
+        for values in column:
+            tow = values.split(": ")
+            if key_cpu in tow: 
+                final[key_cpu] = separate_number_and_unit(tow[1])
+            elif key_cuda in tow:
+                final[key_cuda] = separate_number_and_unit(tow[1])
+
+    return final
 
 
 def write_data_json(data, net, num_param, num_flops, memory, feature_size, num_heads):
@@ -158,6 +214,41 @@ def main(name_model, data):
 
     return data
 
+def main_profile(name_model, data):
+    args = get_parser(name_model)
+    model = get_model(args)
+    batch_size = args.batch_size
+    channels = args.in_chan
+    depth, height, width = args.training_size
+    input_tensor = torch.randn(batch_size, channels, depth, height, width)
+
+    model.eval()
+    model.cpu()
+    with profile(
+        activities=[ProfilerActivity.CPU], 
+        profile_memory=True,
+        record_shapes=True) as prof:
+        with record_function("model_inference"):
+            model(input_tensor)
+    
+    time = time_profile(prof, sort_by="cpu_time_total", row_limit=10)
+    total_memory = memory_profile(prof, sort_by='self_cpu_memory_usage', row_limit=10)
+    data[name_model]["time_cpu_inference"] = time["Self CPU time total"]
+    data[name_model]["memory_usage_inference"] = [total_memory / 1e9, "GB"]
+
+    model = model.to("cuda:0")
+
+    with profile(
+        activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA], 
+        record_shapes=True,
+    ) as prof:
+        with record_function("model_inference"):
+            model(input_tensor.to("cuda:0"))
+
+    time = time_profile(prof, sort_by="cuda_time_total", row_limit=10)
+    data[name_model]["time_gpu_inference"] = time["Self CUDA time total"]
+
+    return data
 
 
 if __name__ == '__main__':
@@ -175,15 +266,27 @@ if __name__ == '__main__':
         'dints'
         ]
     
-    data = {}
-    for name in name_models:
-        data = main(name, data)
-    #data = main(name_models[0], data)
-    print(data)
-    # Save file 
-    with open('networks.json', 'w') as f:
-        json.dump(data, f, indent=5)
+    ### Params, FLOPs and Memory part
+    if False:
+        data = {}
+        for name in name_models:
+            data = main(name, data)
+        #data = main(name_models[0], data)
+        ## print(data)
+        # Save file 
+        with open('networks.json', 'w') as f:
+            json.dump(data, f, indent=5)
 
+    ### PROFILE PART
+    if True:
+        with open('networks.json', 'r') as f:
+            data = json.load(f)
+
+        for name in name_models:
+            data = main_profile(name, data)
+        
+        with open('networks.json', 'w') as f:
+            json.dump(data, f, indent=5)
 
 
     #flop = FlopCountAnalysis(model, input_tensor)
