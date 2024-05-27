@@ -10,7 +10,17 @@ import pdb
 
 
 class UNet(nn.Module):
-    def __init__(self, in_ch, base_ch, scale=[2,2,2,2], kernel_size=[3,3,3,3], num_classes=1, block='ConvNormAct', pool=True, norm='bn'):
+    def __init__(
+            self, 
+            in_ch, 
+            base_ch, 
+            scale=[2,2,2,2], 
+            kernel_size=[3,3,3,3], 
+            num_classes=1, 
+            block='ConvNormAct', 
+            pool=True, 
+            norm='bn'
+            ):
         super().__init__()
         '''
         Args:
