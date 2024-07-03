@@ -545,7 +545,7 @@ def get_parser():
     """    
     parser = argparse.ArgumentParser(description="Framework to train, test and predict with different medical models")
 
-    parser.add_argument("--max_epochs", default=900, type=int, help="Max number of epochs for training")
+    parser.add_argument("--max_epochs", default=800, type=int, help="Max number of epochs for training")
     parser.add_argument("--batch_size", default=1, type=int, help="Batch size for training")
     parser.add_argument("--cache_rate", default=1.0, type=float, help="Cache rate for training")
     parser.add_argument("--pin_memory", default=False, type=bool, help="Pin memory for training")
@@ -564,10 +564,10 @@ def get_parser():
     
     parser.add_argument("--show", default=False, type=boolean, help="Visualizar resultados on-line")
 
-    parser.add_argument('--model', type=str, default='sam', help="Network model name. Available models: unet, unetr, swin_unet, unet++, attention_unet, resunet, medformer, vnet, segformer")
+    parser.add_argument('--model', type=str, default='segformer', help="Network model name. Available models: unet, unetr, swin_unetr, unet++, attention_unet, resunet, medformer, vnet, segformer")
     parser.add_argument('--dimension', type=str, default='3d', help="Dimension of the model (2d or 3d)")
     parser.add_argument('--dataset', type=str, default='btcv', help="Name of the dataset")
-    parser.add_argument('--run_version', type=int, default=2, help="Version of the checkpoint for testing or predicting")
+    parser.add_argument('--run_version', type=int, default=24, help="Version of the checkpoint for testing or predicting")
     parser.add_argument('--path_prediction', type=str, default="./results/", help="Path to save the predictions")
 
 
