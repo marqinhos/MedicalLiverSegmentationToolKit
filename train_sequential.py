@@ -44,12 +44,12 @@ class SequentialTrain:
             for model in list(models.keys()):
                 
                 gpu_memory = check_gpu_memory() # Verify GPU memory
-                while gpu_memory < 14124:  # Wait until GPU memory is available  9124
+                while gpu_memory < 15124:  # Wait until GPU memory is available  9124
                     print("Need more GPU memory. Waiting...")
                     time.sleep(55)  
                     gpu_memory = check_gpu_memory()
                
-                print(f"\nTest {model} ({dimension})...")  # Start model battery test
+                print(f"\nTrain {model} ({dimension})...")  # Start model battery test
                 try:
                     process = Process(
                         target=self.run_model, 
@@ -58,7 +58,8 @@ class SequentialTrain:
                     processes.append(process)
 
                 except: pass
-                time.sleep(30)  
+
+                time.sleep(60)  
                 
                 
         for process in processes:
@@ -81,29 +82,50 @@ class SequentialTrain:
             '--mode', 'Train',
             '--model', model, 
             '--dimension', dimension,
-            '--run_version', run_version
+            '--run_version', run_version,
+            '--data_dir', '../Datasets/BTCV_/',
             ]
         
         cmd = ['python3', 'train.py'] + args
+
         start_time = datetime.now()
         subprocess.run(cmd)
-        end_time = datetime.now()
-        elapsed_time = end_time - start_time
+
+
+        # result = {
+        #     'model': model,
+        #     'dimension': dimension,
+        #     'run_version': run_version,
+        #     'dataset': SequentialTrain.dataset, 
+        #     'start_time': start_time.strftime("%Y-%m-%d %H:%M:%S"),
+        # }
+
+        # base_path = f'./logs/{SequentialTrain.dataset}/{model}_{dimension}/lightning_logs/version_{run_version}'
+        # file_path = f'{base_path}/time_train_version_{run_version}.json'
+
+        # os.makedirs(base_path, exist_ok=True)
+        # with open(file_path, 'w') as json_file:
+        #     json.dump(result, json_file, indent=4)
+        #     json_file.write(',\n')
+
         
-        result = {
-            'model': model,
-            'dimension': dimension,
-            'run_version': run_version,
-            'dataset': SequentialTrain.dataset, 
-            'start_time': start_time.strftime("%Y-%m-%d %H:%M:%S"),
-            'end_time': end_time.strftime("%Y-%m-%d %H:%M:%S"),
-            'elapsed_time': str(elapsed_time),
-        }
+        # base_path = f'./logs/{SequentialTrain.dataset}/{model}_{dimension}/lightning_logs/version_{run_version}'
+        # file_path = f'{base_path}/time_train_version_{run_version}.json'
 
-        with open('./logs/'+SequentialTrain.dataset+'/'+model+'/'+dimension+'lightning_logs/version_'+run_version+'/time_train.json', 'w') as json_file:
-            json.dump(result, json_file, indent=4)
-            json_file.write(',\n') 
+        # with open(file_path, 'r') as f:
+        #     result = json.load(f)
 
+        # end_time = datetime.now()  
+        # elapsed_time = end_time - datetime.strptime(result['start_time'], "%Y-%m-%d %H:%M:%S")  
+
+        # result['end_time'] = end_time.strftime("%Y-%m-%d %H:%M:%S")
+        # result['elapsed_time'] = str(elapsed_time)
+
+        # with open(file_path, 'w') as f:
+        #     json.dump(result, f, indent=4)
+
+        
+        
 
     
 
