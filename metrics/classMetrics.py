@@ -329,7 +329,7 @@ class RemovirtMetrics(VolumeVisualization):
         self.classes = classes
         
 
-    def __call__(self, gt, pred, visualize_class_3d=None, spec_class=None, to_check=False):
+    def __call__(self, gt, pred, visualize_class_3d=None, spec_class=None, to_check=False, only_show=False):
         """Function to compute the metrics.
             : Union[str, np.ndarray, List[np.ndarray, TODO List[List[str]]]
          Args:
@@ -352,6 +352,7 @@ class RemovirtMetrics(VolumeVisualization):
             try:
                 print("Show Volume of {visualize_class_3d} class in 3D.".format(visualize_class_3d=visualize_class_3d))
                 self.plot3D(gt, pred, visualize_class_3d, self.classes.index(visualize_class_3d))    
+                if only_show: return None
 
             except Exception as e:
                 print("Error: ", e)
@@ -650,7 +651,7 @@ if "__main__" == __name__:
     # Paths
     gt_img_path = "../../Datasets/BTCV_/imagesTs/img0061.nii.gz" 
     gt_lbl_path = "../../Datasets/BTCV_/labelsTs/label0061.nii.gz"
-    pred_path = "../results/attention_unet_3d/img0061_Pred.nii.gz"
+    pred_path = "../results/swin_unetr_3d/img0061_Pred.nii.gz"
 
     # Classes
     organs = [ '__BKG__','Spleen','Right Kidney','Left Kideny','Gallbladder',
@@ -660,11 +661,24 @@ if "__main__" == __name__:
 
     metrics = RemovirtMetrics(organs)
 
-    results = metrics([gt_img_path, gt_lbl_path], pred_path) # To show liver on 3D. Mean of all classes.
-    #results = metrics([gt_img_path, gt_lbl_path], pred_path, spec_class=6) # Specific class to take metrics
-    # results = metrics(mask_true, mask_true, to_check=True) # To check the metrics
-    print(results)
-    print(results.results)
+    ## Only to visualize the 3D volume
+    results = metrics([gt_img_path, gt_lbl_path], pred_path, visualize_class_3d="Liver", spec_class=6, only_show=True) 
+    
+    ## To visualize the 3D volume and to calculate the metrics specific all classes
+    ## results = metrics([gt_img_path, gt_lbl_path], pred_path, visualize_class_3d="Liver", spec_class=6) 
+
+    ## To calculate the metrics for all classes
+    # results = metrics([gt_img_path, gt_lbl_path], pred_path) 
+
+    ## Only to calculate the metrics for specific classes
+    # results = metrics([gt_img_path, gt_lbl_path], pred_path, spec_class=6) 
+
+    ## To check the metrics
+    # results = metrics(mask_true, mask_true, to_check=True) 
+
+    ## Show results
+    # print(results)
+    # print(results.results)
     # print(results.mean())
     #results.plot()
     
