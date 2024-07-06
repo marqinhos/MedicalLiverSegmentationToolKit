@@ -28,10 +28,16 @@ class SequentialMetrics:
         'segformer'
     ]
 
+    models_3d = [ 
+        'segformer',
+        'unet',
+        'vnet', 
+    ]
+
     dimensions = 3
 
-    file_name = 'metrics.json'
-    root_path = './results/'
+    file_name = 'metricsNew.json'
+    root_path = './resultsNew/'
     gt_img_path = "../../Datasets/BTCV_/imagesTs/"
     gt_lbl_path = "../../Datasets/BTCV_/labelsTs/"
 

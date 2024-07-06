@@ -1,0 +1,1822 @@
+{
+    "DSC": {
+        "swin_unetr": {
+            "dimensions": 3,
+            "dataset": {
+                "BTCV": {
+                    "img0064": {
+                        "name_prediction": "img0064_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9942391129326452,
+                            "Spleen": 0.9521652588441917,
+                            "Right Kidney": null,
+                            "Left Kideny": null,
+                            "Gallbladder": null,
+                            "Esophagus": 0.5081937905965079,
+                            "Liver": 0.9604200899831123,
+                            "Stomach": 0.8651362732995386,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7357968159309941,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "mean_value_metrics": {
+                        "__BKG__": 0.9952910388112791,
+                        "Spleen": 0.9526397788661436,
+                        "Right Kidney": null,
+                        "Left Kideny": 0.9083389855414289,
+                        "Gallbladder": 0.6981032868550067,
+                        "Esophagus": 0.5325868343595512,
+                        "Liver": 0.9593117932900143,
+                        "Stomach": 0.8636276678555239,
+                        "Aorta": null,
+                        "IVC": null,
+                        "Portal and Splenic Veins": null,
+                        "Pancreas": 0.8010297027842854,
+                        "Right adrenal gland": null,
+                        "Left adrenal gland": null
+                    },
+                    "img0070": {
+                        "name_prediction": "img0070_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9961126179408676,
+                            "Spleen": 0.926596983912099,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8948075891906185,
+                            "Gallbladder": 0.800416095323656,
+                            "Esophagus": 0.4896185417672622,
+                            "Liver": 0.9522704896381144,
+                            "Stomach": 0.8250574070249189,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7254645509957308,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0065": {
+                        "name_prediction": "img0065_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9957283218990068,
+                            "Spleen": 0.9488124553181349,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9259387825944908,
+                            "Gallbladder": 0.8274616492535607,
+                            "Esophagus": 0.5414744459520578,
+                            "Liver": 0.9667095102940351,
+                            "Stomach": 0.8615858440624796,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7344438370260797,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0063": {
+                        "name_prediction": "img0063_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9951635073531236,
+                            "Spleen": 0.9641492997386585,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9185585293879563,
+                            "Gallbladder": 0.8386433710174718,
+                            "Esophagus": 0.4619221177824669,
+                            "Liver": 0.9627232287072776,
+                            "Stomach": 0.9339814078481915,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8687299893276414,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0076": {
+                        "name_prediction": "img0076_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9917823217891522,
+                            "Spleen": 0.9413782189069299,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8581796012638564,
+                            "Gallbladder": 0.3364459535936616,
+                            "Esophagus": 0.6357956633590591,
+                            "Liver": 0.9605261695180812,
+                            "Stomach": 0.7314414821509263,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7780214672689509,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0077": {
+                        "name_prediction": "img0077_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9963524421395007,
+                            "Spleen": 0.9612750424240945,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9233984727980079,
+                            "Gallbladder": 0.40822072072072074,
+                            "Esophagus": 0.6185235353877413,
+                            "Liver": 0.9671637580622412,
+                            "Stomach": 0.9436954255737257,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8888587291795188,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0079": {
+                        "name_prediction": "img0079_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9966715796923922,
+                            "Spleen": 0.960753372359379,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9467366445011435,
+                            "Gallbladder": 0.9230433596945732,
+                            "Esophagus": 0.5180672268907563,
+                            "Liver": 0.9637923745758258,
+                            "Stomach": 0.7982159496613026,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8530120481927711,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0074": {
+                        "name_prediction": "img0074_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9954891894805808,
+                            "Spleen": 0.9578146900692455,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8877376392656321,
+                            "Gallbladder": 0.883876623894158,
+                            "Esophagus": 0.615318784766795,
+                            "Liver": 0.9595324490700318,
+                            "Stomach": 0.9245799643503426,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7581624282198524,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0078": {
+                        "name_prediction": "img0078_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9962881418709385,
+                            "Spleen": 0.9603475161505903,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9250950765751876,
+                            "Gallbladder": null,
+                            "Esophagus": 0.5096194955109021,
+                            "Liver": 0.9567803994937699,
+                            "Stomach": 0.8864768387846588,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7932215743440233,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0075": {
+                        "name_prediction": "img0075_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9954538336919163,
+                            "Spleen": 0.9666930498213789,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8893345417381746,
+                            "Gallbladder": 0.34556831979079106,
+                            "Esophagus": 0.4926663174436878,
+                            "Liver": 0.9601497346474602,
+                            "Stomach": 0.8832157727627051,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8605290656107353,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0068": {
+                        "name_prediction": "img0068_Pred",
+                        "metrics": {
+                            "__BKG__": 0.993840203168776,
+                            "Spleen": 0.9547775943731657,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9271151742898006,
+                            "Gallbladder": 0.7572347266881029,
+                            "Esophagus": 0.3042944785276074,
+                            "Liver": 0.965103442226017,
+                            "Stomach": 0.8459853970074235,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8178147061386944,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0062": {
+                        "name_prediction": "img0062_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9968096996410574,
+                            "Spleen": 0.95104959737514,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9373708302077433,
+                            "Gallbladder": null,
+                            "Esophagus": 0.5596679349705984,
+                            "Liver": 0.940881841250845,
+                            "Stomach": 0.8653205438228814,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7965153690046033,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0061": {
+                        "name_prediction": "img0061_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9946384819060432,
+                            "Spleen": 0.9517834569569201,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9168008275480247,
+                            "Gallbladder": 0.2817788980914656,
+                            "Esophagus": 0.5572969086987779,
+                            "Liver": 0.9582199101344403,
+                            "Stomach": 0.7351865890638756,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.6810484154311011,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0080": {
+                        "name_prediction": "img0080_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9951552618763271,
+                            "Spleen": 0.9622284323447219,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9425067374917002,
+                            "Gallbladder": 0.7361336158544185,
+                            "Esophagus": 0.5469125902165196,
+                            "Liver": 0.9609204473806449,
+                            "Stomach": 0.9250484481742354,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8701472195609051,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0067": {
+                        "name_prediction": "img0067_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9951482605637906,
+                            "Spleen": 0.9678446988551518,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.919915430998521,
+                            "Gallbladder": 0.9186664044059796,
+                            "Esophagus": 0.6546922862712337,
+                            "Liver": 0.9681808070748587,
+                            "Stomach": 0.9329607572779457,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8865741963427388,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0069": {
+                        "name_prediction": "img0069_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9957425585870209,
+                            "Spleen": 0.9044031752163875,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.7847198227678299,
+                            "Gallbladder": 0.8835346553840191,
+                            "Esophagus": 0.49018603857313536,
+                            "Liver": 0.9405452630622877,
+                            "Stomach": 0.871775645792744,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7979682758323827,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0066": {
+                        "name_prediction": "img0066_Pred",
+                        "metrics": {
+                            "__BKG__": 0.9953321252586064,
+                            "Spleen": 0.9628033980582524,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9352080680441737,
+                            "Gallbladder": 0.8324216222575143,
+                            "Esophagus": 0.5497260273972603,
+                            "Liver": 0.9643805708112001,
+                            "Stomach": 0.8520066068860142,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7711962589261264,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    }
+                }
+            },
+            "mean_value_metrics": {
+                "__BKG__": 0.9952910388112791,
+                "Spleen": 0.9526397788661436,
+                "Right Kidney": null,
+                "Left Kideny": 0.9083389855414289,
+                "Gallbladder": 0.6981032868550067,
+                "Esophagus": 0.5325868343595512,
+                "Liver": 0.9595117932900143,
+                "Stomach": 0.8636276678555239,
+                "Aorta": null,
+                "IVC": null,
+                "Portal and Splenic Veins": null,
+                "Pancreas": 0.8010297027842854,
+                "Right adrenal gland": null,
+                "Left adrenal gland": null
+            }
+        }
+    },
+    "NSD": {
+        "swin_unetr": {
+            "dimensions": 3,
+            "dataset": {
+                "BTCV": {
+                    "img0064": {
+                        "name_prediction": "img0064_Pred",
+                        "metrics": {
+                            "__BKG__": 0.7052337335217918,
+                            "Spleen": 0.8984961548118516,
+                            "Right Kidney": null,
+                            "Left Kideny": null,
+                            "Gallbladder": null,
+                            "Esophagus": 0.4880627558015821,
+                            "Liver": 0.8663785583619367,
+                            "Stomach": 0.7770020288821717,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.700277331777258,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "mean_value_metrics": {
+                        "__BKG__": 0.8018253596480269,
+                        "Spleen": 0.9404777075772114,
+                        "Right Kidney": null,
+                        "Left Kideny": 0.8409082269462107,
+                        "Gallbladder": 0.7282104167216491,
+                        "Esophagus": 0.5694101492055907,
+                        "Liver": 0.9079963088881327,
+                        "Stomach": 0.8003304878474076,
+                        "Aorta": null,
+                        "IVC": null,
+                        "Portal and Splenic Veins": null,
+                        "Pancreas": 0.8171155158449227,
+                        "Right adrenal gland": null,
+                        "Left adrenal gland": null
+                    },
+                    "img0070": {
+                        "name_prediction": "img0070_Pred",
+                        "metrics": {
+                            "__BKG__": 0.8000019384666729,
+                            "Spleen": 0.9277053189323219,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8253962650480976,
+                            "Gallbladder": 0.7354223112294095,
+                            "Esophagus": 0.5164662833372592,
+                            "Liver": 0.8875399553706728,
+                            "Stomach": 0.7312599338465328,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.6546163388289054,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0065": {
+                        "name_prediction": "img0065_Pred",
+                        "metrics": {
+                            "__BKG__": 0.7666509298034425,
+                            "Spleen": 0.9483590245220482,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.855351781222692,
+                            "Gallbladder": 0.785157981385518,
+                            "Esophagus": 0.5714848365554486,
+                            "Liver": 0.9053214160756351,
+                            "Stomach": 0.7610424911065254,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7504915167852964,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0063": {
+                        "name_prediction": "img0063_Pred",
+                        "metrics": {
+                            "__BKG__": 0.8359311752766494,
+                            "Spleen": 0.9703088902199871,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8909211733809344,
+                            "Gallbladder": 0.9315412636612042,
+                            "Esophagus": 0.5041769802056904,
+                            "Liver": 0.9521133166564101,
+                            "Stomach": 0.9315960064044211,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.9227069974912089,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0076": {
+                        "name_prediction": "img0076_Pred",
+                        "metrics": {
+                            "__BKG__": 0.7200662236614013,
+                            "Spleen": 0.8624909232717572,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.6840869375281671,
+                            "Gallbladder": 0.4016799483221693,
+                            "Esophagus": 0.56976074981855,
+                            "Liver": 0.8867506780568604,
+                            "Stomach": 0.6811724725918546,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7830818441006082,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0077": {
+                        "name_prediction": "img0077_Pred",
+                        "metrics": {
+                            "__BKG__": 0.8057001486811576,
+                            "Spleen": 0.9578199540105096,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8581411075217592,
+                            "Gallbladder": 0.48947186746670795,
+                            "Esophagus": 0.5943837753589238,
+                            "Liver": 0.9079838719776187,
+                            "Stomach": 0.8992476375261383,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8966403839564736,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0079": {
+                        "name_prediction": "img0079_Pred",
+                        "metrics": {
+                            "__BKG__": 0.8171259468160466,
+                            "Spleen": 0.9865149443972863,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9215355041654247,
+                            "Gallbladder": 0.9645561950927541,
+                            "Esophagus": 0.6383647798868497,
+                            "Liver": 0.932360595824859,
+                            "Stomach": 0.6881668152238117,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.9015247776371634,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0074": {
+                        "name_prediction": "img0074_Pred",
+                        "metrics": {
+                            "__BKG__": 0.8579040646492249,
+                            "Spleen": 0.962084818430802,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8003954163984813,
+                            "Gallbladder": 0.9599623667158691,
+                            "Esophagus": 0.7109515260360226,
+                            "Liver": 0.9513660600531894,
+                            "Stomach": 0.8856247894074882,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7944773175550514,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0078": {
+                        "name_prediction": "img0078_Pred",
+                        "metrics": {
+                            "__BKG__": 0.8254239500635577,
+                            "Spleen": 0.9596097952094357,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.930206883310468,
+                            "Gallbladder": null,
+                            "Esophagus": 0.6453919491619334,
+                            "Liver": 0.929750798928363,
+                            "Stomach": 0.8392734749831153,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8569565926014182,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0075": {
+                        "name_prediction": "img0075_Pred",
+                        "metrics": {
+                            "__BKG__": 0.8189497424686971,
+                            "Spleen": 0.9805376474881993,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8087185418585382,
+                            "Gallbladder": 0.2605669323185658,
+                            "Esophagus": 0.5577029265680525,
+                            "Liver": 0.8950943092916789,
+                            "Stomach": 0.8638475030359388,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.9169844965084106,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0068": {
+                        "name_prediction": "img0068_Pred",
+                        "metrics": {
+                            "__BKG__": 0.8416583579664718,
+                            "Spleen": 0.9487287406019614,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9069734573312972,
+                            "Gallbladder": 0.842031029621967,
+                            "Esophagus": 0.40185444367736434,
+                            "Liver": 0.9446685850218959,
+                            "Stomach": 0.783830612005486,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8561814484955005,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0062": {
+                        "name_prediction": "img0062_Pred",
+                        "metrics": {
+                            "__BKG__": 0.8356292348621875,
+                            "Spleen": 0.9707157949365359,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9369394462707541,
+                            "Gallbladder": null,
+                            "Esophagus": 0.6170145477666978,
+                            "Liver": 0.9023149223952898,
+                            "Stomach": 0.7875049928343143,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.846097986058065,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0061": {
+                        "name_prediction": "img0061_Pred",
+                        "metrics": {
+                            "__BKG__": 0.7390098082434045,
+                            "Spleen": 0.9324913742597081,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8379685093280936,
+                            "Gallbladder": 0.2641288433489879,
+                            "Esophagus": 0.6057692307746461,
+                            "Liver": 0.8650903304494296,
+                            "Stomach": 0.5269975210553954,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.6199696980909059,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0080": {
+                        "name_prediction": "img0080_Pred",
+                        "metrics": {
+                            "__BKG__": 0.865370588773457,
+                            "Spleen": 0.9479311088518719,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9405929841076618,
+                            "Gallbladder": 0.796488858881884,
+                            "Esophagus": 0.5877862595489773,
+                            "Liver": 0.9158200223311483,
+                            "Stomach": 0.9035918183862409,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.912194989550492,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0067": {
+                        "name_prediction": "img0067_Pred",
+                        "metrics": {
+                            "__BKG__": 0.7983405751427076,
+                            "Spleen": 0.9432305055699723,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.7851151801542082,
+                            "Gallbladder": 0.9464285714290697,
+                            "Esophagus": 0.5894139886656066,
+                            "Liver": 0.9058031999620066,
+                            "Stomach": 0.8936988133045104,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.891196646341809,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0069": {
+                        "name_prediction": "img0069_Pred",
+                        "metrics": {
+                            "__BKG__": 0.8260516357772619,
+                            "Spleen": 0.8295847271251925,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.6080857340690325,
+                            "Gallbladder": 0.9668523939940802,
+                            "Esophagus": 0.6002554278501435,
+                            "Liver": 0.8941828384656106,
+                            "Stomach": 0.875371871381713,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.8298465829854493,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0066": {
+                        "name_prediction": "img0066_Pred",
+                        "metrics": {
+                            "__BKG__": 0.7719830598423231,
+                            "Spleen": 0.9615113061731485,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8641027094437589,
+                            "Gallbladder": 0.8506572706349009,
+                            "Esophagus": 0.4811320754812961,
+                            "Liver": 0.8933977918756517,
+                            "Stomach": 0.7763895114302697,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7577188205996707,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    }
+                }
+            },
+            "mean_value_metrics": {
+                "__BKG__": 0.8018253596480269,
+                "Spleen": 0.9404777075772114,
+                "Right Kidney": null,
+                "Left Kideny": 0.8409082269462107,
+                "Gallbladder": 0.7282104167216491,
+                "Esophagus": 0.5694101492055907,
+                "Liver": 0.9079963088881327,
+                "Stomach": 0.8003304878474076,
+                "Aorta": null,
+                "IVC": null,
+                "Portal and Splenic Veins": null,
+                "Pancreas": 0.8171155158449227,
+                "Right adrenal gland": null,
+                "Left adrenal gland": null
+            }
+        }
+    },
+    "MASD": {
+        "swin_unetr": {
+            "dimensions": 3,
+            "dataset": {
+                "BTCV": {
+                    "img0064": {
+                        "name_prediction": "img0064_Pred",
+                        "metrics": {
+                            "__BKG__": 0.6877970153598537,
+                            "Spleen": 1.755682175990779,
+                            "Right Kidney": null,
+                            "Left Kideny": null,
+                            "Gallbladder": null,
+                            "Esophagus": 8.287741347941152,
+                            "Liver": 0.9625284888529513,
+                            "Stomach": 2.2631356781933287,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 2.3083759744916734,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "mean_value_metrics": {
+                        "__BKG__": 0.340723609832492,
+                        "Spleen": 0.6403955117306666,
+                        "Right Kidney": null,
+                        "Left Kideny": 4.296971253087055,
+                        "Gallbladder": 4.04553621771051,
+                        "Esophagus": 3.968423644502447,
+                        "Liver": 1.1267547500793285,
+                        "Stomach": 2.3423421957105273,
+                        "Aorta": null,
+                        "IVC": null,
+                        "Portal and Splenic Veins": null,
+                        "Pancreas": 1.4137634426365275,
+                        "Right adrenal gland": null,
+                        "Left adrenal gland": null
+                    },
+                    "img0070": {
+                        "name_prediction": "img0070_Pred",
+                        "metrics": {
+                            "__BKG__": 0.3020241763959638,
+                            "Spleen": 0.8006489920571829,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9696119688995319,
+                            "Gallbladder": 1.0217841871069937,
+                            "Esophagus": 3.547550347846774,
+                            "Liver": 1.2091925028896124,
+                            "Stomach": 2.0005617105225966,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 2.4507770614799425,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0065": {
+                        "name_prediction": "img0065_Pred",
+                        "metrics": {
+                            "__BKG__": 0.3388962773532033,
+                            "Spleen": 0.40727507274009245,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9303218258934824,
+                            "Gallbladder": 0.9694840960627911,
+                            "Esophagus": 6.542391102387283,
+                            "Liver": 0.8181900195989402,
+                            "Stomach": 1.9481673571545994,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 1.337875320297834,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0063": {
+                        "name_prediction": "img0063_Pred",
+                        "metrics": {
+                            "__BKG__": 0.27638815876048023,
+                            "Spleen": 0.32986625026182204,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.7641491832640245,
+                            "Gallbladder": 0.44853604679080605,
+                            "Esophagus": 4.7077069730868955,
+                            "Liver": 0.4405482424977408,
+                            "Stomach": 0.5325625108671953,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.5047286856814458,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0076": {
+                        "name_prediction": "img0076_Pred",
+                        "metrics": {
+                            "__BKG__": 0.6608329994820868,
+                            "Spleen": 1.8878021735988015,
+                            "Right Kidney": null,
+                            "Left Kideny": 23.616404400764118,
+                            "Gallbladder": 1.9481419455087048,
+                            "Esophagus": 2.4818153417019486,
+                            "Liver": 0.8821617520568905,
+                            "Stomach": 7.257215243932494,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 1.262587036259737,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0077": {
+                        "name_prediction": "img0077_Pred",
+                        "metrics": {
+                            "__BKG__": 0.28705996334374223,
+                            "Spleen": 0.41115335513160983,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.8913414105344581,
+                            "Gallbladder": 2.2945072497375456,
+                            "Esophagus": 3.6574423726989203,
+                            "Liver": 0.7589691603648788,
+                            "Stomach": 0.7275011050324263,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.6429174898667773,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0079": {
+                        "name_prediction": "img0079_Pred",
+                        "metrics": {
+                            "__BKG__": 0.22735500865499658,
+                            "Spleen": 0.33202380979427104,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.6618214243212721,
+                            "Gallbladder": 0.27555400599517355,
+                            "Esophagus": 2.5316400212414982,
+                            "Liver": 0.5462256242081527,
+                            "Stomach": 4.534073440478256,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.5530952278178612,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0074": {
+                        "name_prediction": "img0074_Pred",
+                        "metrics": {
+                            "__BKG__": 0.2142841780137839,
+                            "Spleen": 0.39856491210174316,
+                            "Right Kidney": null,
+                            "Left Kideny": 11.330035847673345,
+                            "Gallbladder": 0.2864506505743801,
+                            "Esophagus": 2.27408547554535,
+                            "Liver": 0.3968704212989822,
+                            "Stomach": 1.1394782052920425,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 3.9890604141633395,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0078": {
+                        "name_prediction": "img0078_Pred",
+                        "metrics": {
+                            "__BKG__": 0.19042914753891127,
+                            "Spleen": 0.3579431733711171,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.5527094950614543,
+                            "Gallbladder": null,
+                            "Esophagus": 2.9227833566271837,
+                            "Liver": 0.5434511810740436,
+                            "Stomach": 1.1325811078779455,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.7910044182381983,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0075": {
+                        "name_prediction": "img0075_Pred",
+                        "metrics": {
+                            "__BKG__": 0.27053015573924105,
+                            "Spleen": 0.2708912534336453,
+                            "Right Kidney": null,
+                            "Left Kideny": 3.921818107656677,
+                            "Gallbladder": 38.2782860742766,
+                            "Esophagus": 3.9492157488549644,
+                            "Liver": 0.8822943136947954,
+                            "Stomach": 2.075503082630402,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.48680567233383326,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0068": {
+                        "name_prediction": "img0068_Pred",
+                        "metrics": {
+                            "__BKG__": 0.2952357745754682,
+                            "Spleen": 0.38817627423092094,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.5739748350945193,
+                            "Gallbladder": 0.8322250191508922,
+                            "Esophagus": 5.723645958592872,
+                            "Liver": 0.5487592499533516,
+                            "Stomach": 2.48781542490635,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.70483405917114,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0062": {
+                        "name_prediction": "img0062_Pred",
+                        "metrics": {
+                            "__BKG__": 0.19308262362310769,
+                            "Spleen": 0.3303307409041725,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.7114516867616308,
+                            "Gallbladder": null,
+                            "Esophagus": 2.63428139325851,
+                            "Liver": 0.7733048962757025,
+                            "Stomach": 1.9468440394825912,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.9825839113707082,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0061": {
+                        "name_prediction": "img0061_Pred",
+                        "metrics": {
+                            "__BKG__": 0.42350922057490437,
+                            "Spleen": 0.4733619247666836,
+                            "Right Kidney": null,
+                            "Left Kideny": 1.2601657197913818,
+                            "Gallbladder": 7.927918271444211,
+                            "Esophagus": 4.386055769473203,
+                            "Liver": 1.002948485211026,
+                            "Stomach": 5.955186304333491,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 3.948357140864126,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0080": {
+                        "name_prediction": "img0080_Pred",
+                        "metrics": {
+                            "__BKG__": 0.23408896668147705,
+                            "Spleen": 0.7872353484567812,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.497602536244854,
+                            "Gallbladder": 0.7002799503856829,
+                            "Esophagus": 2.866520712502991,
+                            "Liver": 1.0726979940789636,
+                            "Stomach": 0.6743262901831675,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.5193250068586948,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0067": {
+                        "name_prediction": "img0067_Pred",
+                        "metrics": {
+                            "__BKG__": 0.43829066291721724,
+                            "Spleen": 0.4577736366325549,
+                            "Right Kidney": null,
+                            "Left Kideny": 8.957776746027537,
+                            "Gallbladder": 0.5892303227995737,
+                            "Esophagus": 2.8400459934552447,
+                            "Liver": 0.7254028087347673,
+                            "Stomach": 1.1126947052561234,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.6930438598595152,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0069": {
+                        "name_prediction": "img0069_Pred",
+                        "metrics": {
+                            "__BKG__": 0.3317507370468163,
+                            "Spleen": 1.0539094352446652,
+                            "Right Kidney": null,
+                            "Left Kideny": 12.168450045287075,
+                            "Gallbladder": 0.32909435014537636,
+                            "Esophagus": 4.372993694508424,
+                            "Liver": 6.769116756380166,
+                            "Stomach": 2.037421889288007,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.927845156828445,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0066": {
+                        "name_prediction": "img0066_Pred",
+                        "metrics": {
+                            "__BKG__": 0.4207463010911105,
+                            "Spleen": 0.44408517070448994,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.9439048161175237,
+                            "Gallbladder": 0.7360148779684107,
+                            "Esophagus": 3.737286346818397,
+                            "Liver": 0.8221688541776204,
+                            "Stomach": 1.9947492316479454,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 1.9307620892376975,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    }
+                }
+            },
+            "mean_value_metrics": {
+                "__BKG__": 0.340723609832492,
+                "Spleen": 0.6403955117306666,
+                "Right Kidney": null,
+                "Left Kideny": 4.296971253087055,
+                "Gallbladder": 4.04553621771051,
+                "Esophagus": 3.968423644502447,
+                "Liver": 1.1267547500793285,
+                "Stomach": 2.3423421957105273,
+                "Aorta": null,
+                "IVC": null,
+                "Portal and Splenic Veins": null,
+                "Pancreas": 1.4137634426365275,
+                "Right adrenal gland": null,
+                "Left adrenal gland": null
+            }
+        }
+    },
+    "HD": {
+        "swin_unetr": {
+            "dimensions": 3,
+            "dataset": {
+                "BTCV": {
+                    "img0064": {
+                        "name_prediction": "img0064_Pred",
+                        "metrics": {
+                            "__BKG__": 47.0,
+                            "Spleen": 106.58799181896617,
+                            "Right Kidney": null,
+                            "Left Kideny": null,
+                            "Gallbladder": null,
+                            "Esophagus": 56.00892785976178,
+                            "Liver": 80.2869852466762,
+                            "Stomach": 104.9285471165974,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 132.0,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "mean_value_metrics": {
+                        "__BKG__": 30.935886926043707,
+                        "Spleen": 27.813551298828557,
+                        "Right Kidney": null,
+                        "Left Kideny": 63.69720988470434,
+                        "Gallbladder": 18.731459742326024,
+                        "Esophagus": 27.270079944428737,
+                        "Liver": 37.820438880107815,
+                        "Stomach": 48.95841447837827,
+                        "Aorta": null,
+                        "IVC": null,
+                        "Portal and Splenic Veins": null,
+                        "Pancreas": 26.741736835466128,
+                        "Right adrenal gland": null,
+                        "Left adrenal gland": null
+                    },
+                    "img0070": {
+                        "name_prediction": "img0070_Pred",
+                        "metrics": {
+                            "__BKG__": 32.0,
+                            "Spleen": 122.31516668017912,
+                            "Right Kidney": null,
+                            "Left Kideny": 8.306623862918075,
+                            "Gallbladder": 10.44030650891055,
+                            "Esophagus": 21.908902300206645,
+                            "Liver": 102.82995672468213,
+                            "Stomach": 51.487862647424,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 35.12833614050059,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0065": {
+                        "name_prediction": "img0065_Pred",
+                        "metrics": {
+                            "__BKG__": 35.749125863438955,
+                            "Spleen": 4.358898943540674,
+                            "Right Kidney": null,
+                            "Left Kideny": 10.392304845413264,
+                            "Gallbladder": 8.06225774829855,
+                            "Esophagus": 47.29693436154187,
+                            "Liver": 21.37755832643195,
+                            "Stomach": 35.86084215408221,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 18.138357147217054,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0063": {
+                        "name_prediction": "img0063_Pred",
+                        "metrics": {
+                            "__BKG__": 30.740852297878796,
+                            "Spleen": 7.14142842854285,
+                            "Right Kidney": null,
+                            "Left Kideny": 8.602325267042627,
+                            "Gallbladder": 6.48074069840786,
+                            "Esophagus": 31.32091952673165,
+                            "Liver": 10.0,
+                            "Stomach": 17.320508075688775,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 6.082762530298219,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0076": {
+                        "name_prediction": "img0076_Pred",
+                        "metrics": {
+                            "__BKG__": 40.0,
+                            "Spleen": 43.94314508543966,
+                            "Right Kidney": null,
+                            "Left Kideny": 258.75471010205786,
+                            "Gallbladder": 10.198039027185569,
+                            "Esophagus": 14.352700094407323,
+                            "Liver": 20.049937655763422,
+                            "Stomach": 88.53247991556545,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 19.05255888325765,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0077": {
+                        "name_prediction": "img0077_Pred",
+                        "metrics": {
+                            "__BKG__": 34.713109915419565,
+                            "Spleen": 4.242640687119285,
+                            "Right Kidney": null,
+                            "Left Kideny": 9.848857801796104,
+                            "Gallbladder": 18.138357147217054,
+                            "Esophagus": 31.464265445104548,
+                            "Liver": 18.439088914585774,
+                            "Stomach": 16.24807680927192,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 14.177446878757825,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0079": {
+                        "name_prediction": "img0079_Pred",
+                        "metrics": {
+                            "__BKG__": 25.0,
+                            "Spleen": 3.605551275463989,
+                            "Right Kidney": null,
+                            "Left Kideny": 8.12403840463596,
+                            "Gallbladder": 5.0990195135927845,
+                            "Esophagus": 19.595917942265423,
+                            "Liver": 24.020824298928627,
+                            "Stomach": 57.83597496368502,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 8.94427190999916,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0074": {
+                        "name_prediction": "img0074_Pred",
+                        "metrics": {
+                            "__BKG__": 18.35755975068582,
+                            "Spleen": 3.1622776601683795,
+                            "Right Kidney": null,
+                            "Left Kideny": 160.46494944379597,
+                            "Gallbladder": 3.605551275463989,
+                            "Esophagus": 25.03996805109783,
+                            "Liver": 11.40175425099138,
+                            "Stomach": 45.803929962395145,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 62.14499175315739,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0078": {
+                        "name_prediction": "img0078_Pred",
+                        "metrics": {
+                            "__BKG__": 18.384776310850235,
+                            "Spleen": 9.273618495495704,
+                            "Right Kidney": null,
+                            "Left Kideny": 6.0,
+                            "Gallbladder": null,
+                            "Esophagus": 20.42057785666214,
+                            "Liver": 10.0,
+                            "Stomach": 23.790754506740637,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 13.152946437965905,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0075": {
+                        "name_prediction": "img0075_Pred",
+                        "metrics": {
+                            "__BKG__": 25.0,
+                            "Spleen": 3.605551275463989,
+                            "Right Kidney": null,
+                            "Left Kideny": 138.00362314084367,
+                            "Gallbladder": 134.29817571359635,
+                            "Esophagus": 28.495613697550013,
+                            "Liver": 17.0,
+                            "Stomach": 52.744667976962376,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 8.0,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0068": {
+                        "name_prediction": "img0068_Pred",
+                        "metrics": {
+                            "__BKG__": 27.367864366808018,
+                            "Spleen": 5.0,
+                            "Right Kidney": null,
+                            "Left Kideny": 6.0,
+                            "Gallbladder": 12.041594578792296,
+                            "Esophagus": 25.67099530598687,
+                            "Liver": 12.84523257866513,
+                            "Stomach": 60.440052945046304,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 7.14142842854285,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0062": {
+                        "name_prediction": "img0062_Pred",
+                        "metrics": {
+                            "__BKG__": 30.033314835362415,
+                            "Spleen": 20.83266665599966,
+                            "Right Kidney": null,
+                            "Left Kideny": 70.63285354564121,
+                            "Gallbladder": null,
+                            "Esophagus": 19.544820285692065,
+                            "Liver": 15.84297951775486,
+                            "Stomach": 57.14017850864661,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 18.411952639521967,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0061": {
+                        "name_prediction": "img0061_Pred",
+                        "metrics": {
+                            "__BKG__": 27.51363298439521,
+                            "Spleen": 76.58328799418317,
+                            "Right Kidney": null,
+                            "Left Kideny": 16.76305461424021,
+                            "Gallbladder": 32.18695387886216,
+                            "Esophagus": 28.600699292150182,
+                            "Liver": 18.788294228055936,
+                            "Stomach": 51.11751167652823,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 52.354560450833695,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0080": {
+                        "name_prediction": "img0080_Pred",
+                        "metrics": {
+                            "__BKG__": 20.808652046684813,
+                            "Spleen": 39.81205847478876,
+                            "Right Kidney": null,
+                            "Left Kideny": 6.4031242374328485,
+                            "Gallbladder": 8.12403840463596,
+                            "Esophagus": 19.82422760159901,
+                            "Liver": 71.53320907103218,
+                            "Stomach": 18.788294228055936,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 9.0,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0067": {
+                        "name_prediction": "img0067_Pred",
+                        "metrics": {
+                            "__BKG__": 39.824615503479755,
+                            "Spleen": 4.358898943540674,
+                            "Right Kidney": null,
+                            "Left Kideny": 175.7099883330484,
+                            "Gallbladder": 3.1622776601683795,
+                            "Esophagus": 18.81488772222678,
+                            "Liver": 21.307275752662516,
+                            "Stomach": 42.04759208325728,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 9.433981132056603,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0069": {
+                        "name_prediction": "img0069_Pred",
+                        "metrics": {
+                            "__BKG__": 36.0,
+                            "Spleen": 12.529964086141668,
+                            "Right Kidney": null,
+                            "Left Kideny": 123.61634196173254,
+                            "Gallbladder": 4.0,
+                            "Esophagus": 33.436506994600975,
+                            "Liver": 158.06960492137634,
+                            "Stomach": 53.48831648126533,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 12.84523257866513,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0066": {
+                        "name_prediction": "img0066_Pred",
+                        "metrics": {
+                            "__BKG__": 37.416573867739416,
+                            "Spleen": 5.477225575051661,
+                            "Right Kidney": null,
+                            "Left Kideny": 11.532562594670797,
+                            "Gallbladder": 6.4031242374328485,
+                            "Esophagus": 21.79449471770337,
+                            "Liver": 29.154759474226502,
+                            "Stomach": 54.71745608121781,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 28.600699292150182,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    }
+                }
+            },
+            "mean_value_metrics": {
+                "__BKG__": 30.935886926043707,
+                "Spleen": 27.813551298828557,
+                "Right Kidney": null,
+                "Left Kideny": 63.69720988470434,
+                "Gallbladder": 18.731459742326024,
+                "Esophagus": 27.270079944428737,
+                "Liver": 37.820438880107815,
+                "Stomach": 48.95841447837827,
+                "Aorta": null,
+                "IVC": null,
+                "Portal and Splenic Veins": null,
+                "Pancreas": 26.741736835466128,
+                "Right adrenal gland": null,
+                "Left adrenal gland": null
+            }
+        }
+    },
+    "RVD": {
+        "swin_unetr": {
+            "dimensions": 3,
+            "dataset": {
+                "BTCV": {
+                    "img0064": {
+                        "name_prediction": "img0064_Pred",
+                        "metrics": {
+                            "__BKG__": 0.005794596797682875,
+                            "Spleen": -0.038523438672104095,
+                            "Right Kidney": null,
+                            "Left Kideny": null,
+                            "Gallbladder": null,
+                            "Esophagus": -0.6193709513775072,
+                            "Liver": 0.00011443455153808138,
+                            "Stomach": -0.009199971854770617,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": -0.241704464072571,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "mean_value_metrics": {
+                        "__BKG__": 0.004236800201819222,
+                        "Spleen": -0.024944094572940407,
+                        "Right Kidney": null,
+                        "Left Kideny": 0.018658710293241912,
+                        "Gallbladder": 0.20462653743293133,
+                        "Esophagus": -0.23558077309001682,
+                        "Liver": -0.0022493938022643454,
+                        "Stomach": -0.09881102471228984,
+                        "Aorta": null,
+                        "IVC": null,
+                        "Portal and Splenic Veins": null,
+                        "Pancreas": -0.08380485082567264,
+                        "Right adrenal gland": null,
+                        "Left adrenal gland": null
+                    },
+                    "img0070": {
+                        "name_prediction": "img0070_Pred",
+                        "metrics": {
+                            "__BKG__": 0.002403625344650576,
+                            "Spleen": 0.021397536324420287,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.09323659995238029,
+                            "Gallbladder": 0.3189730546061521,
+                            "Esophagus": 0.0028929604628736743,
+                            "Liver": 0.03519781075278964,
+                            "Stomach": -0.15737258037036553,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.05355684711081224,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0065": {
+                        "name_prediction": "img0065_Pred",
+                        "metrics": {
+                            "__BKG__": 0.0046439698820820614,
+                            "Spleen": -0.046991869918699185,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.0338971709980462,
+                            "Gallbladder": 0.07163955385090155,
+                            "Esophagus": -0.5125,
+                            "Liver": 0.007965478975268971,
+                            "Stomach": -0.13339840005577147,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": -0.3821817067565497,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0063": {
+                        "name_prediction": "img0063_Pred",
+                        "metrics": {
+                            "__BKG__": 0.005027531919807869,
+                            "Spleen": -0.013628390230738092,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.03293187805796011,
+                            "Gallbladder": 0.18777514392143582,
+                            "Esophagus": -0.21217907914279652,
+                            "Liver": 0.022842057204497446,
+                            "Stomach": -0.06420389015856394,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": -0.03195989903658147,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0076": {
+                        "name_prediction": "img0076_Pred",
+                        "metrics": {
+                            "__BKG__": 0.0051375616698930825,
+                            "Spleen": -0.07687251035105276,
+                            "Right Kidney": null,
+                            "Left Kideny": -0.07703546772838514,
+                            "Gallbladder": 0.7967313585291114,
+                            "Esophagus": 0.13561376693195593,
+                            "Liver": -0.025082433953519168,
+                            "Stomach": 0.17424304925336193,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.0372598209704088,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0077": {
+                        "name_prediction": "img0077_Pred",
+                        "metrics": {
+                            "__BKG__": 0.0039397709838284445,
+                            "Spleen": -0.03543517425607256,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.031114612051988972,
+                            "Gallbladder": 0.7408720311946119,
+                            "Esophagus": -0.3595685177786656,
+                            "Liver": -0.016945163567898328,
+                            "Stomach": 0.010335741606459838,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.0076694279884958584,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0079": {
+                        "name_prediction": "img0079_Pred",
+                        "metrics": {
+                            "__BKG__": 0.0039259823507895066,
+                            "Spleen": -0.046425223098024236,
+                            "Right Kidney": null,
+                            "Left Kideny": -0.03401543467154266,
+                            "Gallbladder": 0.02445857127464713,
+                            "Esophagus": -0.8726614363307181,
+                            "Liver": -0.017350416761505238,
+                            "Stomach": -0.30112992989134363,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": -0.09324883600620797,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0074": {
+                        "name_prediction": "img0074_Pred",
+                        "metrics": {
+                            "__BKG__": 0.0037901008173439605,
+                            "Spleen": -0.047875587734424366,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.017563294791017564,
+                            "Gallbladder": 0.13455248290217067,
+                            "Esophagus": -0.05044966001316078,
+                            "Liver": 0.007326807986045841,
+                            "Stomach": -0.1323977859031983,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": -0.20049341115590588,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0078": {
+                        "name_prediction": "img0078_Pred",
+                        "metrics": {
+                            "__BKG__": 0.0026088490779509112,
+                            "Spleen": -0.028254288597376387,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.01519865354210231,
+                            "Gallbladder": null,
+                            "Esophagus": -0.2675714978187106,
+                            "Liver": 0.020302828461304788,
+                            "Stomach": 0.023950131233595802,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.023054755043227664,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0075": {
+                        "name_prediction": "img0075_Pred",
+                        "metrics": {
+                            "__BKG__": 0.004799087563329306,
+                            "Spleen": -0.02745370169579737,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.06763051011663003,
+                            "Gallbladder": -0.8824875487952618,
+                            "Esophagus": 0.24701561065197428,
+                            "Liver": -0.03828342389358574,
+                            "Stomach": -0.18953459328948463,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.03882866850024268,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0068": {
+                        "name_prediction": "img0068_Pred",
+                        "metrics": {
+                            "__BKG__": 0.007182944090275306,
+                            "Spleen": -0.04116084309792744,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.010183725569521365,
+                            "Gallbladder": 0.18658892128279883,
+                            "Esophagus": -0.1279373368146214,
+                            "Liver": -0.015681638023139596,
+                            "Stomach": -0.26044812133746986,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": -0.2672243446186273,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0062": {
+                        "name_prediction": "img0062_Pred",
+                        "metrics": {
+                            "__BKG__": 0.0026618798263875003,
+                            "Spleen": -0.03649154177352187,
+                            "Right Kidney": null,
+                            "Left Kideny": -0.03777881765715177,
+                            "Gallbladder": null,
+                            "Esophagus": -0.4879518072289157,
+                            "Liver": 0.03904215261113991,
+                            "Stomach": -0.28850765541413026,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": -0.30680520666818906,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0061": {
+                        "name_prediction": "img0061_Pred",
+                        "metrics": {
+                            "__BKG__": 0.0006907966183877258,
+                            "Spleen": -0.04171844487839517,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.06605993153097307,
+                            "Gallbladder": 0.6561819501572708,
+                            "Esophagus": 0.0380818053596615,
+                            "Liver": 0.01953551721403617,
+                            "Stomach": 0.20030477573677058,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.18616329756047822,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0080": {
+                        "name_prediction": "img0080_Pred",
+                        "metrics": {
+                            "__BKG__": 0.004197474955486582,
+                            "Spleen": -0.03555649657703437,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.012266604557276503,
+                            "Gallbladder": 0.3791919191919192,
+                            "Esophagus": -0.1068637803590285,
+                            "Liver": -0.01011860160164848,
+                            "Stomach": 0.017694726046972982,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": -0.005276545080636432,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0067": {
+                        "name_prediction": "img0067_Pred",
+                        "metrics": {
+                            "__BKG__": 0.005763664264156585,
+                            "Spleen": -0.02753931258949015,
+                            "Right Kidney": null,
+                            "Left Kideny": -0.0057428642059824675,
+                            "Gallbladder": 0.07851844852836963,
+                            "Esophagus": -0.008670116067682842,
+                            "Liver": -0.0144042086584454,
+                            "Stomach": -0.1187622372551254,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": 0.03146380518643292,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0069": {
+                        "name_prediction": "img0069_Pred",
+                        "metrics": {
+                            "__BKG__": 0.0037375638885700033,
+                            "Spleen": 0.11497381835835906,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.05005548509828789,
+                            "Gallbladder": 0.04186693650392107,
+                            "Esophagus": -0.5006402048655569,
+                            "Liver": -0.04487122793363286,
+                            "Stomach": -0.23802973824294027,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": -0.08204875425703531,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    },
+                    "img0066": {
+                        "name_prediction": "img0066_Pred",
+                        "metrics": {
+                            "__BKG__": 0.005720203380304482,
+                            "Spleen": -0.016494138952108266,
+                            "Right Kidney": null,
+                            "Left Kideny": 0.022973482688748343,
+                            "Gallbladder": 0.12990870091299087,
+                            "Esophagus": -0.3021128981393882,
+                            "Liver": -0.007829668001739926,
+                            "Stomach": -0.21333094021292473,
+                            "Aorta": null,
+                            "IVC": null,
+                            "Portal and Splenic Veins": null,
+                            "Pancreas": -0.191735918744229,
+                            "Right adrenal gland": null,
+                            "Left adrenal gland": null
+                        }
+                    }
+                }
+            },
+            "mean_value_metrics": {
+                "__BKG__": 0.004236800201819222,
+                "Spleen": -0.024944094572940407,
+                "Right Kidney": null,
+                "Left Kideny": 0.018658710293241912,
+                "Gallbladder": 0.20462653743293133,
+                "Esophagus": -0.23558077309001682,
+                "Liver": -0.0022493938022643454,
+                "Stomach": -0.09881102471228984,
+                "Aorta": null,
+                "IVC": null,
+                "Portal and Splenic Veins": null,
+                "Pancreas": -0.08380485082567264,
+                "Right adrenal gland": null,
+                "Left adrenal gland": null
+            }
+        }
+    }
+}

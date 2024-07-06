@@ -4,21 +4,17 @@ import json
 from datetime import datetime
 from multiprocessing import Process
 
-from .utils import check_gpu_memory
+from utils import check_gpu_memory
 
 
 
 class SequentialPredictions:
 
     models_2d = {} # TODO
-    models_3d = {
-        'attention_unet': 16, 
-        'medformer': 31, 
-        'resunet': 38, 
-        'swin_unetr': 54, 
-        'unet++': 52, 
-        'unetr': 22, 
-        'vnet': 23, 
+    models_3d = { 
+        'segformer': 25, 
+        'unet': 1, 
+        'vnet': 1, 
         # 'segformer': 2, Different path
         }
     
@@ -75,12 +71,14 @@ class SequentialPredictions:
             model (str): Name of the model
             dimension (str): Number of dimensions (2d or 3d)
             run_version (str): Version of the model
-        """        
+        """   
+        path = './resultsNew/'   
         args = [
             '--mode', 'Predict',
             '--model', model, 
             '--dimension', dimension,
-            '--run_version', run_version
+            '--run_version', run_version,
+            '--path_prediction', path,
             ]
         
         cmd = ['python3', 'train.py'] + args
@@ -100,7 +98,7 @@ class SequentialPredictions:
                 'elapsed_time': str(elapsed_time),
             }
 
-            with open('./results/'+model+'_'+dimension+'/time_prediction_set.json', 'w') as json_file:
+            with open(path+model+'_'+dimension+'/time_prediction_set.json', 'w') as json_file:
                 json.dump(result, json_file, indent=4)
                 json_file.write(',\n') 
 

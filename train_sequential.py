@@ -1,5 +1,6 @@
 import subprocess
 import time
+import os
 import json
 from datetime import datetime
 from multiprocessing import Process
@@ -21,6 +22,17 @@ class SequentialTrain:
         'vnet': 0, 
         'segformer': 3, 
         }
+    
+    #models_3d = {'segformer': 23}
+    models_3d = {#'unet': 1,
+                 #'resunet': 1,
+                 #'segformer': 25,
+                 #'unet++': 0,
+                 #'unetr': 0,
+                 #'swin_unetr': 1,
+                 'attention_unet': 1,
+                 }
+
     
     dimensions = ['3d'] # '2d',
 
@@ -59,7 +71,7 @@ class SequentialTrain:
 
                 except: pass
 
-                time.sleep(60)  
+                time.sleep(3600)  
                 
                 
         for process in processes:
