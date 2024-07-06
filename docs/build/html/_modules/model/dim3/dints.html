@@ -1,0 +1,1483 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../../">
+  <head>
+<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
+
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+<script defer data-domain="docs.datasette.io" src="https://plausible.io/js/plausible.js"></script>
+
+        <title>model.dim3.dints - Medical Liver Segmentation Toolkit</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/fontawesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/solid.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #140062;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     🚀 🩻<em>New Release Medical Liver Segmentation Toolkit!</em>🩻 🚀 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">Medical Liver Segmentation Toolkit</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-scroll"><div class="sidebar-brand centered">
+    
+    <div class="sidebar-logo-container">
+      <a href="https://github.com/marqinhos/JetRacer_Autonomous_Driving"><img class="sidebar-logo" src="" alt="JetRacer Autonomous Driving"></a>
+    </div>
+    
+    
+    
+  </div><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-tree">
+    <ul>
+      <li class="toctree-l1"><a class="reference internal" href="../../../index.html">Contents</a></li>
+    </ul>
+    <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/main.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modulos/modules.html">LiverSegmentation</a></li>
+</ul>
+
+  </div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <h1>Source code for model.dim3.dints</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) MONAI Consortium</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+
+<span class="kn">from</span> <span class="nn">monai.networks.blocks.dints_block</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ActiConvNormBlock</span><span class="p">,</span>
+    <span class="n">FactorizedIncreaseBlock</span><span class="p">,</span>
+    <span class="n">FactorizedReduceBlock</span><span class="p">,</span>
+    <span class="n">P3DActiConvNormBlock</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">monai.networks.layers.factories</span> <span class="kn">import</span> <span class="n">Conv</span>
+<span class="kn">from</span> <span class="nn">monai.networks.layers.utils</span> <span class="kn">import</span> <span class="n">get_act_layer</span><span class="p">,</span> <span class="n">get_norm_layer</span>
+<span class="kn">from</span> <span class="nn">monai.utils</span> <span class="kn">import</span> <span class="n">optional_import</span>
+
+<span class="c1"># solving shortest path problem</span>
+<span class="n">csr_matrix</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">optional_import</span><span class="p">(</span><span class="s2">&quot;scipy.sparse&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;csr_matrix&quot;</span><span class="p">)</span>
+<span class="n">dijkstra</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">optional_import</span><span class="p">(</span><span class="s2">&quot;scipy.sparse.csgraph&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dijkstra&quot;</span><span class="p">)</span>
+
+
+
+<div class="viewcode-block" id="CellInterface">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.CellInterface">[docs]</a>
+<span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">interface</span>
+<span class="k">class</span> <span class="nc">CellInterface</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;interface for torchscriptable Cell&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CellInterface.forward">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.CellInterface.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+        <span class="k">pass</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="StemInterface">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.StemInterface">[docs]</a>
+<span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">interface</span>
+<span class="k">class</span> <span class="nc">StemInterface</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;interface for torchscriptable Stem&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="StemInterface.forward">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.StemInterface.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+        <span class="k">pass</span></div>
+</div>
+
+
+
+
+<div class="viewcode-block" id="StemTS">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.StemTS">[docs]</a>
+<span class="k">class</span> <span class="nc">StemTS</span><span class="p">(</span><span class="n">StemInterface</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;wrapper for torchscriptable Stem&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">mod</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">mod</span><span class="p">)</span>
+
+<div class="viewcode-block" id="StemTS.forward">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.StemTS.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># type: ignore</span></div>
+</div>
+
+
+
+
+<span class="k">def</span> <span class="nf">_dfs</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">paths</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;use depth first search to find all path activation combination&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="o">==</span> <span class="n">paths</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">child</span> <span class="o">=</span> <span class="n">_dfs</span><span class="p">(</span><span class="n">node</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">paths</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">child</span><span class="p">]</span> <span class="o">+</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">child</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">_IdentityWithRAMCost</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Identity</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ram_cost</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+
+<span class="k">class</span> <span class="nc">_ActiConvNormBlockWithRAMCost</span><span class="p">(</span><span class="n">ActiConvNormBlock</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The class wraps monai layers with ram estimation. The ram_cost = total_ram/output_size is estimated.</span>
+<span class="sd">    Here is the estimation:</span>
+<span class="sd">     feature_size = output_size/out_channel</span>
+<span class="sd">     total_ram = ram_cost * output_size</span>
+<span class="sd">     total_ram = in_channel * feature_size (activation map) +</span>
+<span class="sd">                 in_channel * feature_size (convolution map) +</span>
+<span class="sd">                 out_channel * feature_size (normalization)</span>
+<span class="sd">               = (2*in_channel + out_channel) * output_size/out_channel</span>
+<span class="sd">     ram_cost = total_ram/output_size = 2 * in_channel/out_channel + 1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">in_channel</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">out_channel</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">padding</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">spatial_dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">act_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;RELU&quot;</span><span class="p">,</span>
+        <span class="n">norm_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INSTANCE&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;affine&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">in_channel</span><span class="p">,</span> <span class="n">out_channel</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">padding</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="p">,</span> <span class="n">act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ram_cost</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">in_channel</span> <span class="o">/</span> <span class="n">out_channel</span> <span class="o">*</span> <span class="mi">2</span>
+
+
+
+<span class="k">class</span> <span class="nc">_P3DActiConvNormBlockWithRAMCost</span><span class="p">(</span><span class="n">P3DActiConvNormBlock</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">in_channel</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">out_channel</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">padding</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">p3dmode</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">act_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;RELU&quot;</span><span class="p">,</span>
+        <span class="n">norm_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INSTANCE&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;affine&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">in_channel</span><span class="p">,</span> <span class="n">out_channel</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">padding</span><span class="p">,</span> <span class="n">p3dmode</span><span class="p">,</span> <span class="n">act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="p">)</span>
+        <span class="c1"># 1 in_channel (activation) + 1 in_channel (convolution) +</span>
+        <span class="c1"># 1 out_channel (convolution) + 1 out_channel (normalization)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ram_cost</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">in_channel</span> <span class="o">/</span> <span class="n">out_channel</span>
+
+
+
+<span class="k">class</span> <span class="nc">_FactorizedIncreaseBlockWithRAMCost</span><span class="p">(</span><span class="n">FactorizedIncreaseBlock</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">in_channel</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">out_channel</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">spatial_dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">act_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;RELU&quot;</span><span class="p">,</span>
+        <span class="n">norm_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INSTANCE&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;affine&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">in_channel</span><span class="p">,</span> <span class="n">out_channel</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="p">,</span> <span class="n">act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="p">)</span>
+        <span class="c1"># s0 is upsampled 2x from s1, representing feature sizes at two resolutions.</span>
+        <span class="c1"># 2 * in_channel * s0 (upsample + activation) + 2 * out_channel * s0 (conv + normalization)</span>
+        <span class="c1"># s0 = output_size/out_channel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ram_cost</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">in_channel</span> <span class="o">/</span> <span class="n">out_channel</span> <span class="o">+</span> <span class="mi">2</span>
+
+
+
+<span class="k">class</span> <span class="nc">_FactorizedReduceBlockWithRAMCost</span><span class="p">(</span><span class="n">FactorizedReduceBlock</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">in_channel</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">out_channel</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">spatial_dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">act_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;RELU&quot;</span><span class="p">,</span>
+        <span class="n">norm_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INSTANCE&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;affine&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">in_channel</span><span class="p">,</span> <span class="n">out_channel</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="p">,</span> <span class="n">act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="p">)</span>
+        <span class="c1"># s0 is upsampled 2x from s1, representing feature sizes at two resolutions.</span>
+        <span class="c1"># in_channel * s0 (activation) + 3 * out_channel * s1 (convolution, concatenation, normalization)</span>
+        <span class="c1"># s0 = s1 * 2^(spatial_dims) = output_size / out_channel * 2^(spatial_dims)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ram_cost</span> <span class="o">=</span> <span class="n">in_channel</span> <span class="o">/</span> <span class="n">out_channel</span> <span class="o">*</span> <span class="mi">2</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span> <span class="o">+</span> <span class="mi">3</span>
+
+
+
+<div class="viewcode-block" id="MixedOp">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.MixedOp">[docs]</a>
+<span class="k">class</span> <span class="nc">MixedOp</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The weighted averaging of cell operations.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        c: number of output channels.</span>
+<span class="sd">        ops: a dictionary of operations. See also: ``Cell.OPS2D`` or ``Cell.OPS3D``.</span>
+<span class="sd">        arch_code_c: binary cell operation code. It represents the operation results added to the output.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ops</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">arch_code_c</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">arch_code_c</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arch_code_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ops</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ops</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">arch_c</span><span class="p">,</span> <span class="n">op_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">arch_code_c</span><span class="p">,</span> <span class="n">ops</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">arch_c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ops</span><span class="p">[</span><span class="n">op_name</span><span class="p">](</span><span class="n">c</span><span class="p">))</span>
+
+<div class="viewcode-block" id="MixedOp.forward">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.MixedOp.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            x: input tensor.</span>
+<span class="sd">            weight: learnable architecture weights for cell operations. arch_code_c are derived from it.</span>
+<span class="sd">        Return:</span>
+<span class="sd">            out: weighted average of the operation results.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">if</span> <span class="n">weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">_op</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ops</span><span class="p">):</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="n">_op</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">if</span> <span class="n">weight</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">out</span> <span class="o">+</span> <span class="n">_op</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">weight</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+</div>
+
+
+
+
+<div class="viewcode-block" id="Cell">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.Cell">[docs]</a>
+<span class="k">class</span> <span class="nc">Cell</span><span class="p">(</span><span class="n">CellInterface</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The basic class for cell operation search, which contains a preprocessing operation and a mixed cell operation.</span>
+<span class="sd">    Each cell is defined on a `path` in the topology search space.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        c_prev: number of input channels</span>
+<span class="sd">        c: number of output channels</span>
+<span class="sd">        rate: resolution change rate. It represents the preprocessing operation before the mixed cell operation.</span>
+<span class="sd">            ``-1`` for 2x downsample, ``1`` for 2x upsample, ``0`` for no change of resolution.</span>
+<span class="sd">        arch_code_c: cell operation code</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DIRECTIONS</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="c1"># Possible output paths for `Cell`.</span>
+    <span class="c1">#</span>
+    <span class="c1">#       - UpSample</span>
+    <span class="c1">#      /</span>
+    <span class="c1"># +--+/</span>
+    <span class="c1"># |  |--- Identity or AlignChannels</span>
+    <span class="c1"># +--+\</span>
+    <span class="c1">#      \</span>
+    <span class="c1">#       - Downsample</span>
+
+    <span class="c1"># Define 2D operation set, parameterized by the number of channels</span>
+    <span class="n">OPS2D</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;skip_connect&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">_c</span><span class="p">:</span> <span class="n">_IdentityWithRAMCost</span><span class="p">(),</span>
+        <span class="s2">&quot;conv_3x3&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">_ActiConvNormBlockWithRAMCost</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Define 3D operation set, parameterized by the number of channels</span>
+    <span class="n">OPS3D</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;skip_connect&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">_c</span><span class="p">:</span> <span class="n">_IdentityWithRAMCost</span><span class="p">(),</span>
+        <span class="s2">&quot;conv_3x3x3&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">_ActiConvNormBlockWithRAMCost</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+        <span class="s2">&quot;conv_3x3x1&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">_P3DActiConvNormBlockWithRAMCost</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p3dmode</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+        <span class="s2">&quot;conv_3x1x3&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">_P3DActiConvNormBlockWithRAMCost</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p3dmode</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;conv_1x3x3&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">_P3DActiConvNormBlockWithRAMCost</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p3dmode</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Define connection operation set, parameterized by the number of channels</span>
+    <span class="n">ConnOPS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;up&quot;</span><span class="p">:</span> <span class="n">_FactorizedIncreaseBlockWithRAMCost</span><span class="p">,</span>
+        <span class="s2">&quot;down&quot;</span><span class="p">:</span> <span class="n">_FactorizedReduceBlockWithRAMCost</span><span class="p">,</span>
+        <span class="s2">&quot;identity&quot;</span><span class="p">:</span> <span class="n">_IdentityWithRAMCost</span><span class="p">,</span>
+        <span class="s2">&quot;align_channels&quot;</span><span class="p">:</span> <span class="n">_ActiConvNormBlockWithRAMCost</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">c_prev</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">c</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">arch_code_c</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">spatial_dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">act_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;RELU&quot;</span><span class="p">,</span>
+        <span class="n">norm_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INSTANCE&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;affine&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span> <span class="o">=</span> <span class="n">spatial_dims</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span> <span class="o">=</span> <span class="n">act_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span> <span class="o">=</span> <span class="n">norm_name</span>
+
+        <span class="k">if</span> <span class="n">rate</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># downsample</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ConnOPS</span><span class="p">[</span><span class="s2">&quot;down&quot;</span><span class="p">](</span>
+                <span class="n">c_prev</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span><span class="p">,</span> <span class="n">act_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">rate</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># upsample</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ConnOPS</span><span class="p">[</span><span class="s2">&quot;up&quot;</span><span class="p">](</span>
+                <span class="n">c_prev</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span><span class="p">,</span> <span class="n">act_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">c_prev</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ConnOPS</span><span class="p">[</span><span class="s2">&quot;identity&quot;</span><span class="p">]()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ConnOPS</span><span class="p">[</span><span class="s2">&quot;align_channels&quot;</span><span class="p">](</span>
+                    <span class="n">c_prev</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span><span class="p">,</span> <span class="n">act_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span>
+                <span class="p">)</span>
+
+        <span class="c1"># Define 2D operation set, parameterized by the number of channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">OPS2D</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;skip_connect&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">_c</span><span class="p">:</span> <span class="n">_IdentityWithRAMCost</span><span class="p">(),</span>
+            <span class="s2">&quot;conv_3x3&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">_ActiConvNormBlockWithRAMCost</span><span class="p">(</span>
+                <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">act_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span>
+            <span class="p">),</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Define 3D operation set, parameterized by the number of channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">OPS3D</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;skip_connect&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">_c</span><span class="p">:</span> <span class="n">_IdentityWithRAMCost</span><span class="p">(),</span>
+            <span class="s2">&quot;conv_3x3x3&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">_ActiConvNormBlockWithRAMCost</span><span class="p">(</span>
+                <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">act_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;conv_3x3x1&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">_P3DActiConvNormBlockWithRAMCost</span><span class="p">(</span>
+                <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p3dmode</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">act_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;conv_3x1x3&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">_P3DActiConvNormBlockWithRAMCost</span><span class="p">(</span>
+                <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p3dmode</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">act_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;conv_1x3x3&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">_P3DActiConvNormBlockWithRAMCost</span><span class="p">(</span>
+                <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p3dmode</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">act_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span><span class="p">,</span> <span class="n">norm_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span>
+            <span class="p">),</span>
+        <span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">OPS</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">OPS</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">OPS2D</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">OPS</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">OPS3D</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spatial dimensions </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">=</span> <span class="n">MixedOp</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OPS</span><span class="p">,</span> <span class="n">arch_code_c</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Cell.forward">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.Cell.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            x: input tensor</span>
+<span class="sd">            weight: weights for different operations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span></div>
+</div>
+
+
+
+
+<div class="viewcode-block" id="DiNTS">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.DiNTS">[docs]</a>
+<span class="k">class</span> <span class="nc">DiNTS</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Reimplementation of DiNTS based on</span>
+<span class="sd">    &quot;DiNTS: Differentiable Neural Network Topology Search for 3D Medical Image Segmentation</span>
+<span class="sd">    &lt;https://arxiv.org/abs/2103.15954&gt;&quot;.</span>
+
+<span class="sd">    The model contains a pre-defined multi-resolution stem block (defined in this class) and a</span>
+<span class="sd">    DiNTS space (defined in :py:class:`monai.networks.nets.TopologyInstance` and</span>
+<span class="sd">    :py:class:`monai.networks.nets.TopologySearch`).</span>
+
+<span class="sd">    The stem block is for: 1) input downsample and 2) output upsample to original size.</span>
+<span class="sd">    The model downsamples the input image by 2 (if ``use_downsample=True``).</span>
+<span class="sd">    The downsampled image is downsampled by [1, 2, 4, 8] times (``num_depths=4``) and used as input to the</span>
+<span class="sd">    DiNTS search space (``TopologySearch``) or the DiNTS instance (``TopologyInstance``).</span>
+
+<span class="sd">        - ``TopologyInstance`` is the final searched model. The initialization requires the searched architecture codes.</span>
+<span class="sd">        - ``TopologySearch`` is a multi-path topology and cell operation search space.</span>
+<span class="sd">          The architecture codes will be initialized as one.</span>
+<span class="sd">        - ``TopologyConstruction`` is the parent class which constructs the instance and search space.</span>
+
+<span class="sd">    To meet the requirements of the structure, the input size for each spatial dimension should be:</span>
+<span class="sd">    divisible by 2 ** (num_depths + 1).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dints_space: DiNTS search space. The value should be instance of `TopologyInstance` or `TopologySearch`.</span>
+<span class="sd">        in_channels: number of input image channels.</span>
+<span class="sd">        num_classes: number of output segmentation classes.</span>
+<span class="sd">        act_name: activation name, default to &#39;RELU&#39;.</span>
+<span class="sd">        norm_name: normalization used in convolution blocks. Default to `InstanceNorm`.</span>
+<span class="sd">        spatial_dims: spatial 2D or 3D inputs.</span>
+<span class="sd">        use_downsample: use downsample in the stem.</span>
+<span class="sd">            If ``False``, the search space will be in resolution [1, 1/2, 1/4, 1/8],</span>
+<span class="sd">            if ``True``, the search space will be in resolution [1/2, 1/4, 1/8, 1/16].</span>
+<span class="sd">        node_a: node activation numpy matrix. Its shape is `(num_depths, num_blocks + 1)`.</span>
+<span class="sd">            +1 for multi-resolution inputs.</span>
+<span class="sd">            In model searching stage, ``node_a`` can be None. In deployment stage, ``node_a`` cannot be None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dints_space</span><span class="p">,</span>
+        <span class="n">in_channels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">act_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;RELU&quot;</span><span class="p">,</span>
+        <span class="n">norm_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INSTANCE&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;affine&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+        <span class="n">spatial_dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">use_downsample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">node_a</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dints_space</span> <span class="o">=</span> <span class="n">dints_space</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span> <span class="o">=</span> <span class="n">dints_space</span><span class="o">.</span><span class="n">filter_nums</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">=</span> <span class="n">dints_space</span><span class="o">.</span><span class="n">num_blocks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span> <span class="o">=</span> <span class="n">dints_space</span><span class="o">.</span><span class="n">num_depths</span>
+        <span class="k">if</span> <span class="n">spatial_dims</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spatial dimensions </span><span class="si">{</span><span class="n">spatial_dims</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span> <span class="o">=</span> <span class="n">spatial_dims</span>
+        <span class="k">if</span> <span class="n">node_a</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node_a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node_a</span> <span class="o">=</span> <span class="n">node_a</span>
+
+        <span class="c1"># define stem operations for every block</span>
+        <span class="n">conv_type</span> <span class="o">=</span> <span class="n">Conv</span><span class="p">[</span><span class="n">Conv</span><span class="o">.</span><span class="n">CONV</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stem_down</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stem_up</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stem_finals</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">ActiConvNormBlock</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">act_name</span><span class="o">=</span><span class="n">act_name</span><span class="p">,</span>
+                <span class="n">norm_name</span><span class="o">=</span><span class="n">norm_name</span><span class="p">,</span>
+                <span class="n">spatial_dims</span><span class="o">=</span><span class="n">spatial_dims</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">conv_type</span><span class="p">(</span>
+                <span class="n">in_channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">out_channels</span><span class="o">=</span><span class="n">num_classes</span><span class="p">,</span>
+                <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">dilation</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;trilinear&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="s2">&quot;bilinear&quot;</span>
+        <span class="k">for</span> <span class="n">res_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span><span class="p">):</span>
+            <span class="c1"># define downsample stems before DiNTS search</span>
+            <span class="k">if</span> <span class="n">use_downsample</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stem_down</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">res_idx</span><span class="p">)]</span> <span class="o">=</span> <span class="n">StemTS</span><span class="p">(</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">Upsample</span><span class="p">(</span><span class="n">scale_factor</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">res_idx</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                    <span class="n">conv_type</span><span class="p">(</span>
+                        <span class="n">in_channels</span><span class="o">=</span><span class="n">in_channels</span><span class="p">,</span>
+                        <span class="n">out_channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span><span class="p">],</span>
+                        <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">dilation</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">get_norm_layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">norm_name</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="n">spatial_dims</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]),</span>
+                    <span class="n">get_act_layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">act_name</span><span class="p">),</span>
+                    <span class="n">conv_type</span><span class="p">(</span>
+                        <span class="n">in_channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span><span class="p">],</span>
+                        <span class="n">out_channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
+                        <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                        <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">dilation</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">get_norm_layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">norm_name</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="n">spatial_dims</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]),</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stem_up</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">res_idx</span><span class="p">)]</span> <span class="o">=</span> <span class="n">StemTS</span><span class="p">(</span>
+                    <span class="n">get_act_layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">act_name</span><span class="p">),</span>
+                    <span class="n">conv_type</span><span class="p">(</span>
+                        <span class="n">in_channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
+                        <span class="n">out_channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span><span class="p">],</span>
+                        <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">dilation</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">get_norm_layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">norm_name</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="n">spatial_dims</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]),</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">Upsample</span><span class="p">(</span><span class="n">scale_factor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                <span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stem_down</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">res_idx</span><span class="p">)]</span> <span class="o">=</span> <span class="n">StemTS</span><span class="p">(</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">Upsample</span><span class="p">(</span><span class="n">scale_factor</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">res_idx</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                    <span class="n">conv_type</span><span class="p">(</span>
+                        <span class="n">in_channels</span><span class="o">=</span><span class="n">in_channels</span><span class="p">,</span>
+                        <span class="n">out_channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span><span class="p">],</span>
+                        <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">dilation</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">get_norm_layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">norm_name</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="n">spatial_dims</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]),</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stem_up</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">res_idx</span><span class="p">)]</span> <span class="o">=</span> <span class="n">StemTS</span><span class="p">(</span>
+                    <span class="n">get_act_layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">act_name</span><span class="p">),</span>
+                    <span class="n">conv_type</span><span class="p">(</span>
+                        <span class="n">in_channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span><span class="p">],</span>
+                        <span class="n">out_channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">res_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)],</span>
+                        <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">dilation</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">get_norm_layer</span><span class="p">(</span>
+                        <span class="n">name</span><span class="o">=</span><span class="n">norm_name</span><span class="p">,</span> <span class="n">spatial_dims</span><span class="o">=</span><span class="n">spatial_dims</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">res_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+                    <span class="p">),</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">Upsample</span><span class="p">(</span><span class="n">scale_factor</span><span class="o">=</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">res_idx</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                <span class="p">)</span>
+
+<div class="viewcode-block" id="DiNTS.weight_parameters">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.DiNTS.weight_parameters">[docs]</a>
+    <span class="k">def</span> <span class="nf">weight_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">param</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()]</span></div>
+
+
+
+<div class="viewcode-block" id="DiNTS.forward">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.DiNTS.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prediction based on dynamic arch_code.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x: input tensor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span><span class="p">):</span>
+            <span class="c1"># allow multi-resolution input</span>
+            <span class="n">_mod_w</span><span class="p">:</span> <span class="n">StemInterface</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stem_down</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)]</span>
+            <span class="n">x_out</span> <span class="o">=</span> <span class="n">_mod_w</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_a</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">d</span><span class="p">]:</span>
+                <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_out</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x_out</span><span class="p">))</span>
+
+        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dints_space</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+        <span class="n">blk_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">_temp</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">res_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">_mod_up</span><span class="p">:</span> <span class="n">StemInterface</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stem_up</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">res_idx</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="n">start</span><span class="p">:</span>
+                <span class="n">_temp</span> <span class="o">=</span> <span class="n">_mod_up</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]</span> <span class="o">+</span> <span class="n">_temp</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_a</span><span class="p">[</span><span class="n">blk_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">res_idx</span><span class="p">]:</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">_temp</span> <span class="o">=</span> <span class="n">_mod_up</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="n">res_idx</span><span class="p">])</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stem_finals</span><span class="p">(</span><span class="n">_temp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">prediction</span></div>
+</div>
+
+
+
+
+<div class="viewcode-block" id="TopologyConstruction">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologyConstruction">[docs]</a>
+<span class="k">class</span> <span class="nc">TopologyConstruction</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The base class for `TopologyInstance` and `TopologySearch`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arch_code: `[arch_code_a, arch_code_c]`, numpy arrays. The architecture codes defining the model.</span>
+<span class="sd">            For example, for a ``num_depths=4, num_blocks=12`` search space:</span>
+
+<span class="sd">            - `arch_code_a` is a 12x10 (10 paths) binary matrix representing if a path is activated.</span>
+<span class="sd">            - `arch_code_c` is a 12x10x5 (5 operations) binary matrix representing if a cell operation is used.</span>
+<span class="sd">            - `arch_code` in ``__init__()`` is used for creating the network and remove unused network blocks. If None,</span>
+
+<span class="sd">            all paths and cells operations will be used, and must be in the searching stage (is_search=True).</span>
+<span class="sd">        channel_mul: adjust intermediate channel number, default is 1.</span>
+<span class="sd">        cell: operation of each node.</span>
+<span class="sd">        num_blocks: number of blocks (depth in the horizontal direction) of the DiNTS search space.</span>
+<span class="sd">        num_depths: number of image resolutions of the DiNTS search space: 1, 1/2, 1/4 ... in each dimension.</span>
+<span class="sd">        use_downsample: use downsample in the stem. If False, the search space will be in resolution [1, 1/2, 1/4, 1/8],</span>
+<span class="sd">            if True, the search space will be in resolution [1/2, 1/4, 1/8, 1/16].</span>
+<span class="sd">        device: `&#39;cpu&#39;`, `&#39;cuda&#39;`, or device ID.</span>
+
+
+<span class="sd">    Predefined variables:</span>
+<span class="sd">        `filter_nums`: default to 32. Double the number of channels after downsample.</span>
+<span class="sd">        topology related variables:</span>
+
+<span class="sd">            - `arch_code2in`: path activation to its incoming node index (resolution). For depth = 4,</span>
+<span class="sd">              arch_code2in = [0, 1, 0, 1, 2, 1, 2, 3, 2, 3]. The first path outputs from node 0 (top resolution),</span>
+<span class="sd">              the second path outputs from node 1 (second resolution in the search space),</span>
+<span class="sd">              the third path outputs from node 0, etc.</span>
+<span class="sd">            - `arch_code2ops`: path activation to operations of upsample 1, keep 0, downsample -1. For depth = 4,</span>
+<span class="sd">              arch_code2ops = [0, 1, -1, 0, 1, -1, 0, 1, -1, 0]. The first path does not change</span>
+<span class="sd">              resolution, the second path perform upsample, the third perform downsample, etc.</span>
+<span class="sd">            - `arch_code2out`: path activation to its output node index.</span>
+<span class="sd">              For depth = 4, arch_code2out = [0, 0, 1, 1, 1, 2, 2, 2, 3, 3],</span>
+<span class="sd">              the first and second paths connects to node 0 (top resolution), the 3,4,5 paths connects to node 1, etc.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">arch_code</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">channel_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">cell</span><span class="o">=</span><span class="n">Cell</span><span class="p">,</span>
+        <span class="n">num_blocks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="n">num_depths</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">spatial_dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">act_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;RELU&quot;</span><span class="p">,</span>
+        <span class="n">norm_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INSTANCE&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;affine&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+        <span class="n">use_downsample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="n">n_feats</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="mi">32</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">_i</span><span class="p">)</span> <span class="k">for</span> <span class="n">_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_depths</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">n_feat</span> <span class="o">*</span> <span class="n">channel_mul</span><span class="p">)</span> <span class="k">for</span> <span class="n">n_feat</span> <span class="ow">in</span> <span class="n">n_feats</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">=</span> <span class="n">num_blocks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span> <span class="o">=</span> <span class="n">num_depths</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> - Length of input patch is recommended to be a multiple of </span><span class="si">{:d}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">num_depths</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">use_downsample</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span> <span class="o">=</span> <span class="n">spatial_dims</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span> <span class="o">=</span> <span class="n">act_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span> <span class="o">=</span> <span class="n">norm_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_downsample</span> <span class="o">=</span> <span class="n">use_downsample</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_cell_ops</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_cell_ops</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">OPS2D</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_cell_ops</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">OPS3D</span><span class="p">)</span>
+
+        <span class="c1"># Calculate predefined parameters for topology search and decoding</span>
+        <span class="n">arch_code2in</span><span class="p">,</span> <span class="n">arch_code2out</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Cell</span><span class="o">.</span><span class="n">DIRECTIONS</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">arch_code2in</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">Cell</span><span class="o">.</span><span class="n">DIRECTIONS</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">Cell</span><span class="o">.</span><span class="n">DIRECTIONS</span><span class="p">)</span>
+        <span class="n">arch_code2ops</span> <span class="o">=</span> <span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span><span class="p">):</span>
+            <span class="n">arch_code2out</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">])</span>
+        <span class="n">arch_code2out</span> <span class="o">=</span> <span class="n">arch_code2out</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arch_code2in</span> <span class="o">=</span> <span class="n">arch_code2in</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arch_code2ops</span> <span class="o">=</span> <span class="n">arch_code2ops</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span> <span class="o">=</span> <span class="n">arch_code2out</span>
+
+        <span class="c1"># define NAS search space</span>
+        <span class="k">if</span> <span class="n">arch_code</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arch_code_a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">)))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">arch_code_c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_cell_ops</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">arch_code_a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">arch_code</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">arch_code_c</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">arch_code</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_cell_ops</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">arch_code_a</span> <span class="o">=</span> <span class="n">arch_code_a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arch_code_c</span> <span class="o">=</span> <span class="n">arch_code_c</span>
+        <span class="c1"># define cell operation on each path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cell_tree</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleDict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">blk_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">res_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">arch_code_a</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">cell_tree</span><span class="p">[</span><span class="nb">str</span><span class="p">((</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">))]</span> <span class="o">=</span> <span class="n">cell</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2in</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">use_downsample</span><span class="p">)],</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">use_downsample</span><span class="p">)],</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">arch_code2ops</span><span class="p">[</span><span class="n">res_idx</span><span class="p">],</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">arch_code_c</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">],</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_act_name</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_norm_name</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="TopologyConstruction.forward">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologyConstruction.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This function to be implemented by the architecture instances or search spaces.&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+</div>
+
+
+
+
+<div class="viewcode-block" id="TopologyInstance">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologyInstance">[docs]</a>
+<span class="k">class</span> <span class="nc">TopologyInstance</span><span class="p">(</span><span class="n">TopologyConstruction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Instance of the final searched architecture. Only used in re-training/inference stage.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">arch_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">channel_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">cell</span><span class="o">=</span><span class="n">Cell</span><span class="p">,</span>
+        <span class="n">num_blocks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="n">num_depths</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">spatial_dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">act_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;RELU&quot;</span><span class="p">,</span>
+        <span class="n">norm_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INSTANCE&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;affine&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+        <span class="n">use_downsample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize DiNTS topology search space of neural architectures.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">arch_code</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;arch_code not provided when not searching.&quot;</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">arch_code</span><span class="o">=</span><span class="n">arch_code</span><span class="p">,</span>
+            <span class="n">channel_mul</span><span class="o">=</span><span class="n">channel_mul</span><span class="p">,</span>
+            <span class="n">cell</span><span class="o">=</span><span class="n">cell</span><span class="p">,</span>
+            <span class="n">num_blocks</span><span class="o">=</span><span class="n">num_blocks</span><span class="p">,</span>
+            <span class="n">num_depths</span><span class="o">=</span><span class="n">num_depths</span><span class="p">,</span>
+            <span class="n">spatial_dims</span><span class="o">=</span><span class="n">spatial_dims</span><span class="p">,</span>
+            <span class="n">act_name</span><span class="o">=</span><span class="n">act_name</span><span class="p">,</span>
+            <span class="n">norm_name</span><span class="o">=</span><span class="n">norm_name</span><span class="p">,</span>
+            <span class="n">use_downsample</span><span class="o">=</span><span class="n">use_downsample</span><span class="p">,</span>
+            <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+        <span class="p">)</span>
+
+
+<div class="viewcode-block" id="TopologyInstance.forward">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologyInstance.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            x: input tensor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># generate path activation probability</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">for</span> <span class="n">blk_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">):</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">device</span><span class="p">)]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span>
+            <span class="k">for</span> <span class="n">res_idx</span><span class="p">,</span> <span class="n">activation</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code_a</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">activation</span><span class="p">:</span>
+                    <span class="n">mod</span><span class="p">:</span> <span class="n">CellInterface</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_tree</span><span class="p">[</span><span class="nb">str</span><span class="p">((</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">))]</span>
+                    <span class="n">_out</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2in</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]],</span> <span class="n">weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+                    <span class="n">outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]]</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]]</span> <span class="o">+</span> <span class="n">_out</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="n">outputs</span>
+
+        <span class="k">return</span> <span class="n">inputs</span></div>
+</div>
+
+
+
+
+<div class="viewcode-block" id="TopologySearch">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologySearch">[docs]</a>
+<span class="k">class</span> <span class="nc">TopologySearch</span><span class="p">(</span><span class="n">TopologyConstruction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DiNTS topology search space of neural architectures.</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        from monai.networks.nets.dints import TopologySearch</span>
+
+<span class="sd">        topology_search_space = TopologySearch(</span>
+<span class="sd">            channel_mul=0.5, num_blocks=8, num_depths=4, use_downsample=True, spatial_dims=3)</span>
+<span class="sd">        topology_search_space.get_ram_cost_usage(in_size=(2, 16, 80, 80, 80), full=True)</span>
+<span class="sd">        multi_res_images = [</span>
+<span class="sd">            torch.randn(2, 16, 80, 80, 80),</span>
+<span class="sd">            torch.randn(2, 32, 40, 40, 40),</span>
+<span class="sd">            torch.randn(2, 64, 20, 20, 20),</span>
+<span class="sd">            torch.randn(2, 128, 10, 10, 10)]</span>
+<span class="sd">        prediction = topology_search_space(image)</span>
+<span class="sd">        for x in prediction: print(x.shape)</span>
+<span class="sd">        # torch.Size([2, 16, 80, 80, 80])</span>
+<span class="sd">        # torch.Size([2, 32, 40, 40, 40])</span>
+<span class="sd">        # torch.Size([2, 64, 20, 20, 20])</span>
+<span class="sd">        # torch.Size([2, 128, 10, 10, 10])</span>
+
+<span class="sd">    Class method overview:</span>
+
+<span class="sd">        - ``get_prob_a()``: convert learnable architecture weights to path activation probabilities.</span>
+<span class="sd">        - ``get_ram_cost_usage()``: get estimated ram cost.</span>
+<span class="sd">        - ``get_topology_entropy()``: get topology entropy loss in searching stage.</span>
+<span class="sd">        - ``decode()``: get final binarized architecture code.</span>
+<span class="sd">        - ``gen_mtx()``: generate variables needed for topology search.</span>
+
+<span class="sd">    Predefined variables:</span>
+<span class="sd">        - `tidx`: index used to convert path activation matrix T = (depth,depth) in transfer_mtx to</span>
+<span class="sd">          path activation arch_code (1,3*depth-2), for depth = 4, tidx = [0, 1, 4, 5, 6, 9, 10, 11, 14, 15],</span>
+<span class="sd">          A tidx (10 binary values) represents the path activation.</span>
+<span class="sd">        - `transfer_mtx`: feasible path activation matrix (denoted as T) given a node activation pattern.</span>
+<span class="sd">          It is used to convert path activation pattern (1, paths) to node activation (1, nodes)</span>
+<span class="sd">        - `node_act_list`: all node activation [2^num_depths-1, depth]. For depth = 4, there are 15 node activation</span>
+<span class="sd">          patterns, each of length 4. For example, [1,1,0,0] means nodes 0, 1 are activated (with input paths).</span>
+<span class="sd">        - `all_connect`: All possible path activations. For depth = 4,</span>
+<span class="sd">          all_connection has 1024 vectors of length 10 (10 paths).</span>
+<span class="sd">          The return value will exclude path activation of all 0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">node2out</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span>
+    <span class="n">node2in</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">channel_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">cell</span><span class="o">=</span><span class="n">Cell</span><span class="p">,</span>
+        <span class="n">arch_code</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">num_blocks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="n">num_depths</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">spatial_dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">act_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;RELU&quot;</span><span class="p">,</span>
+        <span class="n">norm_name</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INSTANCE&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;affine&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+        <span class="n">use_downsample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize DiNTS topology search space of neural architectures.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">arch_code</span><span class="o">=</span><span class="n">arch_code</span><span class="p">,</span>
+            <span class="n">channel_mul</span><span class="o">=</span><span class="n">channel_mul</span><span class="p">,</span>
+            <span class="n">cell</span><span class="o">=</span><span class="n">cell</span><span class="p">,</span>
+            <span class="n">num_blocks</span><span class="o">=</span><span class="n">num_blocks</span><span class="p">,</span>
+            <span class="n">num_depths</span><span class="o">=</span><span class="n">num_depths</span><span class="p">,</span>
+            <span class="n">spatial_dims</span><span class="o">=</span><span class="n">spatial_dims</span><span class="p">,</span>
+            <span class="n">act_name</span><span class="o">=</span><span class="n">act_name</span><span class="p">,</span>
+            <span class="n">norm_name</span><span class="o">=</span><span class="n">norm_name</span><span class="p">,</span>
+            <span class="n">use_downsample</span><span class="o">=</span><span class="n">use_downsample</span><span class="p">,</span>
+            <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">tidx</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">_d</span> <span class="o">=</span> <span class="n">Cell</span><span class="o">.</span><span class="n">DIRECTIONS</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">_d</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">tidx</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">_d</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">_d</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">_d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tidx</span> <span class="o">=</span> <span class="n">tidx</span>
+        <span class="n">transfer_mtx</span><span class="p">,</span> <span class="n">node_act_list</span><span class="p">,</span> <span class="n">child_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gen_mtx</span><span class="p">(</span><span class="n">num_depths</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_act_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">node_act_list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_act_dict</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_act_list</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_act_list</span><span class="p">))}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transfer_mtx</span> <span class="o">=</span> <span class="n">transfer_mtx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">child_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">child_list</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ram_cost</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_cell_ops</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">blk_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">res_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">arch_code_a</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ram_cost</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                        <span class="p">[</span>
+                            <span class="n">op</span><span class="o">.</span><span class="n">ram_cost</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_tree</span><span class="p">[</span><span class="nb">str</span><span class="p">((</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">))]</span><span class="o">.</span><span class="n">preprocess</span><span class="o">.</span><span class="n">ram_cost</span>
+                            <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_tree</span><span class="p">[</span><span class="nb">str</span><span class="p">((</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">))]</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">ops</span><span class="p">[:</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_cell_ops</span><span class="p">]</span>
+                        <span class="p">]</span>
+                    <span class="p">)</span>
+
+        <span class="c1"># define cell and macro architecture probabilities</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_alpha_c</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_cell_ops</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">requires_grad_</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_alpha_a</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">))</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_arch_param_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;log_alpha_a&quot;</span><span class="p">,</span> <span class="s2">&quot;log_alpha_c&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="TopologySearch.gen_mtx">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologySearch.gen_mtx">[docs]</a>
+    <span class="k">def</span> <span class="nf">gen_mtx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate elements needed in decoding and topology.</span>
+
+<span class="sd">            - `transfer_mtx`: feasible path activation matrix (denoted as T) given a node activation pattern.</span>
+<span class="sd">               It is used to convert path activation pattern (1, paths) to node activation (1, nodes)</span>
+<span class="sd">            - `node_act_list`: all node activation [2^num_depths-1, depth]. For depth = 4, there are 15 node activation</span>
+<span class="sd">               patterns, each of length 4. For example, [1,1,0,0] means nodes 0, 1 are activated (with input paths).</span>
+<span class="sd">            - `all_connect`: All possible path activations. For depth = 4,</span>
+<span class="sd">              all_connection has 1024 vectors of length 10 (10 paths).</span>
+<span class="sd">              The return value will exclude path activation of all 0.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># total paths in a block, each node has three output paths,</span>
+        <span class="c1"># except the two nodes at the top and the bottom scales</span>
+        <span class="n">paths</span> <span class="o">=</span> <span class="n">Cell</span><span class="o">.</span><span class="n">DIRECTIONS</span> <span class="o">*</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">2</span>
+
+        <span class="c1"># for 10 paths, all_connect has 1024 possible path activations. [1 0 0 0 0 0 0 0 0 0] means the top</span>
+        <span class="c1"># path is activated.</span>
+        <span class="n">all_connect</span> <span class="o">=</span> <span class="n">_dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">paths</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Save all possible connections in mtx (might be redundant and infeasible)</span>
+        <span class="n">mtx</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">all_connect</span><span class="p">:</span>
+            <span class="c1"># convert path activation [1,paths] to path activation matrix [depth, depth]</span>
+            <span class="n">ma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">depth</span><span class="p">,</span> <span class="n">depth</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
+                <span class="n">ma</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">Cell</span><span class="o">.</span><span class="n">DIRECTIONS</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">Cell</span><span class="o">.</span><span class="n">DIRECTIONS</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">Cell</span><span class="o">.</span><span class="n">DIRECTIONS</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">mtx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ma</span><span class="p">)</span>
+
+        <span class="c1"># define all possible node activation</span>
+        <span class="n">node_act_list</span> <span class="o">=</span> <span class="n">_dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">transfer_mtx</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">arch_code</span> <span class="ow">in</span> <span class="n">node_act_list</span><span class="p">:</span>
+            <span class="c1"># make sure each activated node has an active connection, inactivated node has no connection</span>
+            <span class="n">arch_code_mtx</span> <span class="o">=</span> <span class="p">[</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">mtx</span> <span class="k">if</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arch_code</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()]</span>
+            <span class="n">transfer_mtx</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arch_code</span><span class="p">))]</span> <span class="o">=</span> <span class="n">arch_code_mtx</span>
+
+        <span class="k">return</span> <span class="n">transfer_mtx</span><span class="p">,</span> <span class="n">node_act_list</span><span class="p">,</span> <span class="n">all_connect</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span></div>
+
+
+
+
+<div class="viewcode-block" id="TopologySearch.weight_parameters">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologySearch.weight_parameters">[docs]</a>
+    <span class="k">def</span> <span class="nf">weight_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">param</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_arch_param_names</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="TopologySearch.get_prob_a">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologySearch.get_prob_a">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_prob_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">child</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get final path and child model probabilities from architecture weights `log_alpha_a`.</span>
+<span class="sd">        This is used in forward pass, getting training loss, and final decoding.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            child: return child probability (used in decoding)</span>
+<span class="sd">        Return:</span>
+<span class="sd">            arch_code_prob_a: the path activation probability of size:</span>
+<span class="sd">                `[number of blocks, number of paths in each block]`.</span>
+<span class="sd">                For 12 blocks, 4 depths search space, the size is [12,10]</span>
+<span class="sd">            probs_a: The probability of all child models (size 1023x10). Each child model is a path activation pattern</span>
+<span class="sd">                 (1D vector of length 10 for 10 paths). In total 1023 child models (2^10 -1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_arch_code_prob_a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_alpha_a</span><span class="p">)</span>
+        <span class="c1"># remove the case where all path are zero, and re-normalize.</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_arch_code_prob_a</span><span class="p">)</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">arch_code_prob_a</span> <span class="o">=</span> <span class="n">_arch_code_prob_a</span> <span class="o">/</span> <span class="n">norm</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">child</span><span class="p">:</span>
+            <span class="n">path_activation</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">probs_a</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">(</span>
+                    <span class="n">path_activation</span> <span class="o">*</span> <span class="n">_arch_code_prob_a</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">]</span>
+                    <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">path_activation</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_arch_code_prob_a</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">])</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="o">/</span> <span class="n">norm</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">blk_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="n">probs_a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">probs_a</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+            <span class="k">return</span> <span class="n">probs_a</span><span class="p">,</span> <span class="n">arch_code_prob_a</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">arch_code_prob_a</span></div>
+
+
+
+<div class="viewcode-block" id="TopologySearch.get_ram_cost_usage">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologySearch.get_ram_cost_usage">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ram_cost_usage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_size</span><span class="p">,</span> <span class="n">full</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get estimated output tensor size to approximate RAM consumption.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            in_size: input image shape (4D/5D, ``[BCHW[D]]``) at the highest resolution level.</span>
+<span class="sd">            full: full ram cost usage with all probability of 1.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># convert input image size to feature map size at each level</span>
+        <span class="n">batch_size</span> <span class="o">=</span> <span class="n">in_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">image_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">in_size</span><span class="p">[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_spatial_dims</span> <span class="p">:])</span>
+        <span class="n">sizes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">res_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span><span class="p">):</span>
+            <span class="n">sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch_size</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_nums</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">image_size</span> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">res_idx</span><span class="p">))</span><span class="o">.</span><span class="n">prod</span><span class="p">())</span>
+        <span class="n">sizes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">use_downsample</span><span class="p">)))</span>
+        <span class="n">probs_a</span><span class="p">,</span> <span class="n">arch_code_prob_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_prob_a</span><span class="p">(</span><span class="n">child</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">cell_prob</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_alpha_c</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">full</span><span class="p">:</span>
+            <span class="n">arch_code_prob_a</span> <span class="o">=</span> <span class="n">arch_code_prob_a</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+            <span class="n">arch_code_prob_a</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ram_cost</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ram_cost</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">usage</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">blk_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">):</span>
+            <span class="c1"># node activation for input</span>
+            <span class="c1"># cell operation</span>
+            <span class="k">for</span> <span class="n">path_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">)):</span>
+                <span class="n">usage</span> <span class="o">+=</span> <span class="p">(</span>
+                    <span class="n">arch_code_prob_a</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">path_idx</span><span class="p">]</span>
+                    <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">ram_cost</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">path_idx</span><span class="p">]</span> <span class="o">*</span> <span class="n">cell_prob</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">path_idx</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+                    <span class="o">*</span> <span class="n">sizes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">[</span><span class="n">path_idx</span><span class="p">]]</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="n">usage</span> <span class="o">*</span> <span class="mi">32</span> <span class="o">/</span> <span class="mi">8</span> <span class="o">/</span> <span class="mi">1024</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+
+<div class="viewcode-block" id="TopologySearch.get_topology_entropy">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologySearch.get_topology_entropy">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_topology_entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">probs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get topology entropy loss at searching stage.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            probs: path activation probabilities</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;node2in&quot;</span><span class="p">):</span>
+            <span class="n">node2in</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node2in</span>  <span class="c1"># pylint: disable=E0203</span>
+            <span class="n">node2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node2out</span>  <span class="c1"># pylint: disable=E0203</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># node activation index to feasible input child_idx</span>
+            <span class="n">node2in</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_act_list</span><span class="p">))]</span>
+            <span class="c1"># node activation index to feasible output child_idx</span>
+            <span class="n">node2out</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_act_list</span><span class="p">))]</span>
+            <span class="k">for</span> <span class="n">child_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)):</span>
+                <span class="n">_node_in</span><span class="p">,</span> <span class="n">_node_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">res_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">)):</span>
+                    <span class="n">_node_out</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">[</span><span class="n">child_idx</span><span class="p">][</span><span class="n">res_idx</span><span class="p">]</span>
+                    <span class="n">_node_in</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2in</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">[</span><span class="n">child_idx</span><span class="p">][</span><span class="n">res_idx</span><span class="p">]</span>
+                <span class="n">_node_in</span> <span class="o">=</span> <span class="p">(</span><span class="n">_node_in</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+                <span class="n">_node_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">_node_out</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+                <span class="n">node2in</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">node_act_dict</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">_node_out</span><span class="p">)]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child_idx</span><span class="p">)</span>
+                <span class="n">node2out</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">node_act_dict</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">_node_in</span><span class="p">)]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child_idx</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node2in</span> <span class="o">=</span> <span class="n">node2in</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node2out</span> <span class="o">=</span> <span class="n">node2out</span>
+        <span class="c1"># calculate entropy</span>
+        <span class="n">ent</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">blk_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">blk_ent</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># node activation probability</span>
+            <span class="k">for</span> <span class="n">node_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_act_list</span><span class="p">)):</span>
+                <span class="n">_node_p</span> <span class="o">=</span> <span class="n">probs</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">node2in</span><span class="p">[</span><span class="n">node_idx</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+                <span class="n">_out_probs</span> <span class="o">=</span> <span class="n">probs</span><span class="p">[</span><span class="n">blk_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">node2out</span><span class="p">[</span><span class="n">node_idx</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+                <span class="n">blk_ent</span> <span class="o">+=</span> <span class="o">-</span><span class="p">(</span><span class="n">_node_p</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">_out_probs</span> <span class="o">+</span> <span class="mf">1e-5</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_node_p</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_out_probs</span> <span class="o">+</span> <span class="mf">1e-5</span><span class="p">))</span>
+            <span class="n">ent</span> <span class="o">+=</span> <span class="n">blk_ent</span>
+        <span class="k">return</span> <span class="n">ent</span></div>
+
+
+
+<div class="viewcode-block" id="TopologySearch.decode">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologySearch.decode">[docs]</a>
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decode network log_alpha_a/log_alpha_c using dijkstra shortest path algorithm.</span>
+
+<span class="sd">        `[node_a, arch_code_a, arch_code_c, arch_code_a_max]` is decoded when using ``self.decode()``.</span>
+
+<span class="sd">        For example, for a ``num_depths=4``, ``num_blocks=12`` search space:</span>
+
+<span class="sd">            - ``node_a`` is a 4x13 binary matrix representing if a feature node is activated</span>
+<span class="sd">              (13 because of multi-resolution inputs).</span>
+<span class="sd">            - ``arch_code_a`` is a 12x10 (10 paths) binary matrix representing if a path is activated.</span>
+<span class="sd">            - ``arch_code_c`` is a 12x10x5 (5 operations) binary matrix representing if a cell operation is used.</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            arch_code with maximum probability</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">probs</span><span class="p">,</span> <span class="n">arch_code_prob_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_prob_a</span><span class="p">(</span><span class="n">child</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">arch_code_a_max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()]</span>
+        <span class="n">arch_code_c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_alpha_c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">probs</span> <span class="o">=</span> <span class="n">probs</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+        <span class="c1"># define adjacency matrix</span>
+        <span class="n">amtx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+            <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># build a path activation to child index searching dictionary</span>
+        <span class="n">path2child</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">))}</span>
+
+        <span class="c1"># build a submodel to submodel index</span>
+        <span class="n">sub_amtx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">child_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)):</span>
+            <span class="n">_node_act</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">path_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">[</span><span class="n">child_idx</span><span class="p">])):</span>
+                <span class="n">_node_act</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">[</span><span class="n">path_idx</span><span class="p">]]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">[</span><span class="n">child_idx</span><span class="p">][</span><span class="n">path_idx</span><span class="p">]</span>
+            <span class="n">_node_act</span> <span class="o">=</span> <span class="p">(</span><span class="n">_node_act</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">mtx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transfer_mtx</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">_node_act</span><span class="p">)]:</span>
+                <span class="n">connect_child_idx</span> <span class="o">=</span> <span class="n">path2child</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">mtx</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="bp">self</span><span class="o">.</span><span class="n">tidx</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))]</span>
+                <span class="n">sub_amtx</span><span class="p">[</span><span class="n">child_idx</span><span class="p">,</span> <span class="n">connect_child_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1"># fill in source to first block, add 1e-5/1e-3 to avoid log0 and negative edge weights</span>
+        <span class="n">amtx</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1e-5</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.001</span>
+
+        <span class="c1"># fill in the rest blocks</span>
+        <span class="k">for</span> <span class="n">blk_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">):</span>
+            <span class="n">amtx</span><span class="p">[</span>
+                <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">blk_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">blk_idx</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">),</span>
+                <span class="mi">1</span> <span class="o">+</span> <span class="n">blk_idx</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">blk_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">),</span>
+            <span class="p">]</span> <span class="o">=</span> <span class="n">sub_amtx</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1e-5</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.001</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># fill in the last to the sink</span>
+        <span class="n">amtx</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+        <span class="n">graph</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">amtx</span><span class="p">)</span>
+        <span class="n">dist_matrix</span><span class="p">,</span> <span class="n">predecessors</span><span class="p">,</span> <span class="n">sources</span> <span class="o">=</span> <span class="n">dijkstra</span><span class="p">(</span>
+            <span class="n">csgraph</span><span class="o">=</span><span class="n">graph</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_predecessors</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="n">index</span><span class="p">,</span> <span class="n">a_idx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">arch_code_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">)))</span>
+        <span class="n">node_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span><span class="p">))</span>
+
+        <span class="c1"># decoding to paths</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">predecessors</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">child_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">)</span>
+            <span class="n">arch_code_a</span><span class="p">[</span><span class="n">a_idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_list</span><span class="p">[</span><span class="n">child_idx</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">res_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">)):</span>
+                <span class="n">node_a</span><span class="p">[</span><span class="n">a_idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">arch_code_a</span><span class="p">[</span><span class="n">a_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">]</span>
+            <span class="n">a_idx</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">res_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">)):</span>
+            <span class="n">node_a</span><span class="p">[</span><span class="n">a_idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">arch_code2in</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">arch_code_a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">]</span>
+        <span class="n">node_a</span> <span class="o">=</span> <span class="p">(</span><span class="n">node_a</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">node_a</span><span class="p">,</span> <span class="n">arch_code_a</span><span class="p">,</span> <span class="n">arch_code_c</span><span class="p">,</span> <span class="n">arch_code_a_max</span></div>
+
+
+
+<div class="viewcode-block" id="TopologySearch.forward">
+<a class="viewcode-back" href="../../../modulos/model.dim3.html#model.dim3.dints.TopologySearch.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prediction based on dynamic arch_code.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x: a list of `num_depths` input tensors as a multi-resolution input.</span>
+<span class="sd">                tensor is of shape `BCHW[D]` where `C` must match `self.filter_nums`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># generate path activation probability</span>
+        <span class="n">probs_a</span><span class="p">,</span> <span class="n">arch_code_prob_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_prob_a</span><span class="p">(</span><span class="n">child</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">for</span> <span class="n">blk_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">):</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_depths</span>
+            <span class="k">for</span> <span class="n">res_idx</span><span class="p">,</span> <span class="n">activation</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code_a</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()):</span>
+                <span class="k">if</span> <span class="n">activation</span><span class="p">:</span>
+                    <span class="n">_w</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_alpha_c</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+                    <span class="n">outputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2out</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]]</span> <span class="o">+=</span> <span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">cell_tree</span><span class="p">[</span><span class="nb">str</span><span class="p">((</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">))](</span><span class="n">inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arch_code2in</span><span class="p">[</span><span class="n">res_idx</span><span class="p">]],</span> <span class="n">weight</span><span class="o">=</span><span class="n">_w</span><span class="p">)</span>
+                        <span class="o">*</span> <span class="n">arch_code_prob_a</span><span class="p">[</span><span class="n">blk_idx</span><span class="p">,</span> <span class="n">res_idx</span><span class="p">]</span>
+                    <span class="p">)</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="n">outputs</span>
+
+        <span class="k">return</span> <span class="n">inputs</span></div>
+</div>
+
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Marcos Fernández González
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link fa-brands fa-solid fa-github fa-2x" href="https://github.com/marqinhos/JetRacer_Autonomous_Driving" aria-label="GitHub"></a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div>
+<script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=79f5c508"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=4e2eecee"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Show banner linking to /stable/ if this is a /latest/ page
+  if (!/\/latest\//.test(location.pathname)) {
+    return;
+  }
+  var stableUrl = location.pathname.replace("/latest/", "/stable/");
+  // Check it's not a 404
+  fetch(stableUrl, { method: "HEAD" }).then((response) => {
+    if (response.status === 200) {
+      var warning = document.createElement("div");
+      warning.className = "admonition warning";
+      warning.innerHTML = `
+        <p class="first admonition-title">Note</p>
+        <p class="last">
+          This documentation covers the <strong>development version</strong> of Datasette.
+        </p>
+        <p>
+          See <a href="${stableUrl}">this page</a> for the current stable release.
+        </p>
+      `;
+      var mainArticle = document.querySelector("article[role=main]");
+      mainArticle.insertBefore(warning, mainArticle.firstChild);
+    }
+  });
+});
+</script>
+</body>
+</html>

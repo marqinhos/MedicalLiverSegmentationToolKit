@@ -1,0 +1,16 @@
+=============
+Documentation
+=============
+
+.. toctree::
+   :maxdepth: 2
+
+   calculate_features_networks
+   create_graphs_take_from_json
+   metrics_sequential
+   model
+   predict_sequential
+   train
+   train_sequential
+   training
+   utils

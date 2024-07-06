@@ -1,0 +1,24 @@
+## LiverSegmentation
+
+``` {eval-rst}
+.. toctree::
+   :maxdepth: 4
+
+   calculate_features_networks
+   create_graphs_take_from_json
+   metrics_sequential
+   model
+   predict_sequential
+   test
+   test2
+   test_check
+   test_graphs1
+   test_show_params_model
+   train
+   train
+   train
+   train_sequential
+   training
+   utils
+
+```

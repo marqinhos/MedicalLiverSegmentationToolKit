@@ -1,0 +1,7 @@
+predict\_sequential module
+==========================
+
+.. automodule:: predict_sequential
+   :members:
+   :undoc-members:
+   :show-inheritance:

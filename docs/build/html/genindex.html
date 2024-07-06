@@ -1,0 +1,1470 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head>
+<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+<script defer data-domain="docs.datasette.io" src="https://plausible.io/js/plausible.js"></script>
+<title>Index - Medical Liver Segmentation Toolkit</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/fontawesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/solid.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #140062;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     🚀 🩻<em>New Release Medical Liver Segmentation Toolkit!</em>🩻 🚀 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Medical Liver Segmentation Toolkit</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-scroll"><div class="sidebar-brand centered">
+    
+    <div class="sidebar-logo-container">
+      <a href="https://github.com/marqinhos/JetRacer_Autonomous_Driving"><img class="sidebar-logo" src="" alt="JetRacer Autonomous Driving"></a>
+    </div>
+    
+    
+    
+  </div><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-tree">
+    <ul>
+      <li class="toctree-l1"><a class="reference internal" href="index.html">Contents</a></li>
+    </ul>
+    <ul>
+<li class="toctree-l1"><a class="reference internal" href="src/main.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/modules.html">Documentation</a></li>
+</ul>
+
+  </div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
+</section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics.all_classes">all_classes (metrics_sequential.SequentialMetrics attribute)</a>
+</li>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics.all_metrics">all_metrics (metrics_sequential.SequentialMetrics attribute)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.trans_layers.Attention">Attention (class in model.dim3.trans_layers)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.attention_unet_utils.attention_up_block">attention_up_block (class in model.dim3.attention_unet_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.attention_unet_utils.AttentionBlock">AttentionBlock (class in model.dim3.attention_unet_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.attention_unet.AttentionUNet">AttentionUNet (class in model.dim3.attention_unet)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.ContiguousGrad.backward">backward() (model.dim3.nnformer.ContiguousGrad static method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.conv_layers.BasicBlock">BasicBlock (class in model.dim3.conv_layers)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.BasicLayer">BasicLayer (class in model.dim3.medformer_utils)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.BasicLayer">(class in model.dim3.medformer_utils_v2)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.BasicLayer">(class in model.dim3.nnformer)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.BasicLayer">(class in model.dim3.swin_unetr)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.BasicLayer">(class in model.dim3.vtunet_utils)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.BasicLayer_up">BasicLayer_up (class in model.dim3.nnformer)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.BasicLayer_up">(class in model.dim3.vtunet_utils)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.BidirectionAttention">BidirectionAttention (class in model.dim3.medformer_utils)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.BidirectionAttention">(class in model.dim3.medformer_utils_v2)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.BidirectionAttentionBlock">BidirectionAttentionBlock (class in model.dim3.medformer_utils)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.BidirectionAttentionBlock">(class in model.dim3.medformer_utils_v2)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.conv_layers.Bottleneck">Bottleneck (class in model.dim3.conv_layers)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    calculate_features_networks
+
+        <ul>
+          <li><a href="modules/calculate_features_networks.html#module-calculate_features_networks">module</a>
+</li>
+        </ul></li>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.calculate_flops">calculate_flops() (in module calculate_features_networks)</a>
+</li>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.calculate_params">calculate_params() (in module calculate_features_networks)</a>
+</li>
+        <li><a href="modules/utils.html#utils.check_gpu_memory">check_gpu_memory() (in module utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.compute_mask">compute_mask() (in module model.dim3.vtunet_utils)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/training.html#training.utils.concat_all_gather">concat_all_gather() (in module training.utils)</a>
+</li>
+        <li><a href="modules/utils.html#utils.configure_logger">configure_logger() (in module utils)</a>
+</li>
+        <li><a href="modules/train.html#train.Net.configure_optimizers">configure_optimizers() (train.Net method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vnet.ContBatchNorm3d">ContBatchNorm3d (class in model.dim3.vnet)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.ContiguousGrad">ContiguousGrad (class in model.dim3.nnformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.conv_layers.ConvNormAct">ConvNormAct (class in model.dim3.conv_layers)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.segformer.cube_root">cube_root() (in module model.dim3.segformer)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/train_sequential.html#train_sequential.SequentialTrain.dataset">dataset (train_sequential.SequentialTrain attribute)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.Decoder">Decoder (class in model.dim3.nnformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.conv_layers.DepthwiseSeparableConv">DepthwiseSeparableConv (class in model.dim3.conv_layers)</a>
+</li>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics.dimensions">dimensions (metrics_sequential.SequentialMetrics attribute)</a>
+
+        <ul>
+          <li><a href="modules/predict_sequential.html#predict_sequential.SequentialPredictions.dimensions">(predict_sequential.SequentialPredictions attribute)</a>
+</li>
+          <li><a href="modules/train_sequential.html#train_sequential.SequentialTrain.dimensions">(train_sequential.SequentialTrain attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.down_block">down_block (class in model.dim3.medformer_utils)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.down_block">(class in model.dim3.medformer_utils_v2)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.unet_utils.down_block">(class in model.dim3.unet_utils)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.vnet.DownTransition">DownTransition (class in model.dim3.vnet)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.segformer.DWConv">DWConv (class in model.dim3.segformer)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.vnet.ELUCons">ELUCons() (in module model.dim3.vnet)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.Encoder">Encoder (class in model.dim3.nnformer)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.estimate_memory_inference">estimate_memory_inference() (in module calculate_features_networks)</a>
+</li>
+        <li><a href="modules/training.html#training.utils.exp_lr_scheduler_with_warmup">exp_lr_scheduler_with_warmup() (in module training.utils)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics.file_name">file_name (metrics_sequential.SequentialMetrics attribute)</a>
+</li>
+        <li><a href="modules/training.html#training.utils.filter_validation_results">filter_validation_results() (in module training.utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.final_patch_expanding">final_patch_expanding (class in model.dim3.nnformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.FinalPatchExpand_X4">FinalPatchExpand_X4 (class in model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.attention_unet.AttentionUNet.forward">forward() (model.dim3.attention_unet.AttentionUNet method)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.attention_unet_utils.attention_up_block.forward">(model.dim3.attention_unet_utils.attention_up_block method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.attention_unet_utils.AttentionBlock.forward">(model.dim3.attention_unet_utils.AttentionBlock method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.conv_layers.BasicBlock.forward">(model.dim3.conv_layers.BasicBlock method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.conv_layers.Bottleneck.forward">(model.dim3.conv_layers.Bottleneck method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.conv_layers.ConvNormAct.forward">(model.dim3.conv_layers.ConvNormAct method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.conv_layers.DepthwiseSeparableConv.forward">(model.dim3.conv_layers.DepthwiseSeparableConv method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer.MedFormer.forward">(model.dim3.medformer.MedFormer method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.BasicLayer.forward">(model.dim3.medformer_utils.BasicLayer method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.BidirectionAttention.forward">(model.dim3.medformer_utils.BidirectionAttention method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.BidirectionAttentionBlock.forward">(model.dim3.medformer_utils.BidirectionAttentionBlock method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.down_block.forward">(model.dim3.medformer_utils.down_block method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.inconv.forward">(model.dim3.medformer_utils.inconv method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.PatchMerging.forward">(model.dim3.medformer_utils.PatchMerging method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.SemanticMapFusion.forward">(model.dim3.medformer_utils.SemanticMapFusion method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.SemanticMapGeneration.forward">(model.dim3.medformer_utils.SemanticMapGeneration method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.up_block.forward">(model.dim3.medformer_utils.up_block method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.BasicLayer.forward">(model.dim3.medformer_utils_v2.BasicLayer method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.BidirectionAttention.forward">(model.dim3.medformer_utils_v2.BidirectionAttention method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.BidirectionAttentionBlock.forward">(model.dim3.medformer_utils_v2.BidirectionAttentionBlock method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.down_block.forward">(model.dim3.medformer_utils_v2.down_block method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.inconv.forward">(model.dim3.medformer_utils_v2.inconv method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.PatchMerging.forward">(model.dim3.medformer_utils_v2.PatchMerging method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.SemanticMapFusion.forward">(model.dim3.medformer_utils_v2.SemanticMapFusion method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.SemanticMapGeneration.forward">(model.dim3.medformer_utils_v2.SemanticMapGeneration method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.up_block.forward">(model.dim3.medformer_utils_v2.up_block method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.BasicLayer.forward">(model.dim3.nnformer.BasicLayer method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.BasicLayer_up.forward">(model.dim3.nnformer.BasicLayer_up method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.ContiguousGrad.forward">(model.dim3.nnformer.ContiguousGrad static method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.Decoder.forward">(model.dim3.nnformer.Decoder method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.Encoder.forward">(model.dim3.nnformer.Encoder method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.final_patch_expanding.forward">(model.dim3.nnformer.final_patch_expanding method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.Mlp.forward">(model.dim3.nnformer.Mlp method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.nnFormer.forward">(model.dim3.nnformer.nnFormer method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.Patch_Expanding.forward">(model.dim3.nnformer.Patch_Expanding method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.PatchEmbed.forward">(model.dim3.nnformer.PatchEmbed method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.PatchMerging.forward">(model.dim3.nnformer.PatchMerging method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.project.forward">(model.dim3.nnformer.project method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.SwinTransformerBlock.forward">(model.dim3.nnformer.SwinTransformerBlock method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.SwinTransformerBlock_kv.forward">(model.dim3.nnformer.SwinTransformerBlock_kv method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.WindowAttention.forward">(model.dim3.nnformer.WindowAttention method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.WindowAttention_kv.forward">(model.dim3.nnformer.WindowAttention_kv method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.NeuralNetwork.forward">(model.dim3.nnformer_utils.NeuralNetwork method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.segformer.DWConv.forward">(model.dim3.segformer.DWConv method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.segformer.MixVisionTransformer.forward">(model.dim3.segformer.MixVisionTransformer method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.segformer.MLP_.forward">(model.dim3.segformer.MLP_ method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.segformer.PatchEmbedding.forward">(model.dim3.segformer.PatchEmbedding method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.segformer.SegFormer3D.forward">(model.dim3.segformer.SegFormer3D method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.segformer.SegFormerDecoderHead.forward">(model.dim3.segformer.SegFormerDecoderHead method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.segformer.SelfAttention.forward">(model.dim3.segformer.SelfAttention method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.segformer.TransformerBlock.forward">(model.dim3.segformer.TransformerBlock method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.BasicLayer.forward">(model.dim3.swin_unetr.BasicLayer method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.PatchMerging.forward">(model.dim3.swin_unetr.PatchMerging method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.PatchMergingV2.forward">(model.dim3.swin_unetr.PatchMergingV2 method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinTransformer.forward">(model.dim3.swin_unetr.SwinTransformer method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinTransformerBlock.forward">(model.dim3.swin_unetr.SwinTransformerBlock method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinUNETR.forward">(model.dim3.swin_unetr.SwinUNETR method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.WindowAttention.forward">(model.dim3.swin_unetr.WindowAttention method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.trans_layers.Attention.forward">(model.dim3.trans_layers.Attention method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.trans_layers.LayerNorm.forward">(model.dim3.trans_layers.LayerNorm method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.trans_layers.Mlp.forward">(model.dim3.trans_layers.Mlp method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.trans_layers.TransformerBlock.forward">(model.dim3.trans_layers.TransformerBlock method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.unet.UNet.forward">(model.dim3.unet.UNet method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.unet_utils.down_block.forward">(model.dim3.unet_utils.down_block method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.unet_utils.inconv.forward">(model.dim3.unet_utils.inconv method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.unet_utils.up_block.forward">(model.dim3.unet_utils.up_block method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.unetpp.UNetPlusPlus.forward">(model.dim3.unetpp.UNetPlusPlus method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.unetr.UNETR.forward">(model.dim3.unetr.UNETR method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vnet.ContBatchNorm3d.forward">(model.dim3.vnet.ContBatchNorm3d method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vnet.DownTransition.forward">(model.dim3.vnet.DownTransition method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vnet.InputTransition.forward">(model.dim3.vnet.InputTransition method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vnet.LUConv.forward">(model.dim3.vnet.LUConv method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vnet.OutputTransition.forward">(model.dim3.vnet.OutputTransition method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vnet.UpTransition.forward">(model.dim3.vnet.UpTransition method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vnet.VNet.forward">(model.dim3.vnet.VNet method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet.VTUNet.forward">(model.dim3.vtunet.VTUNet method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.BasicLayer.forward">(model.dim3.vtunet_utils.BasicLayer method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.BasicLayer_up.forward">(model.dim3.vtunet_utils.BasicLayer_up method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.FinalPatchExpand_X4.forward">(model.dim3.vtunet_utils.FinalPatchExpand_X4 method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.Merge_Block.forward">(model.dim3.vtunet_utils.Merge_Block method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.Mlp.forward">(model.dim3.vtunet_utils.Mlp method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.PatchEmbed3D.forward">(model.dim3.vtunet_utils.PatchEmbed3D method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.PatchExpand.forward">(model.dim3.vtunet_utils.PatchExpand method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.PatchExpand_Up.forward">(model.dim3.vtunet_utils.PatchExpand_Up method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.PatchMerging.forward">(model.dim3.vtunet_utils.PatchMerging method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.PositionalEncoding3D.forward">(model.dim3.vtunet_utils.PositionalEncoding3D method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerBlock3D.forward">(model.dim3.vtunet_utils.SwinTransformerBlock3D method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerSys3D.forward">(model.dim3.vtunet_utils.SwinTransformerSys3D method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.WindowAttention3D.forward">(model.dim3.vtunet_utils.WindowAttention3D method)</a>
+</li>
+          <li><a href="modules/train.html#train.Net.forward">(train.Net method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerSys3D.forward_features">forward_features() (model.dim3.vtunet_utils.SwinTransformerSys3D method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinTransformerBlock.forward_part1">forward_part1() (model.dim3.swin_unetr.SwinTransformerBlock method)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerBlock3D.forward_part1">(model.dim3.vtunet_utils.SwinTransformerBlock3D method)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinTransformerBlock.forward_part2">forward_part2() (model.dim3.swin_unetr.SwinTransformerBlock method)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerBlock3D.forward_part2">(model.dim3.vtunet_utils.SwinTransformerBlock3D method)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerBlock3D.forward_part3">forward_part3() (model.dim3.vtunet_utils.SwinTransformerBlock3D method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerSys3D.forward_up_features">forward_up_features() (model.dim3.vtunet_utils.SwinTransformerSys3D method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.utils.get_act">get_act() (in module model.dim3.utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.utils.get_block">get_block() (in module model.dim3.utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.NeuralNetwork.get_device">get_device() (model.dim3.nnformer_utils.NeuralNetwork method)</a>
+</li>
+        <li><a href="modules/utils.html#utils.get_latest_run_version_ckpt_epoch_no">get_latest_run_version_ckpt_epoch_no() (in module utils)</a>
+</li>
+        <li><a href="modules/model.html#model.utils.get_model">get_model() (in module model.utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.utils.get_norm">get_norm() (in module model.dim3.utils)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/training.html#training.utils.get_optimizer">get_optimizer() (in module training.utils)</a>
+</li>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.get_parser">get_parser() (in module calculate_features_networks)</a>
+
+        <ul>
+          <li><a href="modules/train.html#train.get_parser">(in module train)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.get_window_size">get_window_size() (in module model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics.gt_img_path">gt_img_path (metrics_sequential.SequentialMetrics attribute)</a>
+</li>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics.gt_lbl_path">gt_lbl_path (metrics_sequential.SequentialMetrics attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.human_readable">human_readable() (in module calculate_features_networks)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.img2windows">img2windows() (in module model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.inconv">inconv (class in model.dim3.medformer_utils)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.inconv">(class in model.dim3.medformer_utils_v2)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.unet_utils.inconv">(class in model.dim3.unet_utils)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerSys3D.inflate_weights">inflate_weights() (model.dim3.vtunet_utils.SwinTransformerSys3D method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerSys3D.init_weights">init_weights() (model.dim3.vtunet_utils.SwinTransformerSys3D method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.InitWeights_He">InitWeights_He (class in model.dim3.nnformer_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.InitWeights_XavierUniform">InitWeights_XavierUniform (class in model.dim3.nnformer_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vnet.InputTransition">InputTransition (class in model.dim3.vnet)</a>
+</li>
+        <li><a href="modules/utils.html#utils.is_master">is_master() (in module utils)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.trans_layers.LayerNorm">LayerNorm (class in model.dim3.trans_layers)</a>
+</li>
+        <li><a href="modules/predict_sequential.html#predict_sequential.SequentialPredictions.len_battery_test">len_battery_test (predict_sequential.SequentialPredictions attribute)</a>
+
+        <ul>
+          <li><a href="modules/train_sequential.html#train_sequential.SequentialTrain.len_battery_test">(train_sequential.SequentialTrain attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinTransformerBlock.load_from">load_from() (model.dim3.swin_unetr.SwinTransformerBlock method)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinUNETR.load_from">(model.dim3.swin_unetr.SwinUNETR method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.unetr.UNETR.load_from">(model.dim3.unetr.UNETR method)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet.VTUNet.load_from">(model.dim3.vtunet.VTUNet method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/training.html#training.utils.log_evaluation_result">log_evaluation_result() (in module training.utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vnet.LUConv">LUConv (class in model.dim3.vnet)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.main">main() (in module calculate_features_networks)</a>
+</li>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.main_profile">main_profile() (in module calculate_features_networks)</a>
+</li>
+        <li><a href="modules/train.html#train.MainModule">MainModule (class in train)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.unetpp.UNetPlusPlus.make_layer">make_layer() (model.dim3.unetpp.UNetPlusPlus method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.maybe_to_torch">maybe_to_torch() (in module model.dim3.nnformer_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer.MedFormer">MedFormer (class in model.dim3.medformer)</a>
+</li>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.memory_profile">memory_profile() (in module calculate_features_networks)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.Merge_Block">Merge_Block (class in model.dim3.vtunet_utils)</a>
+</li>
+        <li>
+    metrics_sequential
+
+        <ul>
+          <li><a href="modules/metrics_sequential.html#module-metrics_sequential">module</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.segformer.MixVisionTransformer">MixVisionTransformer (class in model.dim3.segformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.Mlp">Mlp (class in model.dim3.nnformer)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.trans_layers.Mlp">(class in model.dim3.trans_layers)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.Mlp">(class in model.dim3.vtunet_utils)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.segformer.MLP_">MLP_ (class in model.dim3.segformer)</a>
+</li>
+        <li>
+    model
+
+        <ul>
+          <li><a href="modules/model.html#module-model">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.attention_unet
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.attention_unet">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.attention_unet_utils
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.attention_unet_utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.conv_layers
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.conv_layers">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.medformer
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.medformer">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.medformer_utils
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.medformer_utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.medformer_utils_v2
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.medformer_utils_v2">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.nnformer
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.nnformer">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.nnformer_utils
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.nnformer_utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.segformer
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.segformer">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.swin_unetr
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.swin_unetr">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.trans_layers
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.trans_layers">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.unet
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.unet">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.unet_utils
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.unet_utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.unetpp
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.unetpp">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.unetr
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.unetr">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    model.dim3.utils
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.vnet
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.vnet">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.vtunet
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.vtunet">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.dim3.vtunet_utils
+
+        <ul>
+          <li><a href="modules/model.dim3.html#module-model.dim3.vtunet_utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    model.utils
+
+        <ul>
+          <li><a href="modules/model.html#module-model.utils">module</a>
+</li>
+        </ul></li>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics.models_2d">models_2d (metrics_sequential.SequentialMetrics attribute)</a>
+
+        <ul>
+          <li><a href="modules/predict_sequential.html#predict_sequential.SequentialPredictions.models_2d">(predict_sequential.SequentialPredictions attribute)</a>
+</li>
+          <li><a href="modules/train_sequential.html#train_sequential.SequentialTrain.models_2d">(train_sequential.SequentialTrain attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics.models_3d">models_3d (metrics_sequential.SequentialMetrics attribute)</a>
+
+        <ul>
+          <li><a href="modules/predict_sequential.html#predict_sequential.SequentialPredictions.models_3d">(predict_sequential.SequentialPredictions attribute)</a>
+</li>
+          <li><a href="modules/train_sequential.html#train_sequential.SequentialTrain.models_3d">(train_sequential.SequentialTrain attribute)</a>
+</li>
+        </ul></li>
+        <li>
+    module
+
+        <ul>
+          <li><a href="modules/calculate_features_networks.html#module-calculate_features_networks">calculate_features_networks</a>
+</li>
+          <li><a href="modules/metrics_sequential.html#module-metrics_sequential">metrics_sequential</a>
+</li>
+          <li><a href="modules/model.html#module-model">model</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3">model.dim3</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.attention_unet">model.dim3.attention_unet</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.attention_unet_utils">model.dim3.attention_unet_utils</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.conv_layers">model.dim3.conv_layers</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.medformer">model.dim3.medformer</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.medformer_utils">model.dim3.medformer_utils</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.medformer_utils_v2">model.dim3.medformer_utils_v2</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.nnformer">model.dim3.nnformer</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.nnformer_utils">model.dim3.nnformer_utils</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.segformer">model.dim3.segformer</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.swin_unetr">model.dim3.swin_unetr</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.trans_layers">model.dim3.trans_layers</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.unet">model.dim3.unet</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.unet_utils">model.dim3.unet_utils</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.unetpp">model.dim3.unetpp</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.unetr">model.dim3.unetr</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.utils">model.dim3.utils</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.vnet">model.dim3.vnet</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.vtunet">model.dim3.vtunet</a>
+</li>
+          <li><a href="modules/model.dim3.html#module-model.dim3.vtunet_utils">model.dim3.vtunet_utils</a>
+</li>
+          <li><a href="modules/model.html#module-model.utils">model.utils</a>
+</li>
+          <li><a href="modules/predict_sequential.html#module-predict_sequential">predict_sequential</a>
+</li>
+          <li><a href="modules/train.html#module-train">train</a>
+</li>
+          <li><a href="modules/train_sequential.html#module-train_sequential">train_sequential</a>
+</li>
+          <li><a href="modules/training.html#module-training">training</a>
+</li>
+          <li><a href="modules/training.html#module-training.utils">training.utils</a>
+</li>
+          <li><a href="modules/utils.html#module-utils">utils</a>
+</li>
+        </ul></li>
+        <li><a href="modules/training.html#training.utils.multistep_lr_scheduler_with_warmup">multistep_lr_scheduler_with_warmup() (in module training.utils)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics.name_dataset">name_dataset (metrics_sequential.SequentialMetrics attribute)</a>
+</li>
+        <li><a href="modules/train.html#train.Net">Net (class in train)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.NeuralNetwork">NeuralNetwork (class in model.dim3.nnformer_utils)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.nnFormer">nnFormer (class in model.dim3.nnformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.no_op">no_op (class in model.dim3.nnformer_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerSys3D.no_weight_decay">no_weight_decay() (model.dim3.vtunet_utils.SwinTransformerSys3D method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerSys3D.no_weight_decay_keywords">no_weight_decay_keywords() (model.dim3.vtunet_utils.SwinTransformerSys3D method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/train.html#train.Net.on_test_epoch_end">on_test_epoch_end() (train.Net method)</a>
+</li>
+        <li><a href="modules/train.html#train.Net.on_training_epoch_end">on_training_epoch_end() (train.Net method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/train.html#train.Net.on_validation_epoch_end">on_validation_epoch_end() (train.Net method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vnet.OutputTransition">OutputTransition (class in model.dim3.vnet)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.parse_memory_size">parse_memory_size() (in module calculate_features_networks)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vnet.passthrough">passthrough() (in module model.dim3.vnet)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.Patch_Expanding">Patch_Expanding (class in model.dim3.nnformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinUNETR.patch_size">patch_size (model.dim3.swin_unetr.SwinUNETR attribute)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.PatchEmbed">PatchEmbed (class in model.dim3.nnformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.PatchEmbed3D">PatchEmbed3D (class in model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.segformer.PatchEmbedding">PatchEmbedding (class in model.dim3.segformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.PatchExpand">PatchExpand (class in model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.PatchExpand_Up">PatchExpand_Up (class in model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.PatchMerging">PatchMerging (class in model.dim3.medformer_utils)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.PatchMerging">(class in model.dim3.medformer_utils_v2)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.nnformer.PatchMerging">(class in model.dim3.nnformer)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.PatchMerging">(class in model.dim3.swin_unetr)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.PatchMerging">(class in model.dim3.vtunet_utils)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.PatchMergingV2">PatchMergingV2 (class in model.dim3.swin_unetr)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.PositionalEncoding3D">PositionalEncoding3D (class in model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/train.html#train.MainModule.predict">predict() (train.MainModule method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.SegmentationNetwork.predict_2D">predict_2D() (model.dim3.nnformer_utils.SegmentationNetwork method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.SegmentationNetwork.predict_3D">predict_3D() (model.dim3.nnformer_utils.SegmentationNetwork method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.SegmentationNetwork.predict_3D_pseudo3D_2Dconv">predict_3D_pseudo3D_2Dconv() (model.dim3.nnformer_utils.SegmentationNetwork method)</a>
+</li>
+        <li>
+    predict_sequential
+
+        <ul>
+          <li><a href="modules/predict_sequential.html#module-predict_sequential">module</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.unetr.UNETR.proj_feat">proj_feat() (model.dim3.unetr.UNETR method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinTransformer.proj_out">proj_out() (model.dim3.swin_unetr.SwinTransformer method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.project">project (class in model.dim3.nnformer)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.BidirectionAttention.rearrange1">rearrange1() (model.dim3.medformer_utils.BidirectionAttention method)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.trans_layers.Attention.rearrange1">(model.dim3.trans_layers.Attention method)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.BidirectionAttention.rearrange2">rearrange2() (model.dim3.medformer_utils.BidirectionAttention method)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.trans_layers.Attention.rearrange2">(model.dim3.trans_layers.Attention method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/training.html#training.utils.remove_wrap_arounds">remove_wrap_arounds() (in module training.utils)</a>
+</li>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics.root_path">root_path (metrics_sequential.SequentialMetrics attribute)</a>
+</li>
+        <li><a href="modules/predict_sequential.html#predict_sequential.SequentialPredictions.run_model">run_model() (predict_sequential.SequentialPredictions static method)</a>
+
+        <ul>
+          <li><a href="modules/train_sequential.html#train_sequential.SequentialTrain.run_model">(train_sequential.SequentialTrain static method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/utils.html#utils.sample_stack">sample_stack() (in module utils)</a>
+</li>
+        <li><a href="modules/utils.html#utils.save_configure">save_configure() (in module utils)</a>
+</li>
+        <li><a href="modules/utils.html#utils.save_nifti">save_nifti() (in module utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.segformer.SegFormer3D">SegFormer3D (class in model.dim3.segformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.segformer.SegFormerDecoderHead">SegFormerDecoderHead (class in model.dim3.segformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.SegmentationNetwork">SegmentationNetwork (class in model.dim3.nnformer_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.segformer.SelfAttention">SelfAttention (class in model.dim3.segformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.SemanticMapFusion">SemanticMapFusion (class in model.dim3.medformer_utils)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.SemanticMapFusion">(class in model.dim3.medformer_utils_v2)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.SemanticMapGeneration">SemanticMapGeneration (class in model.dim3.medformer_utils)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.SemanticMapGeneration">(class in model.dim3.medformer_utils_v2)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.separate_number_and_unit">separate_number_and_unit() (in module calculate_features_networks)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/metrics_sequential.html#metrics_sequential.SequentialMetrics">SequentialMetrics (class in metrics_sequential)</a>
+</li>
+        <li><a href="modules/predict_sequential.html#predict_sequential.SequentialPredictions">SequentialPredictions (class in predict_sequential)</a>
+</li>
+        <li><a href="modules/train_sequential.html#train_sequential.SequentialTrain">SequentialTrain (class in train_sequential)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.NeuralNetwork.set_device">set_device() (model.dim3.nnformer_utils.NeuralNetwork method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.softmax_helper">softmax_helper() (in module model.dim3.nnformer_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinTransformer">SwinTransformer (class in model.dim3.swin_unetr)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.SwinTransformerBlock">SwinTransformerBlock (class in model.dim3.nnformer)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinTransformerBlock">(class in model.dim3.swin_unetr)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerBlock3D">SwinTransformerBlock3D (class in model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.SwinTransformerBlock_kv">SwinTransformerBlock_kv (class in model.dim3.nnformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerSys3D">SwinTransformerSys3D (class in model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.SwinUNETR">SwinUNETR (class in model.dim3.swin_unetr)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/train.html#train.MainModule.test">test() (train.MainModule method)</a>
+</li>
+        <li><a href="modules/train.html#train.Net.test_step">test_step() (train.Net method)</a>
+</li>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.time_profile">time_profile() (in module calculate_features_networks)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer_utils.to_cuda">to_cuda() (in module model.dim3.nnformer_utils)</a>
+</li>
+        <li>
+    train
+
+        <ul>
+          <li><a href="modules/train.html#module-train">module</a>
+</li>
+        </ul></li>
+        <li><a href="modules/train.html#train.MainModule.train">train() (train.MainModule method)</a>
+</li>
+        <li>
+    train_sequential
+
+        <ul>
+          <li><a href="modules/train_sequential.html#module-train_sequential">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    training
+
+        <ul>
+          <li><a href="modules/training.html#module-training">module</a>
+</li>
+        </ul></li>
+        <li>
+    training.utils
+
+        <ul>
+          <li><a href="modules/training.html#module-training.utils">module</a>
+</li>
+        </ul></li>
+        <li><a href="modules/train.html#train.Net.training_step">training_step() (train.Net method)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.segformer.TransformerBlock">TransformerBlock (class in model.dim3.segformer)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.trans_layers.TransformerBlock">(class in model.dim3.trans_layers)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.unet.UNet">UNet (class in model.dim3.unet)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.unetpp.UNetPlusPlus">UNetPlusPlus (class in model.dim3.unetpp)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.unetr.UNETR">UNETR (class in model.dim3.unetr)</a>
+</li>
+        <li><a href="modules/training.html#training.utils.unwrap_model_checkpoint">unwrap_model_checkpoint() (in module training.utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.medformer_utils.up_block">up_block (class in model.dim3.medformer_utils)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.medformer_utils_v2.up_block">(class in model.dim3.medformer_utils_v2)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.unet_utils.up_block">(class in model.dim3.unet_utils)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.SwinTransformerSys3D.up_x4">up_x4() (model.dim3.vtunet_utils.SwinTransformerSys3D method)</a>
+</li>
+        <li><a href="modules/training.html#training.utils.update_ema_variables">update_ema_variables() (in module training.utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vnet.UpTransition">UpTransition (class in model.dim3.vnet)</a>
+</li>
+        <li>
+    utils
+
+        <ul>
+          <li><a href="modules/utils.html#module-utils">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/train.html#train.Net.validation_step">validation_step() (train.Net method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.vnet.VNet">VNet (class in model.dim3.vnet)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet.VTUNet">VTUNet (class in model.dim3.vtunet)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.window_partition">window_partition() (in module model.dim3.nnformer)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.window_partition">(in module model.dim3.swin_unetr)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.window_partition">(in module model.dim3.vtunet_utils)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.window_reverse">window_reverse() (in module model.dim3.nnformer)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.window_reverse">(in module model.dim3.swin_unetr)</a>
+</li>
+          <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.window_reverse">(in module model.dim3.vtunet_utils)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.WindowAttention">WindowAttention (class in model.dim3.nnformer)</a>
+
+        <ul>
+          <li><a href="modules/model.dim3.html#model.dim3.swin_unetr.WindowAttention">(class in model.dim3.swin_unetr)</a>
+</li>
+        </ul></li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.WindowAttention3D">WindowAttention3D (class in model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.nnformer.WindowAttention_kv">WindowAttention_kv (class in model.dim3.nnformer)</a>
+</li>
+        <li><a href="modules/model.dim3.html#model.dim3.vtunet_utils.windows2img">windows2img() (in module model.dim3.vtunet_utils)</a>
+</li>
+        <li><a href="modules/calculate_features_networks.html#calculate_features_networks.write_data_json">write_data_json() (in module calculate_features_networks)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Marcos Fernández González
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link fa-brands fa-solid fa-github fa-2x" href="https://github.com/marqinhos/JetRacer_Autonomous_Driving" aria-label="GitHub"></a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div>
+<script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=79f5c508"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=4e2eecee"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Show banner linking to /stable/ if this is a /latest/ page
+  if (!/\/latest\//.test(location.pathname)) {
+    return;
+  }
+  var stableUrl = location.pathname.replace("/latest/", "/stable/");
+  // Check it's not a 404
+  fetch(stableUrl, { method: "HEAD" }).then((response) => {
+    if (response.status === 200) {
+      var warning = document.createElement("div");
+      warning.className = "admonition warning";
+      warning.innerHTML = `
+        <p class="first admonition-title">Note</p>
+        <p class="last">
+          This documentation covers the <strong>development version</strong> of Datasette.
+        </p>
+        <p>
+          See <a href="${stableUrl}">this page</a> for the current stable release.
+        </p>
+      `;
+      var mainArticle = document.querySelector("article[role=main]");
+      mainArticle.insertBefore(warning, mainArticle.firstChild);
+    }
+  });
+});
+</script>
+</body>
+</html>
