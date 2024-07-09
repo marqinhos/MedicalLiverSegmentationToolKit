@@ -1,0 +1,8 @@
+sphinx
+sphinx-autodoc-typehints
+sphinx-copybutton
+sphinx-rtd-theme
+sphinxcontrib-napoleon
+sphinxcontrib-viewcode
+myst-parser
+furo
