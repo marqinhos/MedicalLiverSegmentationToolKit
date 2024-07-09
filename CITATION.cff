@@ -1,0 +1,12 @@
+cff-version: 1.0.0
+preferred-citation:
+  type: software
+  message: If you use this software, please cite it as below.
+  authors:
+  - family-names: Fernández
+    given-names: Marcos
+  title: "MedicalLiverSegmentationToolKit"
+  version: 2.0.0
+  date-released: 2024-07-05
+  license: AGPL-3.0
+  url: "https://github.com/marqinhos/MedicalLiverSegmentationToolKit"
