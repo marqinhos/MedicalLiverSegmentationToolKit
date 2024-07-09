@@ -24,7 +24,8 @@ The following network architectures have been implemented:
 
 ### Results
 
-![Radar chart results](imgs/radar_chart.png)
+<img src="imgs/radar_chart.png" alt="Radar chart results" style="width: 400px;">
+
 
 | Architectures     | DSC      | NSD      | MASD     | HD       | RVD      |
 |------------------|----------|----------|----------|----------|----------|
