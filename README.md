@@ -12,6 +12,24 @@ The following network architectures have been implemented:
 - SegFormer
 
 
+
+<div style="color: #2E86C1; font-size: 1.5em; font-weight: bold; margin-top: 1em;">
+    Resultados
+</div>
+
+| Arquitectura     | DSC      | NSD      | MASD     | HD       | RVD      |
+|------------------|----------|----------|----------|----------|----------|
+| UNet             | 0.955    | 0.903    | 1.326    | 48       | -0.036   |
+| VNet             | 0.941    | 0.860    | 3.483    | 148      | -0.052   |
+| ResUNet          | 0.956    | 0.902    | 0.890    | **35**   | -0.046   |
+| UNet++           | 0.951    | 0.888    | 1.218    | 37       | -0.009   |
+| Attention-UNet   | **0.959**| 0.907    | 0.845    | 37       | -0.037   |
+| UNETR            | 0.952    | 0.890    | 1.263    | 36       | **0.006**|
+| **SwinUNETR**    | 0.956    | 0.898    | **0.837**| 43       | **-0.006**|
+| MedFormer        | 0.957    | **0.917**| 1.251    | 55       | -0.021   |
+| SegFormer        | 0.946    | 0.878    | 1.482    | 40       | -0.043   |
+
+
 # Quickstart
 
 > **⚠️ Warning**
