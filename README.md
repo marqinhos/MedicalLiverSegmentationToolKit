@@ -1,4 +1,13 @@
-# Implemented Architectures
+# Medical Liver Segmentation ToolKit
+
+[![MKT](https://shields.io/badge/license-Copyleft-red.svg)](LICENSE)
+[![MKT](https://shields.io/badge/version-v1.0.0-blue.svg)]()
+[![MKT](https://shields.io/badge/language-Python3-r.svg?logo=python)](https://www.python.org/)
+[![MKT](https://shields.io/badge/github-gray.svg?logo=github)](https://github.com/marqinhos)
+
+
+
+## Implemented Architectures
 
 The following network architectures have been implemented:
 - UNet
@@ -13,7 +22,7 @@ The following network architectures have been implemented:
 
 
 
-## Results
+### Results
 
 ![Radar chart results](imgs/radar_chart.png)
 
@@ -30,12 +39,12 @@ The following network architectures have been implemented:
 | SegFormer        | 0.946    | 0.878    | 1.482    | 40       | -0.043   |
 
 
-# Quickstart
+## Quickstart
 
 > **⚠️ Warning**
 > This project is under development
 
-## Installation
+### Installation
 
 > **💡 Software installation**
 > Download Medical Liver Segmentation ToolKit
@@ -52,7 +61,7 @@ The following network architectures have been implemented:
 (.venv) $ pip install -r requirements.txt
 ```
 
-## Usage
+### Usage
 
 > **❗ Important**
 > To introduce new network architectures, follow these steps:
@@ -61,7 +70,7 @@ The following network architectures have been implemented:
 > 2. Add the network import in `model/utils.py`.
 > 3. Add the network training configuration in `config/{database}/{your_architecture}_3d.yaml`.
 
-#### Training Network
+##### Training Network
 
 ```bash
 (.venv) $ python3 train.py --model {network_name} --max_epochs {num_max_epochs}
@@ -73,13 +82,13 @@ The following network architectures have been implemented:
 > **💡 Tip**
 > To train more than 1 network, use `train_sequential.py`, [more info](https://medicalliversegmentationtoolkit.readthedocs.io/en/latest/modules/train_sequential.html).
 
-#### Test Network
+##### Test Network
 
 ```bash
 (.venv) $ python3 train.py --model {network_name} --version {training_version}
 ```
 
-#### Predict Network
+##### Predict Network
 
 ```bash
 (.venv) $ python3 train.py --model {network_name} --version {training_version}
@@ -88,9 +97,9 @@ The following network architectures have been implemented:
 > **💡 Tip**
 > To predict more than 1 network, use `predict_sequential.py`, [more info](https://medicalliversegmentationtoolkit.readthedocs.io/en/latest/modules/predict_sequential.html).
 
-## Evaluation of Trained Models
+### Evaluation of Trained Models
 
-### Performance Measures
+#### Performance Measures
 
 > **📝 Note**
 > The performance measures computed are:
@@ -124,7 +133,7 @@ The following network architectures have been implemented:
 > ]
 > ```
 
-### Complexity Measures
+#### Complexity Measures
 
 ```bash
 (.venv) $ python3 calculate_features_networks.py 
@@ -139,3 +148,10 @@ The following network architectures have been implemented:
 > 4. Layer sizes.
 >
 > [more info](https://medicalliversegmentationtoolkit.readthedocs.io/en/latest/modules/calculate_features_networks.html).
+
+## License
+**Medical Liver Segmentation ToolKit** is available under next license:
+
+* AGPL-3.0 License: See [LICENSE](LICENSE) file for details.
+## Author:
+(c) 2024 ([Marcos Fernández](https://github.com/marqinhos))
