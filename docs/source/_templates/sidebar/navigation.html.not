@@ -1,0 +1,12 @@
+<div class="sidebar-tree collapse" id="sidebar-content">
+    <ul>
+      <li class="toctree-l1"><a class="reference internal" href="{{ pathto(master_doc) }}">Contents</a></li>
+    </ul>
+    {{ toctree(
+      collapse=True,
+      titles_only=False,
+      maxdepth=3,
+      includehidden=True,
+    ) }}
+  </div>
+  

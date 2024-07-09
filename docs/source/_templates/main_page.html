@@ -1,0 +1,44 @@
+{%- extends "!base.html" %}
+
+{% block site_meta %}
+{{ super() }}
+<script defer data-domain="docs.datasette.io" src="https://plausible.io/js/plausible.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="background-layer"></div>
+    <h1>Medical Liver Segmentation ToolKit</h1>
+</div>
+
+<div class="features">
+    <div class="feature">
+        <h3>Feature 1: Advanced Segmentation Algorithms</h3>
+        <p>Our toolkit includes state-of-the-art algorithms to ensure precise and accurate liver segmentation.</p>
+    </div>
+    <div class="feature">
+        <h3>Feature 2: Easy Integration</h3>
+        <p>Integrate easily with existing medical imaging workflows and pipelines.</p>
+    </div>
+    <div class="feature">
+        <h3>Feature 3: Comprehensive Documentation</h3>
+        <p>Find detailed documentation and guides to help you get started quickly.</p>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <p>Partners:</p>
+        <img src="_static/logoUsc.png" alt="USC Logo" />
+        <img src="_static/logoUpm.png" alt="UPM Logo" />
+        <img src="_static/logoRemovirt.png" alt="Removirt Logo" />
+    </div>
+</div>
+
+<div class="intro-text">
+    <h2>Get Started</h2>
+    <p>
+        Dive into our comprehensive documentation and start using the Medical Liver Segmentation ToolKit today!
+    </p>
+</div>
+{% endblock %}

@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/fontawesome.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/solid.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8146d6b8" />
     
     
 
@@ -177,11 +178,7 @@
 
 <a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
-<div class="announcement">
-  <aside class="announcement-content">
-     🚀 🩻<em>New Release Medical Liver Segmentation Toolkit!</em>🩻 🚀 
-  </aside>
-</div>
+
 
 <div class="page">
   <header class="mobile-header">
@@ -213,49 +210,34 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><div class="sidebar-scroll"><div class="sidebar-brand centered">
-    
-    <div class="sidebar-logo-container">
-      <a href="https://github.com/marqinhos/JetRacer_Autonomous_Driving"><img class="sidebar-logo" src="" alt="JetRacer Autonomous Driving"></a>
-    </div>
-    
-    
-    
-  </div><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+      <div class="sidebar-sticky"><div class="sidebar-scroll"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">Medical Liver Segmentation Toolkit</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-tree">
-    <ul>
-      <li class="toctree-l1"><a class="reference internal" href="../index.html">Contents</a></li>
-    </ul>
-    <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../src/main.html">Home</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../src/modules.html">Documentation</a><ul class="current">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../src/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../src/modules.html">Documentation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Documentation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="train.html">Train Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="train_sequential.html">Training sequential Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="predict_sequential.html">Sequential Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model.dim3.html">Networks Architectures Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="calculate_features_networks.html">Profiler module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="create_graphs_take_from_json.html">Charts module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metrics_sequential.html">Sequential Measures to Networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="predict_sequential.html">Sequential Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="training.html">training package</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">utils module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#utils.check_gpu_memory"><code class="docutils literal notranslate"><span class="pre">check_gpu_memory()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utils.configure_logger"><code class="docutils literal notranslate"><span class="pre">configure_logger()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utils.get_latest_run_version_ckpt_epoch_no"><code class="docutils literal notranslate"><span class="pre">get_latest_run_version_ckpt_epoch_no()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utils.is_master"><code class="docutils literal notranslate"><span class="pre">is_master()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utils.sample_stack"><code class="docutils literal notranslate"><span class="pre">sample_stack()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utils.save_configure"><code class="docutils literal notranslate"><span class="pre">save_configure()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utils.save_nifti"><code class="docutils literal notranslate"><span class="pre">save_nifti()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">utils module</a></li>
 </ul>
 </li>
 </ul>
 
-  </div>
+</div>
 </div>
       </div>
       
@@ -390,6 +372,76 @@
           <div class="right-details">
             <div class="icons">
               <a class="muted-link fa-brands fa-solid fa-github fa-2x" href="https://github.com/marqinhos/JetRacer_Autonomous_Driving" aria-label="GitHub"></a>
+              <a class="muted-link " href="https://www.usc.es/" aria-label="USC">
+            <img id="usc-logo" class="logo usc-logo" alt="USC Logo" style="width: 40px; height: 24px; margin-left: 10px;">
+            <script>
+                const uscPaths = [
+                    '../_static/logoUsc.png',
+                    '_static/logoUsc.png'
+                ];
+
+                function loadImage(elementId, paths) {
+                    const imgElement = document.getElementById(elementId);
+                    let pathIndex = 0;
+
+                    function tryNextPath() {
+                        if (pathIndex < paths.length) {
+                            const path = paths[pathIndex];
+                            const testImage = new Image();
+                            testImage.src = path;
+                            testImage.onload = () => {
+                                imgElement.src = path;
+                            };
+                            testImage.onerror = () => {
+                                pathIndex++;
+                                tryNextPath();
+                            };
+                        } else {
+                            console.error(`No se pudo cargar la imagen para ${elementId}`);
+                        }
+                    }
+
+                    tryNextPath();
+                }
+
+                loadImage('usc-logo', uscPaths);
+            </script>
+        </a>
+              <a class="muted-link " href="https://www.upm.es/" aria-label="UPM">
+            <img id="upm-logo" class="logo upm-logo" alt="UPM Logo" style="width: 40px; height: 30px; margin-left: 10px;">
+            <script>
+                const upmPaths = [
+                    '_static/logoUpm.png',
+                    '../_static/logoUpm.png'
+                ];
+
+                function loadImage(elementId, paths) {
+                    const imgElement = document.getElementById(elementId);
+                    let pathIndex = 0;
+
+                    function tryNextPath() {
+                        if (pathIndex < paths.length) {
+                            const path = paths[pathIndex];
+                            const testImage = new Image();
+                            testImage.src = path;
+                            testImage.onload = () => {
+                                imgElement.src = path;
+                            };
+                            testImage.onerror = () => {
+                                pathIndex++;
+                                tryNextPath();
+                            };
+                        } else {
+                            console.error(`No se pudo cargar la imagen para ${elementId}`);
+                        }
+                    }
+
+                    tryNextPath();
+                }
+
+                loadImage('upm-logo', upmPaths);
+            </script>
+        </a>
               
             </div>
           </div>

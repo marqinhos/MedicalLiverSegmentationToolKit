@@ -84,6 +84,7 @@ html_css_files = [
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/fontawesome.min.css",
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/solid.min.css",
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css",
+      'custom.css',  
 ]
 
 myst_enable_extensions = [
@@ -95,11 +96,12 @@ myst_enable_extensions = [
 myst_heading_anchors = 3
 
 
+
 html_theme_options = {
+    
+    #"announcement": "🚀 🩻<em>New Release Medical Liver Segmentation Toolkit!</em>🩻 🚀",
 
-    "announcement": "🚀 🩻<em>New Release Medical Liver Segmentation Toolkit!</em>🩻 🚀",
-
-    "sidebar_hide_name": False,
+    #"sidebar_hide_name": False,
 
     "light_css_variables": {
         "color-brand-primary": "#140062",
@@ -113,6 +115,86 @@ html_theme_options = {
             "html": "",
             "class": "fa-brands fa-solid fa-github fa-2x",
         },
+        {
+        "name": "USC",
+        "url": "https://www.usc.es/",
+        "html": """
+            <img id="usc-logo" class="logo usc-logo" alt="USC Logo" style="width: 40px; height: 24px; margin-left: 10px;">
+            <script>
+                const uscPaths = [
+                    '../_static/logoUsc.png',
+                    '_static/logoUsc.png'
+                ];
+
+                function loadImage(elementId, paths) {
+                    const imgElement = document.getElementById(elementId);
+                    let pathIndex = 0;
+
+                    function tryNextPath() {
+                        if (pathIndex < paths.length) {
+                            const path = paths[pathIndex];
+                            const testImage = new Image();
+                            testImage.src = path;
+                            testImage.onload = () => {
+                                imgElement.src = path;
+                            };
+                            testImage.onerror = () => {
+                                pathIndex++;
+                                tryNextPath();
+                            };
+                        } else {
+                            console.error(`No se pudo cargar la imagen para ${elementId}`);
+                        }
+                    }
+
+                    tryNextPath();
+                }
+
+                loadImage('usc-logo', uscPaths);
+            </script>
+        """,
+        "class": "",
+    },
+    {
+        "name": "UPM",
+        "url": "https://www.upm.es/",
+        "html": """
+            <img id="upm-logo" class="logo upm-logo" alt="UPM Logo" style="width: 40px; height: 30px; margin-left: 10px;">
+            <script>
+                const upmPaths = [
+                    '_static/logoUpm.png',
+                    '../_static/logoUpm.png'
+                ];
+
+                function loadImage(elementId, paths) {
+                    const imgElement = document.getElementById(elementId);
+                    let pathIndex = 0;
+
+                    function tryNextPath() {
+                        if (pathIndex < paths.length) {
+                            const path = paths[pathIndex];
+                            const testImage = new Image();
+                            testImage.src = path;
+                            testImage.onload = () => {
+                                imgElement.src = path;
+                            };
+                            testImage.onerror = () => {
+                                pathIndex++;
+                                tryNextPath();
+                            };
+                        } else {
+                            console.error(`No se pudo cargar la imagen para ${elementId}`);
+                        }
+                    }
+
+                    tryNextPath();
+                }
+
+                loadImage('upm-logo', upmPaths);
+            </script>
+        """,
+        "class": "",
+    },
     ],
 
     "navigation_with_keys": True,

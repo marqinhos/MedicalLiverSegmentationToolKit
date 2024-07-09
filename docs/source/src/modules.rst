@@ -3,11 +3,12 @@ Documentation
 =============
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
 
    ../modules/train
    ../modules/train_sequential
+   ../modules/predict_sequential
 
    ../modules/model.dim3
 
@@ -15,7 +16,6 @@ Documentation
    ../modules/create_graphs_take_from_json
 
    ../modules/metrics_sequential
-   ../modules/predict_sequential
    
    ../modules/training
    ../modules/utils

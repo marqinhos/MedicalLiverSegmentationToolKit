@@ -1,0 +1,144 @@
+
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('_static/fondo2.png'); /* Añade tu imagen de fondo aquí */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em; /* Tamaño del título */
+    margin-bottom: 0.5em; /* Margen inferior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    z-index: 1; /* Capa z para el texto */
+}
+
+.hero img {
+    width: 100px; /* Ancho del icono */
+    height: auto;
+    margin-top: 20px; /* Margen superior */
+    z-index: 1; /* Capa z para el icono */
+}
+
+@keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
+}
+
+.background-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Ancho total */
+    height: 100%; /* Altura total */
+    background-image: url('_static/background.gif'); /* Imagen de fondo animada */
+    background-size: cover;
+    background-position: center;
+    animation: animatedBackground 3200s linear infinite; /* Animación de fondo más lenta */
+    z-index: 0; /* Capa z para el fondo animado */
+}
+
+
+.rectangle-feature {
+    position: relative;
+    margin: 50px 0px; /* Margen vertical grande, margen horizontal automático para centrar */
+    padding: 40px; /* Mayor padding para más espacio interno */
+    /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    border-radius: 20px; /* Esquinas más redondeadas */
+    text-align: center;
+    color: rgb(0, 0, 0); /* Color del texto para mayor visibilidad sobre la imagen de fondo */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('_static/fondo2.png'); /* Reemplaza con la URL de tu imagen de fondo */
+    height: 80vh; /* Altura ajustada */
+    width: calc(100% - 10px); /* Ancho del 90% del contenedor */
+    max-width: 1200px; /* Ancho máximo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Asegura que no haya overflow visible */
+    opacity: 0.6; /* Opacidad general de la .rectangle-feature */
+}
+
+.rectangle-feature::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Oscurece la imagen de fondo para mejorar la legibilidad del texto */
+    z-index: 0;
+    border-radius: 20px; /* Asegura que la sombra oscura siga los bordes redondeados */
+}
+
+.rectangle-feature h1 {
+    font-size: 3em; /* Tamaño del título */
+    margin-bottom: 0.5em; /* Margen inferior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    z-index: 1; /* Capa z para el texto */
+    position: relative; /* Asegura que el texto esté sobre la capa de sombra */
+}
+
+/* Elimina el oscurecimiento de fondo para .rectangle-feature */
+.rectangle-feature::before {
+    background: none;
+}
+
+
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.feature {
+    flex: 1 1 30%;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.p2 {
+    text-align: justify;
+  }
+
+
+
+.footer img {
+    width: 150px; /* Tamaño de los logos */
+    margin: 0 20px; /* Margen entre los logos */
+}
+
+.footer {
+    text-align: center;
+    
+    color:#333;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 0 20px; /* Espaciado a los lados */
+}
+
+.intro-text, .features {
+    text-align: center;
+    padding: 20px 0; /* Espaciado arriba y abajo */
+}
