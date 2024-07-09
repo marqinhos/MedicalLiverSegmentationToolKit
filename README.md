@@ -68,10 +68,10 @@ The following network architectures have been implemented:
 ```
 
 > **📝 Note**
-> See the [Train Module](../modules/train) documentation for more info on parameters.
+> See the [Train Module](https://medicalliversegmentationtoolkit.readthedocs.io/en/latest/modules/train.html) documentation for more info on parameters.
 
 > **💡 Tip**
-> To train more than 1 network, use `train_sequential.py`, [more info](../modules/train_sequential).
+> To train more than 1 network, use `train_sequential.py`, [more info](https://medicalliversegmentationtoolkit.readthedocs.io/en/latest/modules/train_sequential.html).
 
 #### Test Network
 
@@ -86,7 +86,7 @@ The following network architectures have been implemented:
 ```
 
 > **💡 Tip**
-> To predict more than 1 network, use `predict_sequential.py`, [more info](../modules/predict_sequential).
+> To predict more than 1 network, use `predict_sequential.py`, [more info](https://medicalliversegmentationtoolkit.readthedocs.io/en/latest/modules/predict_sequential.html).
 
 ## Evaluation of Trained Models
 
@@ -106,7 +106,7 @@ The following network architectures have been implemented:
 ```
 
 > **📝 Note**
-> Generate a JSON file with networks as shown below ([more info](../modules/metrics_sequential)):
+> Generate a JSON file with networks as shown below ([more info](https://medicalliversegmentationtoolkit.readthedocs.io/en/latest/modules/metrics_sequential.html)):
 > ```python
 > :lineno-start: 20
 > :emphasize-lines: 10
@@ -138,4 +138,4 @@ The following network architectures have been implemented:
 > 3. Memory usage in an inference.
 > 4. Layer sizes.
 >
-> [more info](../modules/calculate_features_networks).
+> [more info](https://medicalliversegmentationtoolkit.readthedocs.io/en/latest/modules/calculate_features_networks.html).
