@@ -15,7 +15,7 @@ The following network architectures have been implemented:
 
 ## Results
 
-| Arquitectura     | DSC      | NSD      | MASD     | HD       | RVD      |
+| Architectures     | DSC      | NSD      | MASD     | HD       | RVD      |
 |------------------|----------|----------|----------|----------|----------|
 | UNet             | 0.955    | 0.903    | 1.326    | 48       | -0.036   |
 | VNet             | 0.941    | 0.860    | 3.483    | 148      | -0.052   |
