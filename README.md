@@ -1,34 +1,123 @@
-# Framework that contains all most famous SOTAs Networks for abdominal organs segmentation
-Networks available now [April 15, 2024] are:
- - UNET
- - UNETR
- - SwinUNET
- - UNET++
- - Medformer
- - Resunet
- - Attention UNET
- - VNet
+# Implemented Architectures
+
+The following network architectures have been implemented:
+- UNet
+- VNet
+- ResUNet
+- UNet++
+- Attention-UNet
+- UNETR
+- SwinUNETR
+- MedFormer
+- SegFormer
 
 
+# Quickstart
 
+> **⚠️ Warning**
+> This project is under development
 
+## Installation
 
-# Known error with networks:
+> **💡 Software installation**
+> Download Medical Liver Segmentation ToolKit
+
 ```bash
-nnformer
-return forward_call(*args, **kwargs)
-  File "/home/marcos/Marcos_PhD/LiverSegmentation/.env_liver_segmentation/lib/python3.10/site-packages/monai/losses/dice.py", line 784, in forward
-    if len(input.shape) != len(target.shape):
-AttributeError: 'tuple' object has no attribute 'shape'
-
-    if len(input.shape) != len(target.shape):
-AttributeError: 'tuple' object has no attribute 'shape'
+(.venv) $ git clone https://github.com/Removirt/LiverSegmentation.git
 ```
 
 ```bash
-vtunet
-    return forward_call(*args, **kwargs)
-  File "/home/marcos/Marcos_PhD/LiverSegmentation/model/dim3/vtunet_utils.py", line 921, in forward
-    x = x.view(B, 32 // self.D_ratio, H, W, C)
-RuntimeError: shape '[1, 32, 6, 6, 768]' is invalid for input of size 663552
+(.venv) $ cd MedicalLiverSegmentationToolkit/
 ```
+
+```bash
+(.venv) $ pip install -r requirements.txt
+```
+
+## Usage
+
+> **❗ Important**
+> To introduce new network architectures, follow these steps:
+>
+> 1. Enter the architecture in `model/dim3/{your_architecture}.py`.
+> 2. Add the network import in `model/utils.py`.
+> 3. Add the network training configuration in `config/{database}/{your_architecture}_3d.yaml`.
+
+#### Training Network
+
+```bash
+(.venv) $ python3 train.py --model {network_name} --max_epochs {num_max_epochs}
+```
+
+> **📝 Note**
+> See the [Train Module](../modules/train) documentation for more info on parameters.
+
+> **💡 Tip**
+> To train more than 1 network, use `train_sequential.py`, [more info](../modules/train_sequential).
+
+#### Test Network
+
+```bash
+(.venv) $ python3 train.py --model {network_name} --version {training_version}
+```
+
+#### Predict Network
+
+```bash
+(.venv) $ python3 train.py --model {network_name} --version {training_version}
+```
+
+> **💡 Tip**
+> To predict more than 1 network, use `predict_sequential.py`, [more info](../modules/predict_sequential).
+
+## Evaluation of Trained Models
+
+### Performance Measures
+
+> **📝 Note**
+> The performance measures computed are:
+>
+> 1. Dice Similarity Coefficient (DSC).
+> 2. Normalize Surface Distance (NSD).
+> 3. Mean Average Surface Distance (MASD).
+> 4. Hausdorff Distance (HD).
+> 5. Relative Volume Difference (RVD).
+
+```bash
+(.venv) $ python3 metrics_sequential.py 
+```
+
+> **📝 Note**
+> Generate a JSON file with networks as shown below ([more info](../modules/metrics_sequential)):
+> ```python
+> :lineno-start: 20
+> :emphasize-lines: 10
+> 
+> models_3d = [
+>     'attention_unet',
+>     'medformer', 
+>     'resunet', 
+>     'swin_unetr', 
+>     'unet++', 
+>     'unetr', 
+>     'vnet', 
+>     'segformer',
+>     '{name_architecture}',
+> ]
+> ```
+
+### Complexity Measures
+
+```bash
+(.venv) $ python3 calculate_features_networks.py 
+```
+
+> **📝 Note**
+> The profiler calculates:
+>
+> 1. Number of params.
+> 2. Floating point operations per second (Flops).
+> 3. Memory usage in an inference.
+> 4. Layer sizes.
+>
+> [more info](../modules/calculate_features_networks).
