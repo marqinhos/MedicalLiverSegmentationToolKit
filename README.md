@@ -13,9 +13,7 @@ The following network architectures have been implemented:
 
 
 
-<div style="color: #2E86C1; font-size: 1.5em; font-weight: bold; margin-top: 1em;">
-    Resultados
-</div>
+## Results
 
 | Arquitectura     | DSC      | NSD      | MASD     | HD       | RVD      |
 |------------------|----------|----------|----------|----------|----------|
