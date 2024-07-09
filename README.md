@@ -15,6 +15,8 @@ The following network architectures have been implemented:
 
 ## Results
 
+![Radar chart results](img/radar_chart.png)
+
 | Architectures     | DSC      | NSD      | MASD     | HD       | RVD      |
 |------------------|----------|----------|----------|----------|----------|
 | UNet             | 0.955    | 0.903    | 1.326    | 48       | -0.036   |
@@ -39,7 +41,7 @@ The following network architectures have been implemented:
 > Download Medical Liver Segmentation ToolKit
 
 ```bash
-(.venv) $ git clone https://github.com/Removirt/LiverSegmentation.git
+(.venv) $ git clone https://github.com/marqinhos/MedicalLiverSegmentationToolkit.git
 ```
 
 ```bash
